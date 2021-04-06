@@ -13,7 +13,7 @@ body{
 }
 
 #character-box{
-    width: 480px;
+    width: 560px;
     height: 600px;
     float: left;
     border-radius: 5px;
@@ -41,10 +41,13 @@ body{
 #fighter-stats{
     height: 100%;
     width: auto;
+    font-family: 'Goldman', cursive;
+    color: #32cd32;
+    text-align: center;
 }
 
 #character-box-2 {
-    width: 480px;
+    width: 560px;
     height: 600px;
     float: right;
     border-radius: 5px;
@@ -72,6 +75,9 @@ body{
 #fighter-stats-2 {
     height: 100%;
     width: auto;
+    font-family: 'Goldman', cursive;
+    color: #32cd32;
+    text-align: center;
 }
 .charSelect{
     background-color: #32cd32;
@@ -81,7 +87,7 @@ body{
 #selected-container img {
     height: 285px;
     width: 190px;
-    border: 3px groove #000000;
+    border: 6px groove #000000;
     padding: 10px;
     margin: 2.5px;
 }
