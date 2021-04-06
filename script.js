@@ -23,3 +23,15 @@ function sasuke() {
     var audio = document.getElementById("sasuke-audio");
     audio.play();
 }
+
+function superman() {
+    document.getElementById("character-box").style.backgroundImage = "url(img/superman-base.png)";
+    var audio = document.getElementById("superman-audio");
+    audio.play();
+}
+
+function batman() {
+    document.getElementById("character-box").style.backgroundImage = "url(img/batman-base.png)";
+    var audio = document.getElementById("batman-audio");
+    audio.play();
+}
