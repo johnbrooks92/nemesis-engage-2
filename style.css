@@ -1,12 +1,12 @@
 body{
-    background-color: black;
+    background: linear-gradient(to right, #32cd32 0%, #000000 100%);
     cursor: url('img/ani1244.cur'), auto;
     line-height: 1;
 }
 #selected-container {
     padding: 10px;
     width: 1000px;
-    height: 600px;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     margin: 0 auto;
@@ -18,8 +18,20 @@ body{
     float: left;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: limegreen;
-    background-image: url('img/NemesisEngageTextLogo.png');
+    background-color: #32cd32;
+    background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin-right: 50px;
+}
+
+#fighter-roster {
+    width: 100%;
+    height: 296px;
+    float: left;
+    background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,7 +39,8 @@ body{
     margin-right: 50px;
 }
 .charSelect{
-    background-color: limegreen;
+    background-color: #32cd32;
+    background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     opacity: 1.5;
 }
 #selected-container img {
@@ -43,8 +56,13 @@ body{
     box-shadow: 0 0 5px #0fe791;
 }
 
-h2{
+h2 {
     font-family: 'Goldman', cursive;
-    color: limegreen;
+    color: #32cd32;
+    text-align: center;
+}
+h4{
+    font-family: 'Goldman', cursive;
+    color: #32cd32;
     text-align: center;
 }
