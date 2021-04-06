@@ -13,8 +13,8 @@ body{
 }
 
 #character-box{
-    width: 400px;
-    height: 500px;
+    width: 480px;
+    height: 600px;
     float: left;
     border-radius: 5px;
     border: 1px solid black;
@@ -44,8 +44,8 @@ body{
 }
 
 #character-box-2 {
-    width: 400px;
-    height: 500px;
+    width: 480px;
+    height: 600px;
     float: right;
     border-radius: 5px;
     border: 1px solid black;
@@ -79,8 +79,8 @@ body{
     opacity: 1.5;
 }
 #selected-container img {
-    height: 225px;
-    width: 150px;
+    height: 285px;
+    width: 190px;
     border: 3px groove #000000;
     padding: 10px;
     margin: 2.5px;

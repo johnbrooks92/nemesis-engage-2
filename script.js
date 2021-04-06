@@ -98,3 +98,52 @@ function starscream() {
     // var audio = document.getElementById("anakin-audio");
     // audio.play();
 }
+
+function yusuke() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/yusuke-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/kuwabara-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function kuwabara() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/kuwabara-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/yusuke-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function kurama() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/kurama-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/hiei-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function hiei() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/hiei-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/kurama-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function deku() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/deku-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/bakugo-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function bakugo() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/bakugo-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/todoroki-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function todoroki() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/todoroki-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/deku-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
