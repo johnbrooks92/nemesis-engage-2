@@ -18,7 +18,7 @@ body{
     float: left;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: black;
+    background-color: limegreen;
     background-image: url('img/NemesisEngageTextLogo.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@ body{
 }
 .charSelect{
     background-color: limegreen;
-    opacity: 0.75;
+    opacity: 1.5;
 }
 #selected-container img {
     height: 300px;
