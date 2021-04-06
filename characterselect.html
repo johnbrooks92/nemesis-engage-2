@@ -15,38 +15,75 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+<div id="selected-container">
+    <h2>Character Select</h2>
+
+    <img src="img/goku-base.png" onclick="goku()" class="charSelect">
+    <audio id="goku-audio" src="audio/goku-select.mp3"></audio>
+
+    <img src="img/vegeta-base.png" onclick="vegeta()" class="charSelect">
+    <audio id="vegeta-audio" src="audio/vegeta-select.mp3"></audio>
+
+    <img src="img/naruto-base.png" onclick="naruto()" class="charSelect">
+    <audio id="naruto-audio" src="audio/naruto-select.mp3"></audio>
+
+    <img src="img/sasuke-base.png" onclick="sasuke()" class="charSelect">
+    <audio id="sasuke-audio" src="audio/sasuke-select.mp3"></audio>
+
+    <img src="img/superman-base.png" onclick="superman()" class="charSelect">
+    <audio id="superman-audio" src="audio/superman-select.mp3"></audio>
+
+    <img src="img/batman-base.png" onclick="batman()" class="charSelect">
+    <audio id="batman-audio" src="audio/batman-select.mp3"></audio>
+
+    <img src="img/obi-wan-base.png" onclick="obiwan()" class="charSelect">
+    <audio id="obi-wan-audio" src="audio/obi-wan-select.mp3"></audio>
+
+    <img src="img/anakin-base.png" onclick="anakin()" class="charSelect">
+    <audio id="anakin-audio" src="audio/anakin-select.mp3"></audio>
+
+    <img src="img/optimus-base.png" onclick="optimus()" class="charSelect">
+
+
+    <img src="img/megatron-base.png" onclick="megatron()" class="charSelect">
+
+
+    <img src="img/frieza-base.png" onclick="frieza()" class="charSelect">
+    <img src="img/kakashi-base.png" onclick="kakashi()" class="charSelect">
+
+
+</div>
     <div id="character-box"><h4>Choose Your Fighter</h4>
     <div id="fighter-roster"></div>
+<!--        this is where we will call JSON data to render stats in lower half of box below pictures-->
+    <div id="fighter-stats">
+        ATK: ${fighters.atk}
+        <br>
+        DEF: ${fighters.defend}
+        <br>
+        SPD: ${fighters.speed}
+        <br>
+        ATK AURA: ${fighters.atkaura}
+        <br>
+        DEF AURA: ${fighters.defaura}
     </div>
-    <div id="selected-container">
-        <h2>Character Select</h2>
-
-        <img src="img/goku-base.png" onclick="goku()" class="charSelect">
-        <audio id="goku-audio" src="audio/goku-select.mp3"></audio>
-
-        <img src="img/vegeta-base.png" onclick="vegeta()" class="charSelect">
-        <audio id="vegeta-audio" src="audio/vegeta-select.mp3"></audio>
-
-        <img src="img/naruto-base.png" onclick="naruto()" class="charSelect">
-        <audio id="naruto-audio" src="audio/naruto-select.mp3"></audio>
-
-        <img src="img/sasuke-base.png" onclick="sasuke()" class="charSelect">
-        <audio id="sasuke-audio" src="audio/sasuke-select.mp3"></audio>
-
-        <img src="img/superman-base.png" onclick="superman()" class="charSelect">
-        <audio id="superman-audio" src="audio/superman-select.mp3"></audio>
-
-        <img src="img/batman-base.png" onclick="batman()" class="charSelect">
-        <audio id="batman-audio" src="audio/batman-select.mp3"></audio>
-
-        <img src="img/obi-wan-base.png" onclick="obiwan()" class="charSelect">
-        <audio id="obi-wan-audio" src="audio/obi-wan-select.mp3"></audio>
-
-        <img src="img/anakin-base.png" onclick="anakin()" class="charSelect">
-        <audio id="anakin-audio" src="audio/anakin-select.mp3"></audio>
-
-
+        <div id="character-box-2"><h4>Choose Your Fighter</h4>
+        <div id="fighter-roster-2"></div>
+        <!--        this is where we will call JSON data to render stats in lower half of box below pictures-->
+        <div id="fighter-stats-2">
+            ATK: ${fighters.atk}
+            <br>
+            DEF: ${fighters.defend}
+            <br>
+            SPD: ${fighters.speed}
+            <br>
+            ATK AURA: ${fighters.atkaura}
+            <br>
+            DEF AURA: ${fighters.defaura}
+        </div>
     </div>
+    </div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

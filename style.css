@@ -5,16 +5,16 @@ body{
 }
 #selected-container {
     padding: 10px;
-    width: 1000px;
+    width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     margin: 0 auto;
 }
 
-#character-box {
-    width: 300px;
-    height: 370px;
+#character-box{
+    width: 400px;
+    height: 500px;
     float: left;
     border-radius: 5px;
     border: 1px solid black;
@@ -29,7 +29,7 @@ body{
 
 #fighter-roster {
     width: 100%;
-    height: 296px;
+    height: 400px;
     float: left;
     background-color: transparent;
     background-size: contain;
@@ -38,14 +38,49 @@ body{
     box-sizing: border-box;
     margin-right: 50px;
 }
+#fighter-stats{
+    height: 100%;
+    width: auto;
+}
+
+#character-box-2 {
+    width: 400px;
+    height: 500px;
+    float: right;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #32cd32;
+    background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin-left: 50px;
+}
+#fighter-roster-2 {
+    width: 100%;
+    height: 400px;
+    float: right;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin-left: 50px;
+}
+
+#fighter-stats-2 {
+    height: 100%;
+    width: auto;
+}
 .charSelect{
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     opacity: 1.5;
 }
 #selected-container img {
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 134px;
     border: 3px groove #000000;
     padding: 10px;
     margin: 2.5px;
@@ -55,7 +90,6 @@ body{
     border-color: dimgrey;
     box-shadow: 0 0 5px #0fe791;
 }
-
 h2 {
     font-family: 'Goldman', cursive;
     color: #32cd32;
