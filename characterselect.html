@@ -12,17 +12,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<div id="selection-container">
-<h1>Choose Your Character</h1>
-    <div id="selectedCharacterImg"></div>
-    <div class="rosterSelection" id="img-container">
+    <div id="selected-container">
+        <h2>Character Select</h2>
+        <div id="character-box"></div>
+        <div id="fighter-roster"></div>
 
+        <img src="img/goku-base.png" onclick="goku()" class="charSelect">
+        <audio id="goku-audio" src="audio/goku-select.mp3"></audio>
+
+        <img src="img/vegeta-base.png" onclick="vegeta()" class="charSelect">
+        <audio id="vegeta-audio" src="audio/vegeta-select.mp3"></audio>
     </div>
-
-
-</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -33,6 +36,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+<script src="data/roster.json"></script>
 <script src="script.js"></script>
 </body>
 </html>
