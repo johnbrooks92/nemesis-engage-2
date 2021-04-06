@@ -23,7 +23,7 @@ function naruto() {
 
 function sasuke() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/sasuke-base.png)";
-    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/kakashi-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/itachi-base.png)";
     var audio = document.getElementById("sasuke-audio");
     audio.play();
 }
@@ -144,6 +144,61 @@ function bakugo() {
 function todoroki() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/todoroki-base.png)";
     document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/deku-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function sly() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/sly-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/link-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function itachi() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/itachi-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/kakashi-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function maul() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/maul-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/obi-wan-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+function link() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/link-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/sly-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function jack() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/jack-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/aku-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function aku() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/aku-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/jack-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function eren() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/eren-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/reiner-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function reiner() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/reiner-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/eren-base.png)";
     // var audio = document.getElementById("anakin-audio");
     // audio.play();
 }

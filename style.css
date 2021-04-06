@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(to right, #32cd32 0%, #000000 100%);
+    background: black;
     cursor: url('img/ani1244.cur'), auto;
     line-height: 1;
 }
@@ -17,7 +17,7 @@ body{
     height: 600px;
     float: left;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 20px solid black;
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     background-size: contain;
@@ -48,7 +48,7 @@ body{
     height: 600px;
     float: right;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 20px solid #000000;
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     background-size: contain;
