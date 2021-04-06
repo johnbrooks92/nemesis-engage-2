@@ -79,8 +79,8 @@ body{
     opacity: 1.5;
 }
 #selected-container img {
-    height: 200px;
-    width: 134px;
+    height: 225px;
+    width: 150px;
     border: 3px groove #000000;
     padding: 10px;
     margin: 2.5px;

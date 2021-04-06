@@ -30,7 +30,7 @@ function sasuke() {
 
 function superman() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/superman-base.png)";
-    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/batman-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/flash-base.png)";
     var audio = document.getElementById("superman-audio");
     audio.play();
 }
@@ -43,7 +43,7 @@ function batman() {
 }
 function obiwan() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/obi-wan-base.png)";
-    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/anakin-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/ahsoka-base.png)";
     var audio = document.getElementById("obi-wan-audio");
     audio.play();
 }
@@ -55,7 +55,7 @@ function anakin() {
 }
 function optimus() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/optimus-base.png)";
-    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/megatron-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/starscream-base.png)";
     // var audio = document.getElementById("obi-wan-audio");
     // audio.play();
 }
@@ -74,6 +74,27 @@ function frieza() {
 function kakashi() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/kakashi-base.png)";
     document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/naruto-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function flash() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/flash-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/batman-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function ahsoka() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/ahsoka-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/anakin-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
+function starscream() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/starscream-base.png)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/megatron-base.png)";
     // var audio = document.getElementById("anakin-audio");
     // audio.play();
 }
