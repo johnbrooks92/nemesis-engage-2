@@ -14,7 +14,7 @@ body{
 
 #character-box{
     width: 560px;
-    height: 600px;
+    height: 500px;
     float: left;
     border-radius: 5px;
     border: 20px solid black;
@@ -29,7 +29,7 @@ body{
 
 #fighter-roster {
     width: 100%;
-    height: 400px;
+    height: 300px;
     float: left;
     background-color: transparent;
     background-size: contain;
@@ -48,7 +48,7 @@ body{
 
 #character-box-2 {
     width: 560px;
-    height: 600px;
+    height: 500px;
     float: right;
     border-radius: 5px;
     border: 20px solid #000000;
@@ -62,7 +62,7 @@ body{
 }
 #fighter-roster-2 {
     width: 100%;
-    height: 400px;
+    height: 300px;
     float: right;
     background-color: transparent;
     background-size: contain;
