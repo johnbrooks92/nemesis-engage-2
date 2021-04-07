@@ -7,6 +7,8 @@ body{
     padding: 10px;
     width: 100%;
     height: 100%;
+    border-radius: 5px;
+    border: 12px solid #32cd32;
     background-color: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     margin: 0 auto;
@@ -17,7 +19,7 @@ body{
     height: 500px;
     float: left;
     border-radius: 5px;
-    border: 20px solid black;
+    border: 10px solid black;
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     background-size: contain;
@@ -25,6 +27,8 @@ body{
     background-position: center;
     box-sizing: border-box;
     margin-right: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #fighter-roster {
@@ -51,7 +55,7 @@ body{
     height: 500px;
     float: right;
     border-radius: 5px;
-    border: 20px solid #000000;
+    border: 10px solid #000000;
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     background-size: contain;
@@ -59,6 +63,8 @@ body{
     background-position: center;
     box-sizing: border-box;
     margin-left: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
 }
 #fighter-roster-2 {
     width: 100%;
@@ -94,7 +100,8 @@ body{
 
 #selected-container img:hover {
     border-color: dimgrey;
-    box-shadow: 0 0 5px #0fe791;
+    box-shadow: 0 0 15px #32cd32;
+    color: #32cd32;
 }
 h2 {
     font-family: 'Goldman', cursive;
@@ -105,4 +112,8 @@ h4{
     font-family: 'Goldman', cursive;
     color: #32cd32;
     text-align: center;
+    font-size: xxx-large;
+}
+a{
+    color: #32cd32;
 }
