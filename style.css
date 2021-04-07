@@ -12,10 +12,24 @@ body{
     background-color: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     margin: 0 auto;
+    align-items: center;
 }
-
+#logo-box{
+    width: 20%;
+    height: 500px;
+    float: right;
+    border-radius: 5px;
+    border: 10px solid black;
+    background-color: #000000;
+    background-image: url("img/NemesisEngageTextLogo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
 #character-box{
-    width: 560px;
+    width: 35%;
     height: 500px;
     float: left;
     border-radius: 5px;
@@ -51,7 +65,7 @@ body{
 }
 
 #character-box-2 {
-    width: 560px;
+    width: 35%;
     height: 500px;
     float: right;
     border-radius: 5px;
@@ -93,9 +107,9 @@ body{
 #selected-container img {
     height: 285px;
     width: 190px;
-    border: 6px groove #000000;
+    border: 15px groove #000000;
     padding: 10px;
-    margin: 2.5px;
+    margin-left: 3.75%;
 }
 
 #selected-container img:hover {
@@ -113,7 +127,4 @@ h4{
     color: #32cd32;
     text-align: center;
     font-size: xxx-large;
-}
-a{
-    color: #32cd32;
 }
