@@ -13,6 +13,7 @@ body{
     box-sizing: border-box;
     margin: 0 auto;
     align-items: center;
+    float: bottom;
 }
 #logo-box{
     width: 20%;
