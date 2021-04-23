@@ -155,6 +155,13 @@ function sly() {
     // audio.play();
 }
 
+function jordy() {
+    document.getElementById("fighter-roster").style.backgroundImage = "url(img/jordy.jpeg)";
+    document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/sly-base.png)";
+    // var audio = document.getElementById("anakin-audio");
+    // audio.play();
+}
+
 function itachi() {
     document.getElementById("fighter-roster").style.backgroundImage = "url(img/itachi-base.png)";
     document.getElementById("fighter-roster-2").style.backgroundImage = "url(img/kakashi-base.png)";
