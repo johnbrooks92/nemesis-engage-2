@@ -16,14 +16,34 @@
 </head>
 <body>
 
+
+<div id="logo-box"></div>
+
+<div id="characterSelectScreen"></div>
 <!--Shows Character Selected-->
-<div id="character-box"><h4>Player 1</h4>
-    <div id="fighter-roster"></div>
-    <!--        this is where we will call JSON data to render stats in lower half of box below pictures-->
-    <div id="fighter-stats">
-        <ul id="player1Data">
-            
-        </ul>
+<!--<div id="character-box"><h4>Player 1</h4>-->
+<!--    <div id="fighter-roster"></div>-->
+<!--    &lt;!&ndash;        this is where we will call JSON data to render stats in lower half of box below pictures&ndash;&gt;-->
+<!--    <div id="fighter-stats">-->
+<!--        <ul id="player1Data">-->
+<!--            -->
+<!--        </ul>-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        ATK: ${fighters.atk}&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        DEF: ${fighters.defend}&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        SPD: ${fighters.speed}&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        ATK AURA: ${fighters.atkaura}&ndash;&gt;-->
+<!--&lt;!&ndash;        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;        DEF AURA: ${fighters.defaura}&ndash;&gt;-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="character-box-2"><h4>Player 2</h4>-->
+<!--    <div id="fighter-roster-2"></div>-->
+<!--    &lt;!&ndash;        this is where we will call JSON data to render stats in lower half of box below pictures&ndash;&gt;-->
+<!--    <div id="fighter-stats-2">-->
 <!--        <br>-->
 <!--        ATK: ${fighters.atk}-->
 <!--        <br>-->
@@ -34,86 +54,69 @@
 <!--        ATK AURA: ${fighters.atkaura}-->
 <!--        <br>-->
 <!--        DEF AURA: ${fighters.defaura}-->
-    </div>
-</div>
-<div id="character-box-2"><h4>Player 2</h4>
-    <div id="fighter-roster-2"></div>
-    <!--        this is where we will call JSON data to render stats in lower half of box below pictures-->
-    <div id="fighter-stats-2">
-        <br>
-        ATK: ${fighters.atk}
-        <br>
-        DEF: ${fighters.defend}
-        <br>
-        SPD: ${fighters.speed}
-        <br>
-        ATK AURA: ${fighters.atkaura}
-        <br>
-        DEF AURA: ${fighters.defaura}
-    </div>
-</div>
-<div id="logo-box"></div>
-<!--Begin Display of Roster-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash;Begin Display of Roster&ndash;&gt;-->
 
-    <div id="selected-container">
-        <h2>Character Select</h2>
-        <a href="#" style="text-decoration: none">
-        <img src="img/goku-base.png" onclick="goku()" class="charSelect">
-        <audio id="goku-audio" src="audio/goku-select.mp3"></audio>
-        <img src="img/vegeta-base.png" onclick="vegeta()" class="charSelect">
-        <audio id="vegeta-audio" src="audio/vegeta-select.mp3"></audio>
-        <img src="img/frieza-base.png" onclick="frieza()" class="charSelect">
+<!--    <div id="selected-container">-->
+<!--        <h2>Character Select</h2>-->
+<!--        <a href="#" style="text-decoration: none">-->
+<!--        <img src="img/goku-base.png" onclick="goku()" class="charSelect">-->
+<!--        <audio id="goku-audio" src="audio/goku-select.mp3"></audio>-->
+<!--        <img src="img/vegeta-base.png" onclick="vegeta()" class="charSelect">-->
+<!--        <audio id="vegeta-audio" src="audio/vegeta-select.mp3"></audio>-->
+<!--        <img src="img/frieza-base.png" onclick="frieza()" class="charSelect">-->
 
-        <img src="img/superman-base.png" onclick="superman()" class="charSelect">
-        <audio id="superman-audio" src="audio/superman-select.mp3"></audio>
-        <img src="img/batman-base.png" onclick="batman()" class="charSelect">
-        <audio id="batman-audio" src="audio/batman-select.mp3"></audio>
-        <img src="img/flash-base.png" onclick="flash()" class="charSelect">
+<!--        <img src="img/superman-base.png" onclick="superman()" class="charSelect">-->
+<!--        <audio id="superman-audio" src="audio/superman-select.mp3"></audio>-->
+<!--        <img src="img/batman-base.png" onclick="batman()" class="charSelect">-->
+<!--        <audio id="batman-audio" src="audio/batman-select.mp3"></audio>-->
+<!--        <img src="img/flash-base.png" onclick="flash()" class="charSelect">-->
 
-        <img src="img/naruto-base.png" onclick="naruto()" class="charSelect">
-        <audio id="naruto-audio" src="audio/naruto-select.mp3"></audio>
-        <img src="img/sasuke-base.png" onclick="sasuke()" class="charSelect">
-        <audio id="sasuke-audio" src="audio/sasuke-select.mp3"></audio>
-        <img src="img/kakashi-base.png" onclick="kakashi()" class="charSelect">
-        <img src="img/itachi-base.png" onclick="itachi()" class="charSelect">
+<!--        <img src="img/naruto-base.png" onclick="naruto()" class="charSelect">-->
+<!--        <audio id="naruto-audio" src="audio/naruto-select.mp3"></audio>-->
+<!--        <img src="img/sasuke-base.png" onclick="sasuke()" class="charSelect">-->
+<!--        <audio id="sasuke-audio" src="audio/sasuke-select.mp3"></audio>-->
+<!--        <img src="img/kakashi-base.png" onclick="kakashi()" class="charSelect">-->
+<!--        <img src="img/itachi-base.png" onclick="itachi()" class="charSelect">-->
 
 
-        <img src="img/obi-wan-base.png" onclick="obiwan()" class="charSelect">
-        <audio id="obi-wan-audio" src="audio/obi-wan-select.mp3"></audio>
-        <img src="img/anakin-base.png" onclick="anakin()" class="charSelect">
-        <audio id="anakin-audio" src="audio/anakin-select.mp3"></audio>
-        <img src="img/ahsoka-base.png" onclick="ahsoka()" class="charSelect">
-        <img src="img/maul-base.png" onclick="maul()" class="charSelect">
+<!--        <img src="img/obi-wan-base.png" onclick="obiwan()" class="charSelect">-->
+<!--        <audio id="obi-wan-audio" src="audio/obi-wan-select.mp3"></audio>-->
+<!--        <img src="img/anakin-base.png" onclick="anakin()" class="charSelect">-->
+<!--        <audio id="anakin-audio" src="audio/anakin-select.mp3"></audio>-->
+<!--        <img src="img/ahsoka-base.png" onclick="ahsoka()" class="charSelect">-->
+<!--        <img src="img/maul-base.png" onclick="maul()" class="charSelect">-->
 
-        <img src="img/yusuke-base.png" onclick="yusuke()" class="charSelect">
-        <img src="img/kuwabara-base.png" onclick="kuwabara()" class="charSelect">
-        <img src="img/kurama-base.png" onclick="kurama()" class="charSelect">
-        <img src="img/hiei-base.png" onclick="hiei()" class="charSelect">
+<!--        <img src="img/yusuke-base.png" onclick="yusuke()" class="charSelect">-->
+<!--        <img src="img/kuwabara-base.png" onclick="kuwabara()" class="charSelect">-->
+<!--        <img src="img/kurama-base.png" onclick="kurama()" class="charSelect">-->
+<!--        <img src="img/hiei-base.png" onclick="hiei()" class="charSelect">-->
 
 
 
-        <img src="img/sly-base.png" onclick="sly()" class="charSelect">
-        <img src="img/link-base.png" onclick="link()" class="charSelect">
+<!--        <img src="img/sly-base.png" onclick="sly()" class="charSelect">-->
+<!--        <img src="img/link-base.png" onclick="link()" class="charSelect">-->
 
-        <img src="img/optimus-base.png" onclick="optimus()" class="charSelect">
-        <img src="img/megatron-base.png" onclick="megatron()" class="charSelect">
-        <img src="img/starscream-base.png" onclick="starscream()" class="charSelect">
-
-
-        <img src="img/eren-base.png" onclick="eren()" class="charSelect">
-        <img src="img/reiner-base.png" onclick="reiner()" class="charSelect">
+<!--        <img src="img/optimus-base.png" onclick="optimus()" class="charSelect">-->
+<!--        <img src="img/megatron-base.png" onclick="megatron()" class="charSelect">-->
+<!--        <img src="img/starscream-base.png" onclick="starscream()" class="charSelect">-->
 
 
-        <img src="img/deku-base.png" onclick="deku()" class="charSelect">
-        <img src="img/bakugo-base.png" onclick="bakugo()" class="charSelect">
-        <img src="img/todoroki-base.png" onclick="todoroki()" class="charSelect">
+<!--        <img src="img/eren-base.png" onclick="eren()" class="charSelect">-->
+<!--        <img src="img/reiner-base.png" onclick="reiner()" class="charSelect">-->
 
 
-        <img src="img/jack-base.png" onclick="jack()" class="charSelect">
-            <img src="img/jordy.jpeg" class="locked" onclick="jordy()" class="charSelect">
-        <img src="img/aku-base.png" onclick="aku()" class="charSelect">
-        </a>
-    </div>
+<!--        <img src="img/deku-base.png" onclick="deku()" class="charSelect">-->
+<!--        <img src="img/bakugo-base.png" onclick="bakugo()" class="charSelect">-->
+<!--        <img src="img/todoroki-base.png" onclick="todoroki()" class="charSelect">-->
+
+
+<!--        <img src="img/jack-base.png" onclick="jack()" class="charSelect">-->
+<!--            <img src="img/jordy.jpeg" class="locked" onclick="jordy()" class="charSelect">-->
+<!--        <img src="img/aku-base.png" onclick="aku()" class="charSelect">-->
+<!--        </a>-->
+<!--    </div>-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

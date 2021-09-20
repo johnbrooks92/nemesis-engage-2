@@ -101,16 +101,18 @@ body{
     text-align: center;
 }
 .charSelect{
+    color: #de7c19;
     background-color: #32cd32;
     background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
     opacity: 1.5;
-}
-#selected-container img {
-    height: 285px;
-    width: 190px;
+    height: 600px;
+    width: 300px;
     border: 15px groove #000000;
     padding: 10px;
-    margin-left: 3.75%;
+}
+.charSelectImg {
+    height: 400px;
+    width: 270px;
 }
 
 #selected-container img:hover {
@@ -132,3 +134,4 @@ h4{
 .locked{
     display: none;
 }
+
