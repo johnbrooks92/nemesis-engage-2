@@ -3,197 +3,38 @@ body{
     cursor: url('img/ani1244.cur'), auto;
     line-height: 1;
 }
-#selected-container {
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    border: 12px solid #32cd32;
-    background-color: rgba(0, 0, 0, 0.9);
-    box-sizing: border-box;
-    margin: 0 auto;
-    align-items: center;
-    float: bottom;
-}
-#logo-box{
-    width: 20%;
-    height: 500px;
-    float: right;
-    border-radius: 5px;
-    border: 10px solid black;
+.Dragonball, .DC, .Naruto, .StarWars, .Transformers, .YuYu, .Academia, .Jack, .Games, .Titan{
+    padding: 5px;
+    margin: 5px;
     background-color: #000000;
-    background-image: url("img/NemesisEngageTextLogo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
-#character-box{
-    width: 35%;
-    height: 500px;
-    float: left;
-    border-radius: 5px;
-    border: 10px solid black;
-    background-color: #32cd32;
-    background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    margin-right: 50px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-#fighter-roster {
-    width: 100%;
-    height: 300px;
-    float: left;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    margin-right: 50px;
-}
-#fighter-stats{
-    height: 100%;
-    width: auto;
-    font-family: 'Goldman', cursive;
-    color: #32cd32;
-    text-align: center;
-}
-
-#character-box-2 {
-    width: 35%;
-    height: 500px;
-    float: right;
-    border-radius: 5px;
-    border: 10px solid #000000;
-    background-color: #32cd32;
-    background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-right: 20px;
-}
-#fighter-roster-2 {
-    width: 100%;
-    height: 300px;
-    float: right;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    margin-left: 50px;
-}
-
-#fighter-stats-2 {
-    height: 100%;
-    width: auto;
-    font-family: 'Goldman', cursive;
-    color: #32cd32;
-    text-align: center;
-}
-.charSelect{
-    padding: 30px 0 40px;
-    margin-bottom: 30px;
-    background-color: #f7f5ec;
-    text-align: center;
+    /*text-align: left;*/
+    /*align-content: center;*/
+    /*align-items: center;*/
     overflow: hidden;
     position: relative;
     height: 300px;
-    width: 30%;
-    display: inline-grid;
-    /*flex-wrap: wrap;*/
+    width: 14%;
+    font-family: 'Goldman', cursive;
+    font-size: smaller;
+    color: #ffffff;
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: space-evenly;
     /*color: #de7c19;*/
     /*background-color: #32cd32;*/
     /*background-image: linear-gradient(315deg, #32cd32 0%, #233329 74%);*/
     /*opacity: 1.5;*/
     /*height: 600px;*/
     /*width: 300px;*/
-    border: 15px groove #000000;
+    border: 5px groove #1fff7c;
 }
 .charSelectImg {
-    display: inline-block;
-    height: 130px;
-    width: 130px;
-    margin-bottom: 50px;
-    z-index: 1;
-    position: relative;
+    display: grid;
+    /*align-content: center;*/
+    /*align-self: center;*/
+    /*align-items: center;*/
+    float: top;
+    height: 200px;
+    width: 150px;
+    margin-bottom: 10px;
 }
-
-.charSelectImg::before {
-    content: "";
-    width: 100%;
-    height: 0;
-    border-radius: 50%;
-    background-color: #1369ce;
-    position: absolute;
-    bottom: 135%;
-    right: 0;
-    left: 0;
-    opacity: 0.9;
-    transform: scale(3);
-    transition: all 0.3s linear 0s;
-}
-
-.charSelect:hover .charSelectImg::before {
-    height: 100%;
-}
-.charSelectImg::after{
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #1369ce;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-.charSelectImg img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    transform: scale(1);
-    transition: all 0.9s ease 0s;
-}
-
-.charSelect:hover .charSelectImg img {
-    box-shadow: 0 0 0 14px #f7f5ec;
-    transform: scale(0.7);
-}
-
-
-
-
-
-
-
-
-#selected-container img:hover {
-    border-color: dimgrey;
-    box-shadow: 0 0 15px #32cd32;
-    color: #32cd32;
-}
-h2 {
-    font-family: 'Goldman', cursive;
-    color: #32cd32;
-    text-align: center;
-}
-h4{
-    font-family: 'Goldman', cursive;
-    color: #32cd32;
-    text-align: center;
-    font-size: xxx-large;
-}
-.locked{
-    display: none;
-}
-
