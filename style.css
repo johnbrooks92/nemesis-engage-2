@@ -3,7 +3,7 @@ body{
     cursor: url('img/ani1244.cur'), auto;
     line-height: 1;
 }
-.Dragonball, .DC, .Naruto, .StarWars, .Transformers, .YuYu, .Academia, .Jack, .Games, .Titan{
+.Dragonball, .DC, .Naruto, .StarWars, .Transformers, .YuYu, .Academia, .Jack, .Sly, .Zelda, .Titan{
     padding: 5px;
     margin: 5px;
     background-color: #000000;
@@ -15,7 +15,6 @@ body{
     font-size: small;
     color: #a2dc78;
     flex-wrap: wrap;
-    background-size: ;
     display: inline-flex;
     justify-content: space-evenly;
     border: 2px groove #1fff7c;
