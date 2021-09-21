@@ -9,12 +9,13 @@ body{
     background-color: #000000;
     overflow: hidden;
     position: relative;
-    height: 400px;
+    height: 360px;
     width: 19%;
     font-family: 'Goldman', cursive;
     font-size: small;
-    color: #ffffff;
+    color: #a2dc78;
     flex-wrap: wrap;
+    background-size: ;
     display: inline-flex;
     justify-content: space-evenly;
     border: 2px groove #1fff7c;
