@@ -11,6 +11,9 @@ $('body').keyup(function(event) {
     console.log(inputCode);
 
     if (inputCode.join(',') === beginCode.join(',')) {
+        $('#startupScreen').css({
+            'display': 'none'
+        }); 
         $('#characterSelectScreen').css({
             'display': 'block'
         });
@@ -658,8 +661,30 @@ rosterObject.fighters.forEach(res => {
                 var player1Spd = res.speed;
                 var player1Rivals = res.rivals;
                 var player1NameCheck = res.name;
-                console.log(player1NameCheck);
             }
+            //Check Data is Storing Correct Value
+            console.log(player1NameCheck);
+
+            //Player 2 Info Box
+            let player1InfoBox = document.createElement("div");
+            player1InfoBox.id = "battle1";
+
+            //Player 2 Character Name Render to Info Box
+            var charNameHeader1 = document.createElement('h2')
+            charNameHeader1.idName = "charNameHeader1" + res.name;
+            let p1Name = document.createTextNode('' + res.name);
+            charNameHeader1.appendChild(p1Name);
+            player1InfoBox.appendChild(charNameHeader1);
+
+            //Player 2 Character Img Render to Info Box
+            let image1 = document.createElement("img");
+            image1.src = res.img;
+            image1.id = "p1Img";
+            player1InfoBox.appendChild(image1);
+
+            //Append Player2 Info Box to battleScreen Div
+            let battleContainer = document.querySelector("#battleScreen");
+            battleContainer.appendChild(player1InfoBox);
         })
          $('#charID' + res.id + 'extra').click(function(){
 
@@ -679,14 +704,51 @@ rosterObject.fighters.forEach(res => {
                 var player2Spd = res.speed;
                 var player2Rivals = res.rivals;
                 var player2NameCheck = res.name;
-                console.log(player2NameCheck);
             }
+            //Check Data is Storing Correct Value
+             console.log(player2NameCheck);
+            
+            //Player 2 Info Box
+             let player2InfoBox = document.createElement("div");
+             player2InfoBox.id = "battle2";
+             
+             //Player 2 Character Name Render to Info Box
+             var charNameHeader2 = document.createElement('h2')
+             charNameHeader2.idName = "charNameHeader2" + res.name;
+             let p2Name = document.createTextNode('' + res.name);
+             charNameHeader2.appendChild(p2Name);
+             player2InfoBox.appendChild(charNameHeader2);
+
+             //Player 2 Character Img Render to Info Box
+             let image2 = document.createElement("img");
+             image2.src = res.img;
+             image2.id = "p2Img";
+             player2InfoBox.appendChild(image2);
+             
+             //Append Player2 Info Box to battleScreen Div
+             let battleContainer = document.querySelector("#battleScreen");
+             battleContainer.appendChild(player2InfoBox);
+             
              $('#characterSelectScreen').toggle();
+             $('#battleScreen').toggle();
+             $('#battleScreen').css({
+                 'display': 'flex'
+             });
+             $('#battle1').toggle();
+             $('#battle1' + res.name).css({
+                 'display': 'block'
+             });
+             $('#battle2').toggle();
+             $('#battle2' + res.name).css({
+                 'display': 'block'
+             });
         })
     });
 
     //Adds cards and all stored data to container for characters
     let container = document.querySelector("#characterSelectScreen");
     container.appendChild(card);
+    
+    
 });
 
