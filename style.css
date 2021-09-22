@@ -19,6 +19,23 @@ body{
     justify-content: space-evenly;
     border: 2px groove #1fff7c;
 }
+.Dragonball:hover, .DC:hover, .Naruto:hover, .StarWars:hover, .Transformers:hover, .YuYu:hover, .Academia:hover, .Jack:hover, .Sly:hover, .Zelda:hover, .Titan:hover{
+    padding: 5px;
+    margin: 5px;
+    background-color: #000000;
+    overflow: hidden;
+    position: relative;
+    height: 360px;
+    width: 19%;
+    font-family: 'Goldman', cursive;
+    font-size: small;
+    color: #a2dc78;
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: space-evenly;
+    border: 2px groove #f3b7f3;
+}
+
 .charSelectImg {
     display: grid;
     float: top;
