@@ -45,7 +45,7 @@ var rosterObject = {
         {
             "name": "Prince Vegeta",
             "moves": ["Galick Gun", "Dirty Fireworks", "Infinite Break"],
-            "ultimates": "Final Flash",
+            "ultimate": "Final Flash",
             "transformations": "Super Saiyan, Majin (SS2), Super Saiyan 3, SS God, SS God SS",
             "series": "Dragonball",
             "img": "img/vegeta-base.png",
@@ -727,6 +727,29 @@ rosterObject.fighters.forEach(res => {
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
 
+            // Render Stats For Player 1
+            var stats1 = document.createElement('h2')
+            stats1.id = "stats1" + res.name;
+            let p1Atk = document.createTextNode('Attack: ' + res.atk);
+            stats1.appendChild(p1Atk);
+            var linebreak = document.createElement('br');
+            stats1.appendChild(linebreak);
+            let p1Def = document.createTextNode('Defense: ' + res.defend);
+            stats1.appendChild(p1Def);
+            var linebreak = document.createElement('br');
+            stats1.appendChild(linebreak);
+            let p1AtkAura = document.createTextNode('Attack Aura: ' + res.atkaura);
+            stats1.appendChild(p1AtkAura);
+            var linebreak = document.createElement('br');
+            stats1.appendChild(linebreak);
+            let p1DefAura = document.createTextNode('Defense Aura: ' + res.defaura);
+            stats1.appendChild(p1DefAura);
+            var linebreak = document.createElement('br');
+            stats1.appendChild(linebreak);
+            let p1Spd = document.createTextNode('Speed: ' + res.speed);
+            stats1.appendChild(p1Spd);
+            player1InfoBox.appendChild(stats1);
+
             //Append Player1 Info Box to battleScreen Div
             let battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
@@ -818,6 +841,29 @@ rosterObject.fighters.forEach(res => {
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
 
+             // Render Stats For Player 2
+             var stats2 = document.createElement('h2')
+             stats2.id = "stats2" + res.name;
+             let p2Atk = document.createTextNode('Attack: ' + res.atk);
+             stats2.appendChild(p2Atk);
+             var linebreak = document.createElement('br');
+             stats2.appendChild(linebreak);
+             let p2Def = document.createTextNode('Defense: ' + res.defend);
+             stats2.appendChild(p2Def);
+             var linebreak = document.createElement('br');
+             stats2.appendChild(linebreak);
+             let p2AtkAura = document.createTextNode('Attack Aura: ' + res.atkaura);
+             stats2.appendChild(p2AtkAura);
+             var linebreak = document.createElement('br');
+             stats2.appendChild(linebreak);
+             let p2DefAura = document.createTextNode('Defense Aura: ' + res.defaura);
+             stats2.appendChild(p2DefAura);
+             var linebreak = document.createElement('br');
+             stats2.appendChild(linebreak);
+             let p2Spd = document.createTextNode('Speed: ' + res.speed);
+             stats2.appendChild(p2Spd);
+             player2InfoBox.appendChild(stats2);
+
              
              //Append Player2 Info Box to battleScreen Div
              let battleContainer = document.querySelector("#battleScreen");
@@ -827,47 +873,56 @@ rosterObject.fighters.forEach(res => {
              console.log(player2Series);
              console.log(player2Name);
              console.log(player2Rivals);
-
-             if (res.series = "Dragonball") {
-                 $('#battle2').css('background-image', 'url(img/db_background.webp');
-             }
-             if (res.series = "DC") {
-                 $('#battle2').css('background-image', 'url(img/dc-bg.png');
-             }
-             if (res.series = "Naruto") {
-                 $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
-             }
-             if (res.series = "StarWars") {
-                 $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
-             }
-             if (res.series = "Transformers") {
-                 $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
-                 $('#battle2').css('background-size', 'cover');
-             }
-             if (res.series = "YuYu Hakusho") {
-                 $('#battle2').css('background-image', 'url(img/yyh-logo.png');
-                 $('#battle2').css('background-size', 'cover');
-             }
-             if (res.series = "My Hero Academia") {
-                 $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
-                 $('#battle2').css('background-size', 'cover');
-             } 
-             if (res.series = "Samurai Jack") {
-                 $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
-                 $('#battle2').css('background-size', 'cover');
-             }
-             if (res.series = "Sly Cooper") {
-                 $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
-                 $('#battle2').css('background-size', 'cover');
-             }
-             if (res.series = "Zelda") {
-                 $('#battle2').css('background-image', 'url(img/zelda-bg.png');
-                 $('#battle2').css('background-size', 'cover');
-             }
-             if (res.series = "Attack on Titan") {
-                 $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
-                 $('#battle2').css('background-size', 'cover');
-             }
+             
+             
+             // Need to re-visit this
+             // if (player2Name = "Sasuke Uchiha" || "Naruto Uzumaki"){
+             //     $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
+             // } else if (player2Name = "Son Goku" || "Prince Vegeta") {
+             //     $('#battle2').css('background-image', 'url(img/db_background.webp');
+             // }
+             
+             //
+             // if (res.series = "Dragonball") {
+             //     $('#battle2').css('background-image', 'url(img/db_background.webp');
+             // }
+             // if (res.series = "DC") {
+             //     $('#battle2').css('background-image', 'url(img/dc-bg.png');
+             // }
+             // if (res.series = "Naruto") {
+             //     $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
+             // }
+             // if (res.series = "StarWars") {
+             //     $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
+             // }
+             // if (res.series = "Transformers") {
+             //     $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
+             // if (res.series = "YuYu Hakusho") {
+             //     $('#battle2').css('background-image', 'url(img/yyh-logo.png');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
+             // if (res.series = "My Hero Academia") {
+             //     $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
+             //     $('#battle2').css('background-size', 'cover');
+             // } 
+             // if (res.series = "Samurai Jack") {
+             //     $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
+             // if (res.series = "Sly Cooper") {
+             //     $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
+             // if (res.series = "Zelda") {
+             //     $('#battle2').css('background-image', 'url(img/zelda-bg.png');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
+             // if (res.series = "Attack on Titan") {
+             //     $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
+             //     $('#battle2').css('background-size', 'cover');
+             // }
              
              
              $('#characterSelectScreen').toggle();

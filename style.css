@@ -121,12 +121,14 @@ h2{
     width: 24rem;
     text-align: center;
     border: 2px solid gold;
+    background-color: darkcyan;
 }
 #battle2{
     height: 45rem;
     width: 24rem;
     text-align: center;
     border: 2px solid gold;
+    background-color: darkcyan;
 }
 #p1Img{
     height: 16rem;
