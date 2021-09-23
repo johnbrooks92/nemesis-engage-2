@@ -14,6 +14,9 @@ $('body').keyup(function(event) {
         $('#startupScreen').css({
             'display': 'none'
         }); 
+        $('#topRow').css({
+            'display': 'block'
+        }); 
         $('#characterSelectScreen').css({
             'display': 'block'
         });
@@ -21,9 +24,9 @@ $('body').keyup(function(event) {
 
 });
 
+var topRow = document.getElementById("topRow");
 
-// Holds the data for all characters; 
-
+// Holds the data for all characters;
 var rosterObject = {
     "fighters": [
         {
@@ -523,34 +526,42 @@ rosterObject.fighters.forEach(res => {
 
 
     //Adding toggle for selecting 1st character
-    let label = document.createElement('label');
-    label.className = "switch switch1";
-
-    let input = document.createElement('input');
-    input.type = "checkbox";
-    label.appendChild(input);
-
-    let span = document.createElement('span');
-    span.className = "slider slider1";
-    span.id = "charID" + res.id;
-    label.appendChild(span);
+    let label = document.createElement('button');
+    label.className = "charSelBtn";
+    label.id = "charID" + res.id;
+    let p1 = document.createTextNode('Player 1');
+    label.appendChild(p1);
+    //
+    // let input = document.createElement('input');
+    // input.type = "checkbox";
+    // label.appendChild(input);
+    //
+    // let span = document.createElement('span');
+    // span.className = "slider slider1";
+    // span.id = "charID" + res.id;
+    // label.appendChild(span);
 
     card.appendChild(label);
 
 //Adding toggle for selecting 2nd character
-    let label2 = document.createElement('label');
-    label2.className = "switch switch2";
+    let label2 = document.createElement('button');
+    label2.className = "charSelBtn";
+    label2.id = "charID" + res.id + "extra";
+    let p2 = document.createTextNode('Player 2');
+    label2.appendChild(p2);
+    
 
-    let input2 = document.createElement('input');
-    input2.type = "checkbox";
-    label2.appendChild(input2);
-
-    let span2 = document.createElement('span');
-    span2.className = "slider slider2";
-    span2.id = "charID" + res.id + "extra";
-    label2.appendChild(span2);
+    // let input2 = document.createElement('input');
+    // input2.type = "checkbox";
+    // label2.appendChild(input2);
+    //
+    // let span2 = document.createElement('span');
+    // span2.className = "slider slider2";
+    // span2.id = "charID" + res.id + "extra";
+    // label2.appendChild(span2);
 
     card.appendChild(label2);
+    
     //Rendering an image element/class desgination and directing the source to read the base64 string storing the image 
     let image = document.createElement("img");
     image.src = res.img;
@@ -648,7 +659,6 @@ rosterObject.fighters.forEach(res => {
             var isPlayer1Selection = true;
             
             if(isPlayer1Selection == true){
-                alert("Player 1 " + res.name + " selected!")
                 var player1Name = res.name;
                 var player1Img = res.img;
                 var player1Moves = res.moves;
@@ -663,6 +673,8 @@ rosterObject.fighters.forEach(res => {
             }
             //Check Data is Storing Correct Value
             console.log(player1Name);
+
+            topRow.innerHTML += "You selected " + player1Name + " as Player 1! <br>"
 
             //Player 1 Info Box
             let player1InfoBox = document.createElement("div");
@@ -759,7 +771,6 @@ rosterObject.fighters.forEach(res => {
             var isPlayer2Selection = true;
             
             if(isPlayer2Selection == true){
-                alert("Player 2 " + res.name + " selected!")
                 var player2Name = res.name;
                 var player2Img = res.img;
                 var player2Moves = res.moves;
@@ -775,7 +786,9 @@ rosterObject.fighters.forEach(res => {
             //Check Data is Storing Correct Value
              console.log(player2Name);
              console.log(player2Series);
-            
+
+
+             topRow.innerHTML += "You selected " + player2Name + " as Player 2! <br>"
              
             
             // Check res.series for value and change p1 and p2 background based on it.
@@ -925,8 +938,11 @@ rosterObject.fighters.forEach(res => {
              //     $('#battle2').css('background-size', 'cover');
              // }
              
-             
-             $('#characterSelectScreen').toggle();
+             //Add timeout delay to golle and display countdown
+             // $('#characterSelectScreen').toggle();
+             setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 5000);
+             setTimeout(function(){ $('#topRow').toggle(); }, 5000);
+             // $('#topRow').toggle();
              $('#battleScreen').toggle();
              $('#battleScreen').css({
                  'display': 'flex'
