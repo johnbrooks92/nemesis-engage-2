@@ -742,6 +742,8 @@ rosterObject.fighters.forEach(res => {
             player1InfoBox.appendChild(image1);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
 
             //Player1 Character 1st Move Button Render to Info Box
             var p1move1btn = document.createElement("btn")
@@ -852,11 +854,16 @@ rosterObject.fighters.forEach(res => {
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
              
+             //Player 2 HP and Aura Bar; Make sure to reset tot toals when fight ends
+             
+             
              //Player 2 Character Img Render to Info Box
              let image2 = document.createElement("img");
              image2.src = res.img;
              image2.id = "p2Img";
              player2InfoBox.appendChild(image2);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
 
