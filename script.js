@@ -800,11 +800,11 @@ rosterObject.fighters.forEach(res => {
             stats1.appendChild(p1Def);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1AtkAura = document.createTextNode('Attack Aura: ' + res.atkaura);
+            let p1AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
             stats1.appendChild(p1AtkAura);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1DefAura = document.createTextNode('Defense Aura: ' + res.defaura);
+            let p1DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
             stats1.appendChild(p1DefAura);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
@@ -854,7 +854,7 @@ rosterObject.fighters.forEach(res => {
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
              
-             //Player 2 HP and Aura Bar; Make sure to reset tot toals when fight ends
+             //Player 2 HP and Aura Bar; Make sure to reset totals when fight ends
              
              
              //Player 2 Character Img Render to Info Box
@@ -922,11 +922,11 @@ rosterObject.fighters.forEach(res => {
              stats2.appendChild(p2Def);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2AtkAura = document.createTextNode('Attack Aura: ' + res.atkaura);
+             let p2AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
              stats2.appendChild(p2AtkAura);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2DefAura = document.createTextNode('Defense Aura: ' + res.defaura);
+             let p2DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
              stats2.appendChild(p2DefAura);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
