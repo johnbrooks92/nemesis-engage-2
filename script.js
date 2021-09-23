@@ -28,7 +28,7 @@ var rosterObject = {
     "fighters": [
         {
             "name": "Son Goku",
-            "moves": "Kamehameha, Dragon Fist, Kaioken Triple Attack",
+            "moves": ["Kamehameha", "Dragon Fist", "Kaioken Triple Attack"],
             "ultimate": "Spirit Bomb",
             "transformations": "Super Saiyan, Super Saiyan 2, Super Saiyan 3, SS God, SS God SS",
             "series": "Dragonball",
@@ -44,7 +44,7 @@ var rosterObject = {
         },
         {
             "name": "Prince Vegeta",
-            "moves": "Galick Gun, Dirty Fireworks, Infinite Break",
+            "moves": ["Galick Gun", "Dirty Fireworks", "Infinite Break"],
             "ultimates": "Final Flash",
             "transformations": "Super Saiyan, Majin (SS2), Super Saiyan 3, SS God, SS God SS",
             "series": "Dragonball",
@@ -60,7 +60,7 @@ var rosterObject = {
         },
         {
             "name": "Naruto Uzumaki",
-            "moves": "Rasengan, Uzumaki Barrage, Toad Summoning",
+            "moves": ["Rasengan", "Uzumaki Barrage", "Toad Summoning"],
             "ultimate": "RasenShuriken",
             "transformations": "Youth, Adult, Perfect Sage, Kyuubi Chakra, Prime",
             "series": "Naruto",
@@ -76,7 +76,7 @@ var rosterObject = {
         },
         {
             "name": "Sasuke Uchiha",
-            "moves": "Chidori, Barrage of Lions, Snake Summoning",
+            "moves": ["Chidori", "Barrage of Lions", "Snake Summoning"],
             "ultimate": "Kirin",
             "transformations": "Youth, Adult, Mangekyo, Eternal Mangekyo, Prime",
             "series": "Naruto",
@@ -92,7 +92,7 @@ var rosterObject = {
         },
         {
             "name": "Superman, Clark Kent",
-            "moves": "Krypton Rush, Heat Vision, Ice Breath",
+            "moves": ["Krypton Rush", "Heat Vision", "Ice Breath"],
             "ultimate": "Solar Flare",
             "transformations": "Classic, Animated, X",
             "series": "DC",
@@ -108,7 +108,7 @@ var rosterObject = {
         },
         {
             "name": "Batman, Bruce Wayne",
-            "moves": "Omni-Style Rush, Batarang, Cape Cover",
+            "moves": ["Omni-Style Rush", "Batarang", "Cape Cover"],
             "ultimate": "Gotham's God",
             "transformations": "Classic, Animated, Beyond",
             "series": "DC",
@@ -124,7 +124,7 @@ var rosterObject = {
         },
         {
             "name": "Obi-Wan Kenobi",
-            "moves": "Force Push, Force Throw, Mind Trick",
+            "moves": ["Force Push", "Force Throw", "Mind Trick"],
             "ultimate": "Force Valor Rush",
             "transformations": "Knight, Master, Ben Kenobi",
             "series": "StarWars",
@@ -140,7 +140,7 @@ var rosterObject = {
         },
         {
             "name": "Anakin Skywalker",
-            "moves": "Force Choke, Force Lightning, Lightsaber Boomerang",
+            "moves": ["Force Choke", "Force Lightning", "Lightsaber Boomerang"],
             "ultimate": "Force Defend Rush",
             "transformations": "Knight, Prime Vader, Darth Vader",
             "series": "StarWars",
@@ -156,7 +156,7 @@ var rosterObject = {
         },
         {
             "name": "Optimus Prime",
-            "moves": "Full Force Punch, Star Saber, Skyboom Shield",
+            "moves": ["Full Force Punch", "Star Saber", "Skyboom Shield"],
             "ultimate": "Prime Reckoning",
             "transformations": "G1, Semi-Truck, Armada",
             "series": "Transformers",
@@ -172,7 +172,7 @@ var rosterObject = {
         },
         {
             "name": "Megatron",
-            "moves": "Metal Mash, Requiem Blaster, Skyboom Shield",
+            "moves": ["Metal Mash", "Requiem Blaster", "Skyboom Shield"],
             "ultimate": "Mega Melting",
             "transformations": "G1, War Tank, Armada",
             "series": "Transformers",
@@ -188,7 +188,7 @@ var rosterObject = {
         },
         {
             "name": "Emperor Frieza",
-            "moves": "Death Beam, Nova Strike, Death Wave",
+            "moves": ["Death Beam", "Nova Strike", "Death Wave"],
             "ultimate": "Death Ball",
             "transformations": "Base, Second Form, Third Form, Final Form, Golden",
             "series": "Dragonball",
@@ -204,7 +204,7 @@ var rosterObject = {
         },
         {
             "name": "Kakashi Hatake",
-            "moves": "Lightning Blade, Earth Style: Mud Wall, Primary Lotus",
+            "moves": ["Lightning Blade", "Earth Style: Mud Wall", "Primary Lotus"],
             "ultimate": "Kamui",
             "transformations": "Youth, Anbu, Adult, Mangekyo, Double Mangekyo",
             "series": "Naruto",
@@ -220,7 +220,7 @@ var rosterObject = {
         },
         {
             "name": "The Flash, Barry Allen, Wally West",
-            "moves": "Tornado Fist, G Force Punch, Afterimage",
+            "moves": ["Tornado Fist", "G Force Punch", "Afterimage"],
             "ultimate": "Time Rip",
             "transformations": "Kid Flash, Classic Barry, Wally West",
             "series": "DC",
@@ -236,7 +236,7 @@ var rosterObject = {
         },
         {
             "name": "Ahsoka Tano",
-            "moves": "Force Push, Force Throw, Force Choke",
+            "moves": ["Force Push", "Force Throw", "Force Choke"],
             "ultimate": "Force Speed Rush",
             "transformations": "Padawan Prodigy, Rogue Jedi, Force Sage",
             "series": "StarWars",
@@ -252,7 +252,7 @@ var rosterObject = {
         },
         {
             "name": "Starscream",
-            "moves": "Scream's Rage, Star Saber, Skyboom Shield",
+            "moves": ["Scream's Rage", "Star Saber", "Skyboom Shield"],
             "ultimate": "SuperNova Fireworks",
             "transformations": "G1, Jet Plane, Armada",
             "series": "Transformers",
@@ -268,7 +268,7 @@ var rosterObject = {
         },
         {
             "name": "Yusuke Urameshi",
-            "moves": "Spirit Gun, Spirit ShotGun, Spirit Wave",
+            "moves": ["Spirit Gun", "Spirit ShotGun", "Spirit Wave"],
             "ultimate": "Mazoku Spirit Gun",
             "transformations": "School Uniform, Dark Tournament, Chapter Black",
             "series": "YuYu Hakusho",
@@ -284,7 +284,7 @@ var rosterObject = {
         },
         {
             "name": "Kazuma Kuwabara",
-            "moves": "Spirit Sword, Spirit Kick, Spirit Sword Javelin",
+            "moves": ["Spirit Sword", "Spirit Kick", "Spirit Sword Javelin"],
             "ultimate": "Dimension Sword",
             "transformations": "School Uniform, Dark Tournament, Chapter Black",
             "series": "YuYu Hakusho",
@@ -300,7 +300,7 @@ var rosterObject = {
         },
         {
             "name": "Kurama",
-            "moves": "Rose Whip, Seed of the Death Plant, Ojigi Plant",
+            "moves": ["Rose Whip", "Seed of the Death Plant", "Ojigi Plant"],
             "ultimate": "Sinning Tree",
             "transformations": "Shuichi, Dark Tournament, Yoko",
             "series": "YuYu Hakusho",
@@ -316,7 +316,7 @@ var rosterObject = {
         },
         {
             "name": "Hiei",
-            "moves": "Speed Slice, Fist of the Mortal Flame, Sword of Darkness Flame",
+            "moves": ["Speed Slice", "Fist of the Mortal Flame", "Sword of Darkness Flame"],
             "ultimate": "Dragon of the Darkness Flame",
             "transformations": "Dark Tournament, Jaganshi, Chapter Black",
             "series": "YuYu Hakusho",
@@ -332,7 +332,7 @@ var rosterObject = {
         },
         {
             "name": "Izuku Midoriya",
-            "moves": "New Hampshire Smash, Detroit Smash, Black Whip",
+            "moves": ["New Hampshire Smash", "Detroit Smash", "Black Whip"],
             "ultimate": "OFA Full Cowling 100%",
             "transformations": "School Uniform, Deku, OFA 100%",
             "series": "My Hero Academia",
@@ -348,7 +348,7 @@ var rosterObject = {
         },
         {
             "name": "Katsuki Bakugo",
-            "moves": "Explosive Punch, Explosive Kick, Reverse Explosion",
+            "moves": ["Explosive Punch", "Explosive Kick", "Reverse Explosion"],
             "ultimate": "OFA Full Cowling 100%",
             "transformations": "School Uniform, GEMGD, OFA 100%",
             "series": "My Hero Academia",
@@ -364,7 +364,7 @@ var rosterObject = {
         },
         {
             "name": "Shoto Todoroki",
-            "moves": "Heaven-Piercing Ice Wall, Wall of Flames, Flashfreeze Heatwave",
+            "moves": ["Heaven-Piercing Ice Wall", "Wall of Flames", "Flashfreeze Heatwave"],
             "ultimate": "Flashfire Fist - Jet Kindling",
             "transformations": "School Uniform, UA Festival, Both Halves",
             "series": "My Hero Academia",
@@ -380,7 +380,7 @@ var rosterObject = {
         },
         {
             "name": "Sly Cooper",
-            "moves": "Cane Hook Slash, Bentley's Brave Byte, Murray's Manhandling",
+            "moves": ["Cane Hook Slash", "Bentley's Brave Byte", "Murray's Manhandling"],
             "ultimate": "Master Thievious Raccoonus",
             "transformations": "Sly 1, Sly 2, Sly 3",
             "series": "Sly Cooper",
@@ -396,7 +396,7 @@ var rosterObject = {
         },
         {
             "name": "Itachi Uchiha",
-            "moves": "Clone Explosion Jutsu, Tsukuyomi, Amaterasu",
+            "moves": ["Clone Explosion Jutsu", "Tsukuyomi", "Amaterasu"],
             "ultimate": "Susanoo",
             "transformations": "Anbu, Akatsuki, Reanimated",
             "series": "Naruto",
@@ -412,7 +412,7 @@ var rosterObject = {
         },
         {
             "name": "Maul",
-            "moves": "Force Choke, Force Throw, Saber Slash",
+            "moves": ["Force Choke", "Force Throw", "Saber Slash"],
             "ultimate": "Dark Side Destruction",
             "transformations": "Darth, Mecha, Mandalorian",
             "series": "StarWars",
@@ -428,7 +428,7 @@ var rosterObject = {
         },
         {
             "name": "Link",
-            "moves": "Barrage of Arrows, Boomerang Bash, Bomb-Slash Combo",
+            "moves": ["Barrage of Arrows", "Boomerang Bash", "Bomb-Slash Combo"],
             "ultimate": "The Wind Waker",
             "transformations": "Toon, Young, Skyward",
             "series": "Zelda",
@@ -444,7 +444,7 @@ var rosterObject = {
         },
         {
             "name": "Samurai Jack",
-            "moves": "Samurai Slashing, Speed Slice, Parry",
+            "moves": ["Samurai Slashing", "Speed Slice", "Parry"],
             "ultimate": "Slayer of Aku",
             "transformations": "Young, Old (Long Hair), Finale",
             "series": "Samurai Jack",
@@ -460,7 +460,7 @@ var rosterObject = {
         },
         {
             "name": "Aku",
-            "moves": "Scarabs Scurrying, Demonic Dash, Eye Beams",
+            "moves": ["Scarabs Scurrying", "Demonic Dash", "Eye Beams"],
             "ultimate": "Necromancy",
             "transformations": "Scorpion, Chinese Dragon, Final Form",
             "series": "Samurai Jack",
@@ -476,7 +476,7 @@ var rosterObject = {
         },
         {
             "name": "Eren Jaeger",
-            "moves": "ODM Gear, Attack Titan, WarHammer Titan",
+            "moves": ["ODM Gear", "Attack Titan", "WarHammer Titan"],
             "ultimate": "The Rumbling",
             "transformations": "Survey Corps, Jaegerist, Founding Titan",
             "series": "Attack on Titan",
@@ -492,7 +492,7 @@ var rosterObject = {
         },
         {
             "name": "Reiner Braun",
-            "moves": "ODM Gear, Lowered Shoulder, Summoning Scream",
+            "moves": ["ODM Gear", "Lowered Shoulder", "Summoning Scream"],
             "ultimate": "Titan Catapult",
             "transformations": "Survey Corps, Veteran, Armored Titan",
             "series": "Attack on Titan",
@@ -646,7 +646,6 @@ rosterObject.fighters.forEach(res => {
         $('#charID' + res.id).click(function(){
 
             var isPlayer1Selection = true;
-            var isPlayer2Selection = false;
             
             if(isPlayer1Selection = true){
                 alert("Player 1 " + res.name + " selected!")
@@ -660,35 +659,80 @@ rosterObject.fighters.forEach(res => {
                 var player1AuraDef = res.defaura;
                 var player1Spd = res.speed;
                 var player1Rivals = res.rivals;
-                var player1NameCheck = res.name;
+                var player1Series = res.series;
             }
             //Check Data is Storing Correct Value
-            console.log(player1NameCheck);
+            console.log(player1Name);
 
-            //Player 2 Info Box
+            //Player 1 Info Box
             let player1InfoBox = document.createElement("div");
             player1InfoBox.id = "battle1";
 
-            //Player 2 Character Name Render to Info Box
+            //Player 1 Character Name Render to Info Box
             var charNameHeader1 = document.createElement('h2')
             charNameHeader1.idName = "charNameHeader1" + res.name;
             let p1Name = document.createTextNode('' + res.name);
             charNameHeader1.appendChild(p1Name);
             player1InfoBox.appendChild(charNameHeader1);
 
-            //Player 2 Character Img Render to Info Box
+            //Player 1 Character Img Render to Info Box
             let image1 = document.createElement("img");
             image1.src = res.img;
             image1.id = "p1Img";
             player1InfoBox.appendChild(image1);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
 
-            //Append Player2 Info Box to battleScreen Div
+            //Player1 Character 1st Move Button Render to Info Box
+            var p1move1btn = document.createElement("btn")
+            p1move1btn.id = "p1Move1";
+            let p1move1name = document.createTextNode('' + res.moves[0]);
+            p1move1btn.appendChild(p1move1name);
+            player1InfoBox.appendChild(p1move1btn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+            //Player1 Character 2nd Move Button Render to Info Box
+            var p1move2btn = document.createElement("btn")
+            p1move2btn.id = "p1Move2";
+            let p1move2name = document.createTextNode('' + res.moves[1]);
+            p1move2btn.appendChild(p1move2name);
+            player1InfoBox.appendChild(p1move2btn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+            //Player1 Character 3rd Move Button Render to Info Box
+            var p1move3btn = document.createElement("btn")
+            p1move3btn.id = "p1Move3";
+            let p1move3name = document.createTextNode('' + res.moves[2]);
+            p1move3btn.appendChild(p1move3name);
+            player1InfoBox.appendChild(p1move3btn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+            //Player1 Character Ultimate Move Button Render to Info Box
+            var p1moveUltbtn = document.createElement("btn")
+            p1moveUltbtn.id = "p1MoveUlt";
+            let p1moveUltname = document.createTextNode('' + res.ultimate);
+            p1moveUltbtn.appendChild(p1moveUltname);
+            player1InfoBox.appendChild(p1moveUltbtn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+            //Append Player1 Info Box to battleScreen Div
             let battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
         })
          $('#charID' + res.id + 'extra').click(function(){
 
-            var isPlayer1Selection = false;
             var isPlayer2Selection = true;
             
             if(isPlayer2Selection = true){
@@ -703,31 +747,128 @@ rosterObject.fighters.forEach(res => {
                 var player2AuraDef = res.defaura;
                 var player2Spd = res.speed;
                 var player2Rivals = res.rivals;
-                var player2NameCheck = res.name;
+                var player2Series = res.series;
             }
             //Check Data is Storing Correct Value
-             console.log(player2NameCheck);
+             console.log(player2Name);
             
+             
+            
+            // Check res.series for value and change p1 and p2 background based on it.
             //Player 2 Info Box
              let player2InfoBox = document.createElement("div");
              player2InfoBox.id = "battle2";
              
              //Player 2 Character Name Render to Info Box
              var charNameHeader2 = document.createElement('h2')
-             charNameHeader2.idName = "charNameHeader2" + res.name;
+             charNameHeader2.id = "charNameHeader2" + res.name;
              let p2Name = document.createTextNode('' + res.name);
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
-
+             
              //Player 2 Character Img Render to Info Box
              let image2 = document.createElement("img");
              image2.src = res.img;
              image2.id = "p2Img";
              player2InfoBox.appendChild(image2);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+
+             //Player2 Character 1st Move Button Render to Info Box
+             var p2move1btn = document.createElement("btn")
+             p2move1btn.id = "p2Move1";
+             let p2move1name = document.createTextNode('' + res.moves[0]);
+             p2move1btn.appendChild(p2move1name);
+             player2InfoBox.appendChild(p2move1btn);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+
+             //Player2 Character 2nd Move Button Render to Info Box
+             var p2move2btn = document.createElement("btn")
+             p2move2btn.id = "p2Move2";
+             let p2move2name = document.createTextNode('' + res.moves[1]);
+             p2move2btn.appendChild(p2move2name);
+             player2InfoBox.appendChild(p2move2btn);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+
+             //Player2 Character 3rd Move Button Render to Info Box
+             var p2move3btn = document.createElement("btn")
+             p2move3btn.id = "p2Move3";
+             let p2move3name = document.createTextNode('' + res.moves[2]);
+             p2move3btn.appendChild(p2move3name);
+             player2InfoBox.appendChild(p2move3btn);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+             
+             //Player2 Character Ultimate Move Button Render to Info Box
+             var p2moveUltbtn = document.createElement("btn")
+             p2moveUltbtn.id = "p2MoveUlt";
+             let p2moveUltname = document.createTextNode('' + res.ultimate);
+             p2moveUltbtn.appendChild(p2moveUltname);
+             player2InfoBox.appendChild(p2moveUltbtn);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+             var linebreak = document.createElement('br');
+             player2InfoBox.appendChild(linebreak);
+
              
              //Append Player2 Info Box to battleScreen Div
              let battleContainer = document.querySelector("#battleScreen");
              battleContainer.appendChild(player2InfoBox);
+             
+             
+             console.log(player2Series);
+             console.log(player2Name);
+             console.log(player2Rivals);
+
+             if (res.series = "Dragonball") {
+                 $('#battle2').css('background-image', 'url(img/db_background.webp');
+             }
+             if (res.series = "DC") {
+                 $('#battle2').css('background-image', 'url(img/dc-bg.png');
+             }
+             if (res.series = "Naruto") {
+                 $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
+             }
+             if (res.series = "StarWars") {
+                 $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
+             }
+             if (res.series = "Transformers") {
+                 $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             if (res.series = "YuYu Hakusho") {
+                 $('#battle2').css('background-image', 'url(img/yyh-logo.png');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             if (res.series = "My Hero Academia") {
+                 $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
+                 $('#battle2').css('background-size', 'cover');
+             } 
+             if (res.series = "Samurai Jack") {
+                 $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             if (res.series = "Sly Cooper") {
+                 $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             if (res.series = "Zelda") {
+                 $('#battle2').css('background-image', 'url(img/zelda-bg.png');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             if (res.series = "Attack on Titan") {
+                 $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
+                 $('#battle2').css('background-size', 'cover');
+             }
+             
              
              $('#characterSelectScreen').toggle();
              $('#battleScreen').toggle();

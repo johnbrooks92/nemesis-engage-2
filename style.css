@@ -109,21 +109,24 @@ h2{
 }
 #battleScreen{
     height: 45rem;
-    width: 80rem;
+    width: 90rem;
     display: none;
     font-family: 'Goldman', cursive;
     font-size: larger;
     background-image: url("img/tenkaichi-stage.jpeg");
+    justify-content: space-evenly;
 }
 #battle1{
     height: 45rem;
-    width: 40rem;
+    width: 24rem;
     text-align: center;
+    border: 2px solid gold;
 }
 #battle2{
     height: 45rem;
-    width: 40rem;
+    width: 24rem;
     text-align: center;
+    border: 2px solid gold;
 }
 #p1Img{
     height: 16rem;
@@ -132,4 +135,25 @@ h2{
 #p2Img{
     height: 16rem;
     width: 12rem;
+}
+btn {
+    border: 1px solid gold;
+    border-radius: 1.25rem;
+    color: #60dfcd;
+    background-image: url("img/hover-reg-moves.gif");
+    margin-outside: 5px;
+}
+#p1MoveUlt {
+    border: 1px solid gold;
+    border-radius: 1.25rem;
+    color: #60dfcd;
+    background-image: url("img/hover-ultimate.gif");
+    margin-outside: 5px;
+}
+#p2MoveUlt {
+    border: 1px solid gold;
+    border-radius: 1.25rem;
+    color: #60dfcd;
+    background-image: url("img/hover-ultimate.gif");
+    margin-outside: 5px;
 }
