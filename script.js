@@ -601,45 +601,45 @@ rosterObject.fighters.forEach(res => {
 
 
     $(document).ready(function () {
-        if (res.series = "Dragonball") {
+        if (res.series == "Dragonball") {
             $('.Dragonball').css('background-image', 'url(img/db_background.webp');
         }
-        if (res.series = "DC") {
+        if (res.series == "DC") {
             $('.DC').css('background-image', 'url(img/dc-bg.png');
         }
-        if (res.series = "Naruto") {
+        if (res.series == "Naruto") {
             $('.Naruto').css('background-image', 'url(img/hidden_leaf.png');
         }
-        if (res.series = "StarWars") {
+        if (res.series == "StarWars") {
             $('.StarWars').css('background-image', 'url(img/star-wars-bg.jpg');
         }
-        if (res.series = "Transformers") {
+        if (res.series == "Transformers") {
             $('.Transformers').css('background-image', 'url(img/transformers-bg.jpeg');
             $('.Transformers').css('background-size', 'cover');
         }
-        if (res.series = "YuYu Hakusho") {
+        if (res.series == "YuYu Hakusho") {
             $('.YuYu').css('background-image', 'url(img/yyh-logo.png');
             $('.YuYu').css('background-size', 'cover');
         }
-        if (res.series = "My Hero Academia") {
+        if (res.series == "My Hero Academia") {
             $('.Academia').css('background-image', 'url(img/my-hero-logo.jpeg');
             $('.Academia').css('background-size', 'cover');
         }
-        if (res.series = "Samurai Jack") {
+        if (res.series == "Samurai Jack") {
             $('.Jack').css('background-image', 'url(img/samurai-jack-bg.jpeg');
             $('.Jack').css('background-size', 'cover');
         }
-        if (res.series = "Sly Cooper") {
+        if (res.series == "Sly Cooper") {
             $('.Sly').css('background-image', 'url(img/sly-bg.jpeg');
             $('.Sly').css('background-size', 'cover');
         }
-        if (res.series = "Zelda") {
-            $('.Zelda').css('background-image', 'url(img/zelda-bg.png');
-            $('.Zelda').css('background-size', 'cover');
-        }
-        if (res.series = "Attack on Titan") {
+        if (res.series == "Attack on Titan") {
             $('.Titan').css('background-image', 'url(img/aot-bg.jpeg');
             $('.Titan').css('background-size', 'cover');
+        }
+        if (res.series == "Zelda") {
+            $('.Zelda').css('background-image', 'url(img/zelda-bg.png');
+            $('.Zelda').css('background-size', 'cover');
         }
         
 
@@ -647,7 +647,7 @@ rosterObject.fighters.forEach(res => {
 
             var isPlayer1Selection = true;
             
-            if(isPlayer1Selection = true){
+            if(isPlayer1Selection == true){
                 alert("Player 1 " + res.name + " selected!")
                 var player1Name = res.name;
                 var player1Img = res.img;
@@ -758,7 +758,7 @@ rosterObject.fighters.forEach(res => {
 
             var isPlayer2Selection = true;
             
-            if(isPlayer2Selection = true){
+            if(isPlayer2Selection == true){
                 alert("Player 2 " + res.name + " selected!")
                 var player2Name = res.name;
                 var player2Img = res.img;
@@ -774,6 +774,7 @@ rosterObject.fighters.forEach(res => {
             }
             //Check Data is Storing Correct Value
              console.log(player2Name);
+             console.log(player2Series);
             
              
             
