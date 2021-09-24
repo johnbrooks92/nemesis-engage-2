@@ -704,7 +704,11 @@ rosterObject.fighters.forEach(res => {
             let image1 = document.createElement("img");
             image1.src = res.img;
             image1.id = "p1Img";
-            player1InfoBox.appendChild(image1);
+
+            let p1Image = document.createElement("div");
+            p1Image.id = "p1ImageDiv"
+            p1Image.appendChild(image1);
+            player1InfoBox.appendChild(p1Image);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
             var linebreak = document.createElement('br');
@@ -873,8 +877,11 @@ rosterObject.fighters.forEach(res => {
              //Player 2 Character Img Render to Info Box
              let image2 = document.createElement("img");
              image2.src = res.img;
-             image2.id = "p2Img";
-             player2InfoBox.appendChild(image2);
+             image2.id = "p2Img"; 
+             let p2Image = document.createElement("div");
+             p2Image.id = "p2ImageDiv";
+             p2Image.appendChild(image2);
+             player2InfoBox.appendChild(p2Image);
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
              var linebreak = document.createElement('br');

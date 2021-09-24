@@ -44,6 +44,19 @@ body{
     /*width: 70%;*/
     margin-bottom: 1px;
 }
+#p1ImageDiv, #p2ImageDiv {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#p1ImageDiv img, #p2ImageDiv img {
+    width: auto;
+    height: 100%;
+    border-radius: 50%;
+}
 div, h1 {
     display: none;
 }
