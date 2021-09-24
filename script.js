@@ -714,6 +714,46 @@ rosterObject.fighters.forEach(res => {
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
 
+            //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
+            var hpHeader1 = document.createElement('h2')
+            hpHeader1.id = "hpHeader1" + res.name;
+            let barNameHP1 = document.createTextNode('HP');
+            hpHeader1.appendChild(barNameHP1);
+            player1InfoBox.appendChild(hpHeader1);
+            
+            
+            let p1HealthBorder = document.createElement("div");
+            p1HealthBorder.className = "hpBorder";
+            p1HealthBorder.id = "p1HealthBorder";
+            let p1HP = document.createElement("div")
+            p1HP.className = "hpBar";
+            p1HP.id = "p1Health";
+            p1HealthBorder.appendChild(p1HP);
+            player1InfoBox.appendChild(p1HealthBorder);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+
+            var kiHeader1 = document.createElement('h2')
+            kiHeader1.id = "kiHeader1" + res.name;
+            let barNameKI1 = document.createTextNode('KI');
+            kiHeader1.appendChild(barNameKI1);
+            player1InfoBox.appendChild(kiHeader1); 
+            
+            let p1KiBorder = document.createElement("div");
+            p1KiBorder.className = "kiBorder";
+            p1KiBorder.id = "p1KiBorder";
+            let p1Ki = document.createElement("div")
+            p1Ki.className = "kiBar";
+            p1Ki.id = "p1Ki";
+            p1KiBorder.appendChild(p1Ki);
+            player1InfoBox.appendChild(p1KiBorder);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            
+            
             //Player1 Character 1st Move Button Render to Info Box
             var p1move1btn = document.createElement("btn")
             p1move1btn.id = "p1Move1";
@@ -871,9 +911,6 @@ rosterObject.fighters.forEach(res => {
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
              
-             //Player 2 HP and Aura Bar; Make sure to reset totals when fight ends
-             
-             
              //Player 2 Character Img Render to Info Box
              let image2 = document.createElement("img");
              image2.src = res.img;
@@ -887,7 +924,57 @@ rosterObject.fighters.forEach(res => {
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
 
-             //Player2 Character 1st Move Button Render to Info Box
+
+                // <!--<span class="healthLabel">HP</span><br>-->
+                // <!--<div class="hpBorder">-->
+                // <!--    <div id="GokuHP" class="hpBar"></div>-->
+                // <!--</div>-->
+                // <!--<span class="kiLabel">KI</span><br>-->
+                <!--<div class="kiBorder">-->
+                // <!--    <div id="GokuKi" class="kiBar"></div>-->
+                // <!--</div>-->
+            
+            
+            
+            //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
+            var hpHeader2 = document.createElement('h2')
+            hpHeader2.id = "hpHeader2" + res.name;
+            let barNameHP2 = document.createTextNode('HP');
+            hpHeader2.appendChild(barNameHP2);
+            player2InfoBox.appendChild(hpHeader2);
+            
+            let p2HealthBorder = document.createElement("div");
+            p2HealthBorder.className = "hpBorder";
+            p2HealthBorder.id = "p2HealthBorder";
+            let p2HP = document.createElement("div")
+            p2HP.className = "hpBar";
+            p2HP.id = "p2Health";
+            p2HealthBorder.appendChild(p2HP);
+            player2InfoBox.appendChild(p2HealthBorder);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+            
+            var kiHeader2 = document.createElement('h2')
+            kiHeader2.id = "kiHeader2" + res.name;
+            let barNameKI2 = document.createTextNode('KI');
+            kiHeader2.appendChild(barNameKI2);
+            player2InfoBox.appendChild(kiHeader2);
+
+            let p2KiBorder = document.createElement("div");
+            p2KiBorder.className = "kiBorder";
+            p2KiBorder.id = "p2KiBorder";
+            let p2Ki = document.createElement("div")
+            p2Ki.className = "kiBar";
+            p2Ki.id = "p2Ki";
+            p2KiBorder.appendChild(p2Ki);
+            player2InfoBox.appendChild(p2KiBorder);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+            
+
+            //Player2 Character 1st Move Button Render to Info Box
              var p2move1btn = document.createElement("btn")
              p2move1btn.id = "p2Move1";
              let p2move1name = document.createTextNode('' + res.moves[0]);
@@ -976,6 +1063,10 @@ rosterObject.fighters.forEach(res => {
              setTimeout(function(){ $('#battle1' + res.name).css({'display': 'block'}); }, 5000);
              setTimeout(function(){ $('#battle2').toggle(); }, 5000);
              setTimeout(function(){ $('#battle2' + res.name).css({'display': 'block'}); }, 5000);
+             setTimeout(function(){ $('.hpBar').toggle(); }, 5000);
+             setTimeout(function(){ $('.hpBorder').toggle(); }, 5000);
+             setTimeout(function(){ $('.kiBar').toggle(); }, 5000);
+             setTimeout(function(){ $('.kiBorder').toggle(); }, 5000);
              
              
              $(document).ready(function () {
