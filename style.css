@@ -38,8 +38,10 @@ body{
 .charSelectImg {
     display: grid;
     float: top;
+    /*height: 200px;*/
+    /*width: 180px;*/
     height: 200px;
-    width: 150px;
+    width: 70%;
     margin-bottom: 1px;
 }
 /*.switch {*/
@@ -165,7 +167,7 @@ btn {
     font-family: 'Goldman', cursive;
     color: #a2dc78;
 }
-.charSelButton {
+.charSelBtn1, .charSelBtn2 {
     border: 1px solid gold;
     border-radius: 1.25rem;
     color: #60dfcd;

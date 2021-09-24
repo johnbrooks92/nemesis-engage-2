@@ -25,7 +25,6 @@ $('body').keyup(function(event) {
 });
 
 var topRow = document.getElementById("topRow");
-
 // Holds the data for all characters;
 var rosterObject = {
     "fighters": [
@@ -527,8 +526,8 @@ rosterObject.fighters.forEach(res => {
 
     //Adding toggle for selecting 1st character
     let label = document.createElement('button');
-    label.className = "charSelBtn";
-    label.id = "charID" + res.id;
+    label.className = "charSelBtn1";
+    label.id = res.id + "charSelectBtn1";
     let p1 = document.createTextNode('P1 (Away)');
     label.appendChild(p1);
     //
@@ -545,8 +544,8 @@ rosterObject.fighters.forEach(res => {
 
 //Adding toggle for selecting 2nd character
     let label2 = document.createElement('button');
-    label2.className = "charSelBtn";
-    label2.id = "charID" + res.id + "extra";
+    label2.className = "charSelBtn2";
+    label2.id = "charSelectBtn2" + res.id;
     let p2 = document.createTextNode('P2 (Home)');
     label2.appendChild(p2);
     
@@ -653,10 +652,17 @@ rosterObject.fighters.forEach(res => {
             $('.Zelda').css('background-size', 'cover');
         }
         
+        $('.charSelBtn2').prop("disabled", true);
+        // document.getElementById('charSelectBtn2' + res.id).disabled = true;
 
-        $('#charID' + res.id).click(function(){
+        $("#" + res.id + "charSelectBtn1").click(function(){
+
+
+            $('.charSelBtn1').prop("disabled", true);
+            $('.charSelBtn2').prop("disabled", false);
 
             var isPlayer1Selection = true;
+            
             if(isPlayer1Selection == true){
                 var player1Name = res.name;
                 var player1Img = res.img;
@@ -671,57 +677,16 @@ rosterObject.fighters.forEach(res => {
                 var player1Series = res.series;
                 console.log(player1Series);
                 console.log(res.series);
+
+                // document.getElementById('charSelectBtn2' + res.id).disabled = false;
+
+                
                 
             }
             //Check Data is Storing Correct Value
             console.log(player1Name);
             console.log(player1Series);
-
-            $(document).ready(function () {
-                if (res.series == "Dragonball") {
-                    $('#battle1').css('background-image', 'url(img/db_background.webp');
-                }
-                if (res.series == "DC") {
-                    $('#battle1').css('background-image', 'url(img/dc-bg.png');
-                }
-                if (res.series == "Naruto") {
-                    $('#battle1').css('background-image', 'url(img/hidden_leaf.png');
-                }
-                if (res.series == "StarWars") {
-                    $('#battle1').css('background-image', 'url(img/star-wars-bg.jpg');
-                }
-                if (res.series == "Transformers") {
-                    $('#battle1').css('background-image', 'url(img/transformers-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "YuYu Hakusho") {
-                    $('#battle1').css('background-image', 'url(img/yyh-logo.png');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "My Hero Academia") {
-                    $('#battle1').css('background-image', 'url(img/my-hero-logo.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Samurai Jack") {
-                    $('#battle1').css('background-image', 'url(img/samurai-jack-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Sly Cooper") {
-                    $('#battle1').css('background-image', 'url(img/sly-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Attack on Titan") {
-                    $('#battle1').css('background-image', 'url(img/aot-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Zelda") {
-                    $('#battle1').css('background-image', 'url(img/zelda-bg.png');
-                    $('#battle1').css('background-size', 'cover');
-                }
-            });
-
             
-
             topRow.innerHTML += "You selected " + player1Name + " as Player 1! <br>"
 
             //Player 1 Info Box
@@ -812,12 +777,60 @@ rosterObject.fighters.forEach(res => {
             stats1.appendChild(p1Spd);
             player1InfoBox.appendChild(stats1);
 
+
+            $(document).ready(function () {
+                if (res.series == "Dragonball") {
+                    $('#battle1').css('background-image', 'url(img/db_background.webp');
+                }
+                if (res.series == "DC") {
+                    $('#battle1').css('background-image', 'url(img/dc-bg.png');
+                }
+                if (res.series == "Naruto") {
+                    $('#battle1').css('background-image', 'url(img/hidden_leaf.png');
+                }
+                if (res.series == "StarWars") {
+                    $('#battle1').css('background-image', 'url(img/star-wars-bg.jpg');
+                }
+                if (res.series == "Transformers") {
+                    $('#battle1').css('background-image', 'url(img/transformers-bg.jpeg');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "YuYu Hakusho") {
+                    $('#battle1').css('background-image', 'url(img/yyh-logo.png');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "My Hero Academia") {
+                    $('#battle1').css('background-image', 'url(img/my-hero-logo.jpeg');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "Samurai Jack") {
+                    $('#battle1').css('background-image', 'url(img/samurai-jack-bg.jpeg');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "Sly Cooper") {
+                    $('#battle1').css('background-image', 'url(img/sly-bg.jpeg');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "Attack on Titan") {
+                    $('#battle1').css('background-image', 'url(img/aot-bg.jpeg');
+                    $('#battle1').css('background-size', 'cover');
+                }
+                if (res.series == "Zelda") {
+                    $('#battle1').css('background-image', 'url(img/zelda-bg.png');
+                    $('#battle1').css('background-size', 'cover');
+                }
+            });
+            
             //Append Player1 Info Box to battleScreen Div
             let battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
         })
-         $('#charID' + res.id + 'extra').click(function(){
 
+
+        $('#charSelectBtn2' + res.id).click(function(){
+
+            $('.charSelBtn2').prop("disabled", true);
+            
             var isPlayer2Selection = true;
             
             if(isPlayer2Selection == true){
@@ -950,20 +963,14 @@ rosterObject.fighters.forEach(res => {
              // $('#characterSelectScreen').toggle();
              setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 5000);
              setTimeout(function(){ $('#topRow').toggle(); }, 5000);
-             // $('#topRow').toggle();
-             $('#battleScreen').toggle();
-             $('#battleScreen').css({
-                 'display': 'flex'
-             });
-             $('#battle1').toggle();
-             $('#battle1' + res.name).css({
-                 'display': 'block'
-             });
-             $('#battle2').toggle();
-             $('#battle2' + res.name).css({
-                 'display': 'block'
-             });
-
+             setTimeout(function(){ $('#battleScreen').toggle(); }, 5000);
+             setTimeout(function(){ $('#battleScreen').css({'display': 'flex'}); }, 5000);
+             setTimeout(function(){ $('#battle1').toggle(); }, 5000);
+             setTimeout(function(){ $('#battle1' + res.name).css({'display': 'block'}); }, 5000);
+             setTimeout(function(){ $('#battle2').toggle(); }, 5000);
+             setTimeout(function(){ $('#battle2' + res.name).css({'display': 'block'}); }, 5000);
+             
+             
              $(document).ready(function () {
                  if (res.series == "Dragonball") {
                      $('#battle2').css('background-image', 'url(img/db_background.webp');
@@ -1013,6 +1020,13 @@ rosterObject.fighters.forEach(res => {
     //Adds cards and all stored data to container for characters
     let container = document.querySelector("#characterSelectScreen");
     container.appendChild(card);
+
+    $('#' + res.id + 'charSelectBtn1').click(function() {
+        window.location='#';
+    });
+    $('#charSelectBtn2' + res.id).click(function() {
+        window.location='#';
+    })
     
     
 });
