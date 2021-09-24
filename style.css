@@ -50,7 +50,9 @@ body{
     width: 200px;
     height: 200px;
     overflow: hidden;
+    border: 2px groove #a2dc78;
     border-radius: 50%;
+    background-image: url("img/hover-lightning.gif");
 }
 #p1ImageDiv img, #p2ImageDiv img {
     width: auto;
@@ -95,14 +97,14 @@ h2{
     text-align: center;
     border: 2px solid gold;
 }
-#p1Img{
-    height: 16rem;
-    width: 12rem;
-}
-#p2Img{
-    height: 16rem;
-    width: 12rem;
-}
+/*#p1Img{*/
+/*    height: 16rem;*/
+/*    width: 12rem;*/
+/*}*/
+/*#p2Img{*/
+/*    height: 16rem;*/
+/*    width: 12rem;*/
+/*}*/
 btn {
     border: 1px solid gold;
     border-radius: 1.25rem;
