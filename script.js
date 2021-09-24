@@ -977,41 +977,60 @@ rosterObject.fighters.forEach(res => {
                  }
                  if (res.series == "DC") {
                      $('#battle2').css('background-image', 'url(img/dc-bg.png');
+                     $('#battleScreen').css('background-image', 'url(img/batcave.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Naruto") {
                      $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
-                     $('#battleScreen').css('background-image', 'url(img/wasteland.png');
+                     $('#battleScreen').css('background-image', 'url(img/naruto-stage-1.png');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "StarWars") {
                      $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
+                     $('#battleScreen').css('background-image', 'url(img/millenium-falcon-bg.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Transformers") {
                      $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/cybertron.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "YuYu Hakusho") {
                      $('#battle2').css('background-image', 'url(img/yyh-logo.png');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/genkai-temple.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "My Hero Academia") {
                      $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/ua-hero-academy.png');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Samurai Jack") {
                      $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/jackground.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Sly Cooper") {
                      $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/sly-stage.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Attack on Titan") {
                      $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/aot-stage-1.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
                  if (res.series == "Zelda") {
                      $('#battle2').css('background-image', 'url(img/zelda-bg.png');
                      $('#battle2').css('background-size', 'cover');
+                     $('#battleScreen').css('background-image', 'url(img/hyrule.jpeg');
+                     $('#battleScreen').css('background-size', 'cover');
                  }
              });
         })
