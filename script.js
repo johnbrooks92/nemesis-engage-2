@@ -534,16 +534,6 @@ rosterObject.fighters.forEach(res => {
     label.id = res.id + "charSelectBtn1";
     var p1 = document.createTextNode('P1 (Away)');
     label.appendChild(p1);
-    //
-    // var input = document.createElement('input');
-    // input.type = "checkbox";
-    // label.appendChild(input);
-    //
-    // var span = document.createElement('span');
-    // span.className = "slider slider1";
-    // span.id = "charID" + res.id;
-    // label.appendChild(span);
-
     card.appendChild(label);
 
 //Adding toggle for selecting 2nd character
@@ -552,17 +542,6 @@ rosterObject.fighters.forEach(res => {
     label2.id = "charSelectBtn2" + res.id;
     var p2 = document.createTextNode('P2 (Home)');
     label2.appendChild(p2);
-    
-
-    // var input2 = document.createElement('input');
-    // input2.type = "checkbox";
-    // label2.appendChild(input2);
-    //
-    // var span2 = document.createElement('span');
-    // span2.className = "slider slider2";
-    // span2.id = "charID" + res.id + "extra";
-    // label2.appendChild(span2);
-
     card.appendChild(label2);
     
     //Rendering an image element/class desgination and directing the source to read the base64 string storing the image 
@@ -655,10 +634,8 @@ rosterObject.fighters.forEach(res => {
             $('.Zelda').css('background-image', 'url(img/zelda-bg.png');
             $('.Zelda').css('background-size', 'cover');
         }
-        
         $('.charSelBtn2').prop("disabled", true);
-        // document.getElementById('charSelectBtn2' + res.id).disabled = true;
-
+        //Stores P1 Data Once Selected and Renders in Battle Screen
         $("#" + res.id + "charSelectBtn1").click(function(){
 
 
@@ -679,17 +656,9 @@ rosterObject.fighters.forEach(res => {
                 var player1Spd = res.speed;
                 var player1Rivals = res.rivals;
                 var player1Series = res.series;
-                console.log(player1Series);
-                console.log(res.series);
-
-                // document.getElementById('charSelectBtn2' + res.id).disabled = false;
-
-                
-                
             }
+            
             //Check Data is Storing Correct Value
-            console.log(player1Name);
-            console.log(player1Series);
             
             topRow.innerHTML += "You selected " + player1Name + " as Player 1! <br>"
 
@@ -699,7 +668,7 @@ rosterObject.fighters.forEach(res => {
 
             //Player 1 Character Name Render to Info Box
             var charNameHeader1 = document.createElement('h2')
-            charNameHeader1.idName = "charNameHeader1" + res.name;
+            charNameHeader1.id = "charNameHeader1";
             var p1Name = document.createTextNode('' + res.name);
             charNameHeader1.appendChild(p1Name);
             player1InfoBox.appendChild(charNameHeader1);
@@ -871,26 +840,21 @@ rosterObject.fighters.forEach(res => {
                     $('#battle1').css('background-image', 'url(img/zelda-bg.png');
                     $('#battle1').css('background-size', 'cover');
                 }
-                console.log(res.moves);
-                console.log(res.moves);
             });
-            // p1Move1 Effects on Player 1
-
-            console.log(res.moves);
             //Append Player1 Info Box to battleScreen Div
             var battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
 
         })
-
-        
         //Declaring Variables for P1 Data To Be Manipulated Later In Script
         var p1Move1Selection = res.moves[0];
         var p1Move2Selection = res.moves[1];
-        var p1Move2Selection = res.moves[2];
+        var p1Move3Selection = res.moves[2];
+        var p1MoveUltSelection = res.ultimate;
+        var p1FighterName = res.name;
         
         
-        
+        //Stores P2 Data Once Selected and Renders in Battle Screen
         $('#charSelectBtn2' + res.id).click(function(){
 
             $('.charSelBtn2').prop("disabled", true);
@@ -911,12 +875,8 @@ rosterObject.fighters.forEach(res => {
                 var player2Series = res.series;
             }
             //Check Data is Storing Correct Value
-             console.log(player2Name);
-             console.log(player2Series);
-
-
              topRow.innerHTML += "You selected " + player2Name + " as Player 2! <br>"
-             topRow.innerHTML += "The battle will begin in 5 seconds! <br>"
+             topRow.innerHTML += "The battle will begin in 3 seconds! <br>"
              
             
             // Check res.series for value and change p1 and p2 background based on it.
@@ -926,7 +886,7 @@ rosterObject.fighters.forEach(res => {
              
              //Player 2 Character Name Render to Info Box
              var charNameHeader2 = document.createElement('h2')
-             charNameHeader2.id = "charNameHeader2" + res.name;
+             charNameHeader2.id = "charNameHeader2";
              var p2Name = document.createTextNode('' + res.name);
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
@@ -943,19 +903,7 @@ rosterObject.fighters.forEach(res => {
              player2InfoBox.appendChild(linebreak);
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
-
-
-                // <!--<span class="healthLabel">HP</span><br>-->
-                // <!--<div class="hpBorder">-->
-                // <!--    <div id="GokuHP" class="hpBar"></div>-->
-                // <!--</div>-->
-                // <!--<span class="kiLabel">KI</span><br>-->
-                <!--<div class="kiBorder">-->
-                // <!--    <div id="GokuKi" class="kiBar"></div>-->
-                // <!--</div>-->
-            
-            
-            
+             
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader2 = document.createElement('h2')
             hpHeader2.id = "hpHeader2" + res.name;
@@ -1067,26 +1015,20 @@ rosterObject.fighters.forEach(res => {
              battleContainer.appendChild(player2InfoBox);
              
              
-             console.log(player2Series);
-             console.log(player2Name);
-             console.log(player2Rivals);
-             
-            
-             
-             //Add timeout delay to golle and display countdown
+             //Add timeout delay toggle and display countdown
              // $('#characterSelectScreen').toggle();
-             setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 5000);
-             setTimeout(function(){ $('#topRow').toggle(); }, 5000);
-             setTimeout(function(){ $('#battleScreen').toggle(); }, 5000);
-             setTimeout(function(){ $('#battleScreen').css({'display': 'flex'}); }, 5000);
-             setTimeout(function(){ $('#battle1').toggle(); }, 5000);
-             setTimeout(function(){ $('#battle1' + res.name).css({'display': 'block'}); }, 5000);
-             setTimeout(function(){ $('#battle2').toggle(); }, 5000);
-             setTimeout(function(){ $('#battle2' + res.name).css({'display': 'block'}); }, 5000);
-             setTimeout(function(){ $('.hpBar').toggle(); }, 5000);
-             setTimeout(function(){ $('.hpBorder').toggle(); }, 5000);
-             setTimeout(function(){ $('.kiBar').toggle(); }, 5000);
-             setTimeout(function(){ $('.kiBorder').toggle(); }, 5000);
+             setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 3000);
+             setTimeout(function(){ $('#topRow').toggle(); }, 3000);
+             setTimeout(function(){ $('#battleScreen').toggle(); }, 3000);
+             setTimeout(function(){ $('#battleScreen').css({'display': 'flex'}); }, 3000);
+             setTimeout(function(){ $('#battle1').toggle(); }, 3000);
+             setTimeout(function(){ $('#battle1' + res.name).css({'display': 'block'}); }, 3000);
+             setTimeout(function(){ $('#battle2').toggle(); }, 3000);
+             setTimeout(function(){ $('#battle2' + res.name).css({'display': 'block'}); }, 3000);
+             setTimeout(function(){ $('.hpBar').toggle(); }, 3000);
+             setTimeout(function(){ $('.hpBorder').toggle(); }, 3000);
+             setTimeout(function(){ $('.kiBar').toggle(); }, 3000);
+             setTimeout(function(){ $('.kiBorder').toggle(); }, 3000);
              
              
              $(document).ready(function () {
@@ -1150,10 +1092,51 @@ rosterObject.fighters.forEach(res => {
                      $('#battleScreen').css('background-image', 'url(img/hyrule.jpeg');
                      $('#battleScreen').css('background-size', 'cover');
                  }
+
+                 
                  // p1Move1 Effects on Player 2
+                
+                 // ON CLICK FUNCTIONS FOR BUTTONS
+                 
+                 // PLAYER 1 BUTTONS
+
                  $('#p1Move1').click(function() {
-                     console.log(res.moves)
-                     if (p1Move1Selection = "Rasengan") {
+                     if ((p1Move1Selection == "Rasengan" || "Chidori")  && (p1KiTotals > 154)) {
+                         
+                         var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
+                         console.log(p1FighterNameDiv);
+                         var p1FighterMoveDiv = document.getElementById("p1Move1").innerText;
+                         console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
+                         
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+
+                         
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         console.log("damage = "+ damage);
+                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+
+                         //Ki Set Up
+                         p1KiTotals -= 155;
+                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                         p1Ki.style.width = P1KiBarWidth + "px";
+                     }
+                 });
+                 
+                 
+                 $('#p1Move2').click(function() {
+                     if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
+                         
+                         var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
+                         console.log(p1FighterNameDiv);
+                         var p1FighterMoveDiv = document.getElementById("p1Move2").innerText;
+                         console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
+                         
+                         
                          var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                          p2HP.style.width = P2HPBarWidth + "px";
 
@@ -1161,20 +1144,166 @@ rosterObject.fighters.forEach(res => {
                          var damage = Math.round(Math.random() * 60 + 45);
                          p2HPTotals -= damage;
                          if (p2HPTotals < 0) {
-                             p2HPTotals = 0
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+                         //Ki Set Up
+                         p1KiTotals -= 155;
+                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                         p1Ki.style.width = P1KiBarWidth + "px";
+                     }
+                 });
+                 
+                 
+                 $('#p1Move3').click(function() {
+                     if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning") && (p1KiTotals > 154)) {
+
+                         var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
+                         console.log(p1FighterNameDiv);
+                         var p1FighterMoveDiv = document.getElementById("p1Move3").innerText;
+                         console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
+                         
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
                          }
 
                          //Ki Set Up
                          p1KiTotals -= 155;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
+                     }
+                 });
+                 $('#p1MoveUlt').click(function() {
+                     if ((p1MoveUltSelection == "RasenShuriken" || "Kirin") && (p1KiTotals > 154)) {
 
-                         console.log("Naruto used " + p1Move1Selection + "!");
+                         var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
+                         console.log(p1FighterNameDiv);
+                         var p1FighterMoveDiv = document.getElementById("p1MoveUlt").innerText;
+                         console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
+                         
+                         
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+
+                         //Ki Set Up
+                         p1KiTotals -= 155;
+                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                         p1Ki.style.width = P1KiBarWidth + "px";
                      }
                  });
                  
-                 
+                 // PLAYER 2 BUTTONS
+
+                 $('#p2Move1').click(function() {
+                     if ((p2Move1Selection == "Rasengan" || "Chidori")  && (p2KiTotals > 154)) {
+                         //Ki Set Up
+                         p2KiTotals -= 155;
+                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
+                         p2Ki.style.width = P2KiBarWidth + "px";
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p1HPTotals -= damage;
+                         if (p1HPTotals < 0) {
+                             p1HPTotals = 0;
+                             console.log(res.name + " wins the fight!");
+                         }
+
+                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+                         var p1HP = document.getElementById("p1Health");
+                         p1HP.style.width = P1HPBarWidth + "px";
+
+                         console.log(res.name + " used " + p2Move1Selection + "!");
+                     }
+                 });
+
+
+                 $('#p2Move2').click(function() {
+                     if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
+                       //Ki Set Up
+                         p2KiTotals -= 155;
+                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
+                         p2Ki.style.width = P2KiBarWidth + "px";
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p1HPTotals -= damage;
+                         if (p1HPTotals < 0) {
+                             p1HPTotals = 0
+                             console.log(res.name + " wins the fight!");
+                         }
+
+                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+                         var p1HP = document.getElementById("p1Health");
+                         p1HP.style.width = P1HPBarWidth + "px";
+
+                         console.log(res.name + " used " + p2Move2Selection + "!");
+                     }
+                 });
+
+
+                 $('#p2Move3').click(function() {
+                     if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning") && (p2KiTotals > 154)) {
+                        //Ki Set Up
+                         p2KiTotals -= 155;
+                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
+                         p2Ki.style.width = P2KiBarWidth + "px";
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p1HPTotals -= damage;
+                         if (p1HPTotals < 0) {
+                             p1HPTotals = 0;
+                             console.log(res.name + " wins the fight!");
+                         }
+
+                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+                         var p1HP = document.getElementById("p1Health");
+                         p1HP.style.width = P1HPBarWidth + "px";
+
+                         console.log(res.name + " used " + p2Move3Selection + "!");
+                     }
+                 });
+                 $('#p2MoveUlt').click(function() {
+                     if ((p2MoveUltSelection == "RasenShuriken" || "Kirin") && (p2KiTotals > 154)) {
+                          //Ki Set Up
+                         p2KiTotals -= 155;
+                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
+                         p2Ki.style.width = P2KiBarWidth + "px";
+                         
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p1HPTotals -= damage;
+                         if (p1HPTotals < 0) {
+                             p1HPTotals = 0;
+                             console.log(res.name + " wins the fight!");
+                         }
+                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+                         var p1HP = document.getElementById("p1Health");
+                         p1HP.style.width = P1HPBarWidth + "px";
+                         console.log(res.name + " used " + p2MoveUltSelection + "!");
+
+                     }
+                 });
+
              });
+            var p2Move1Selection = res.moves[0];
+            var p2Move2Selection = res.moves[1];
+            var p2Move3Selection = res.moves[2];
+            var p2MoveUltSelection = res.ultimate;
+            var p2FighterName = res.name;
+            
         })
     });
 
