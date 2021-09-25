@@ -23,7 +23,11 @@ $('body').keyup(function(event) {
     }
 
 });
-
+//Define Health Variables
+var p1HPTotals = 1200;
+var p2HPTotals = 1200;
+var p1KiTotals = 1200;
+var p2KiTotals = 1200;
 var topRow = document.getElementById("topRow");
 // Holds the data for all characters;
 var rosterObject = {
@@ -516,26 +520,26 @@ var rosterObject = {
 rosterObject.fighters.forEach(res => {
 
     //This is rendering a card and class designation
-    let card = document.createElement("div");
+    var card = document.createElement("div");
     card.className = res.series;
 
-    // Tried using linebreak as a let or const and it wasn't working, went with a var and reproduced through out because JS gonna JS
+    // Tried using linebreak as a var or const and it wasn't working, went with a var and reproduced through out because JS gonna JS
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
 
     //Adding toggle for selecting 1st character
-    let label = document.createElement('button');
+    var label = document.createElement('button');
     label.className = "charSelBtn1";
     label.id = res.id + "charSelectBtn1";
-    let p1 = document.createTextNode('P1 (Away)');
+    var p1 = document.createTextNode('P1 (Away)');
     label.appendChild(p1);
     //
-    // let input = document.createElement('input');
+    // var input = document.createElement('input');
     // input.type = "checkbox";
     // label.appendChild(input);
     //
-    // let span = document.createElement('span');
+    // var span = document.createElement('span');
     // span.className = "slider slider1";
     // span.id = "charID" + res.id;
     // label.appendChild(span);
@@ -543,18 +547,18 @@ rosterObject.fighters.forEach(res => {
     card.appendChild(label);
 
 //Adding toggle for selecting 2nd character
-    let label2 = document.createElement('button');
+    var label2 = document.createElement('button');
     label2.className = "charSelBtn2";
     label2.id = "charSelectBtn2" + res.id;
-    let p2 = document.createTextNode('P2 (Home)');
+    var p2 = document.createTextNode('P2 (Home)');
     label2.appendChild(p2);
     
 
-    // let input2 = document.createElement('input');
+    // var input2 = document.createElement('input');
     // input2.type = "checkbox";
     // label2.appendChild(input2);
     //
-    // let span2 = document.createElement('span');
+    // var span2 = document.createElement('span');
     // span2.className = "slider slider2";
     // span2.id = "charID" + res.id + "extra";
     // label2.appendChild(span2);
@@ -562,48 +566,48 @@ rosterObject.fighters.forEach(res => {
     card.appendChild(label2);
     
     //Rendering an image element/class desgination and directing the source to read the base64 string storing the image 
-    let image = document.createElement("img");
+    var image = document.createElement("img");
     image.src = res.img;
     image.className = "charSelectImg";
     card.appendChild(image);
 
     //Displaying further character Data
-    let name = document.createTextNode('Name: ' + res.name + '');
+    var name = document.createTextNode('Name: ' + res.name + '');
     card.appendChild(name);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let series = document.createTextNode('Series: ' + res.series + '');
+    var series = document.createTextNode('Series: ' + res.series + '');
     card.appendChild(series);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let rivals = document.createTextNode('Rival(s): ' + res.rivals);
+    var rivals = document.createTextNode('Rival(s): ' + res.rivals);
     card.appendChild(rivals);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let atk = document.createTextNode('Attack: ' + res.atk);
+    var atk = document.createTextNode('Attack: ' + res.atk);
     card.appendChild(atk);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let def = document.createTextNode('Defense: ' + res.defend);
+    var def = document.createTextNode('Defense: ' + res.defend);
     card.appendChild(def);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let aurAtk = document.createTextNode('AuraAtk: ' + res.atkaura);
+    var aurAtk = document.createTextNode('AuraAtk: ' + res.atkaura);
     card.appendChild(aurAtk);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let aurDef = document.createTextNode('AuraDef: ' + res.defaura);
+    var aurDef = document.createTextNode('AuraDef: ' + res.defaura);
     card.appendChild(aurDef);
     var linebreak = document.createElement('br');
     card.appendChild(linebreak);
 
-    let spd = document.createTextNode('Speed: ' + res.speed);
+    var spd = document.createTextNode('Speed: ' + res.speed);
     card.appendChild(spd);
 
 
@@ -690,22 +694,22 @@ rosterObject.fighters.forEach(res => {
             topRow.innerHTML += "You selected " + player1Name + " as Player 1! <br>"
 
             //Player 1 Info Box
-            let player1InfoBox = document.createElement("div");
+            var player1InfoBox = document.createElement("div");
             player1InfoBox.id = "battle1";
 
             //Player 1 Character Name Render to Info Box
             var charNameHeader1 = document.createElement('h2')
             charNameHeader1.idName = "charNameHeader1" + res.name;
-            let p1Name = document.createTextNode('' + res.name);
+            var p1Name = document.createTextNode('' + res.name);
             charNameHeader1.appendChild(p1Name);
             player1InfoBox.appendChild(charNameHeader1);
 
             //Player 1 Character Img Render to Info Box
-            let image1 = document.createElement("img");
+            var image1 = document.createElement("img");
             image1.src = res.img;
             image1.id = "p1Img";
 
-            let p1Image = document.createElement("div");
+            var p1Image = document.createElement("div");
             p1Image.id = "p1ImageDiv"
             p1Image.appendChild(image1);
             player1InfoBox.appendChild(p1Image);
@@ -717,15 +721,15 @@ rosterObject.fighters.forEach(res => {
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader1 = document.createElement('h2')
             hpHeader1.id = "hpHeader1" + res.name;
-            let barNameHP1 = document.createTextNode('HP');
+            var barNameHP1 = document.createTextNode('HP');
             hpHeader1.appendChild(barNameHP1);
             player1InfoBox.appendChild(hpHeader1);
             
             
-            let p1HealthBorder = document.createElement("div");
+            var p1HealthBorder = document.createElement("div");
             p1HealthBorder.className = "hpBorder";
             p1HealthBorder.id = "p1HealthBorder";
-            let p1HP = document.createElement("div")
+            var p1HP = document.createElement("div")
             p1HP.className = "hpBar";
             p1HP.id = "p1Health";
             p1HealthBorder.appendChild(p1HP);
@@ -736,14 +740,14 @@ rosterObject.fighters.forEach(res => {
 
             var kiHeader1 = document.createElement('h2')
             kiHeader1.id = "kiHeader1" + res.name;
-            let barNameKI1 = document.createTextNode('KI');
+            var barNameKI1 = document.createTextNode('KI');
             kiHeader1.appendChild(barNameKI1);
             player1InfoBox.appendChild(kiHeader1); 
             
-            let p1KiBorder = document.createElement("div");
+            var p1KiBorder = document.createElement("div");
             p1KiBorder.className = "kiBorder";
             p1KiBorder.id = "p1KiBorder";
-            let p1Ki = document.createElement("div")
+            var p1Ki = document.createElement("div")
             p1Ki.className = "kiBar";
             p1Ki.id = "p1Ki";
             p1KiBorder.appendChild(p1Ki);
@@ -757,18 +761,19 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character 1st Move Button Render to Info Box
             var p1move1btn = document.createElement("btn")
             p1move1btn.id = "p1Move1";
-            let p1move1name = document.createTextNode('' + res.moves[0]);
+            var p1move1name = document.createTextNode('' + res.moves[0]);
             p1move1btn.appendChild(p1move1name);
             player1InfoBox.appendChild(p1move1btn);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
-
+            
+            
             //Player1 Character 2nd Move Button Render to Info Box
             var p1move2btn = document.createElement("btn")
             p1move2btn.id = "p1Move2";
-            let p1move2name = document.createTextNode('' + res.moves[1]);
+            var p1move2name = document.createTextNode('' + res.moves[1]);
             p1move2btn.appendChild(p1move2name);
             player1InfoBox.appendChild(p1move2btn);
             var linebreak = document.createElement('br');
@@ -779,7 +784,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character 3rd Move Button Render to Info Box
             var p1move3btn = document.createElement("btn")
             p1move3btn.id = "p1Move3";
-            let p1move3name = document.createTextNode('' + res.moves[2]);
+            var p1move3name = document.createTextNode('' + res.moves[2]);
             p1move3btn.appendChild(p1move3name);
             player1InfoBox.appendChild(p1move3btn);
             var linebreak = document.createElement('br');
@@ -790,7 +795,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character Ultimate Move Button Render to Info Box
             var p1moveUltbtn = document.createElement("btn")
             p1moveUltbtn.id = "p1MoveUlt";
-            let p1moveUltname = document.createTextNode('' + res.ultimate);
+            var p1moveUltname = document.createTextNode('' + res.ultimate);
             p1moveUltbtn.appendChild(p1moveUltname);
             player1InfoBox.appendChild(p1moveUltbtn);
             var linebreak = document.createElement('br');
@@ -801,26 +806,29 @@ rosterObject.fighters.forEach(res => {
             // Render Stats For Player 1
             var stats1 = document.createElement('h2')
             stats1.id = "stats1" + res.name;
-            let p1Atk = document.createTextNode('Attack: ' + res.atk);
+            var p1Atk = document.createTextNode('Attack: ' + res.atk);
             stats1.appendChild(p1Atk);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1Def = document.createTextNode('Defense: ' + res.defend);
+            var p1Def = document.createTextNode('Defense: ' + res.defend);
             stats1.appendChild(p1Def);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
+            var p1AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
             stats1.appendChild(p1AtkAura);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
+            var p1DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
             stats1.appendChild(p1DefAura);
             var linebreak = document.createElement('br');
             stats1.appendChild(linebreak);
-            let p1Spd = document.createTextNode('Speed: ' + res.speed);
+            var p1Spd = document.createTextNode('Speed: ' + res.speed);
             stats1.appendChild(p1Spd);
             player1InfoBox.appendChild(stats1);
-
+            
+            
+            
+            
 
             $(document).ready(function () {
                 if (res.series == "Dragonball") {
@@ -863,14 +871,26 @@ rosterObject.fighters.forEach(res => {
                     $('#battle1').css('background-image', 'url(img/zelda-bg.png');
                     $('#battle1').css('background-size', 'cover');
                 }
+                console.log(res.moves);
+                console.log(res.moves);
             });
-            
+            // p1Move1 Effects on Player 1
+
+            console.log(res.moves);
             //Append Player1 Info Box to battleScreen Div
-            let battleContainer = document.querySelector("#battleScreen");
+            var battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
+
         })
 
-
+        
+        //Declaring Variables for P1 Data To Be Manipulated Later In Script
+        var p1Move1Selection = res.moves[0];
+        var p1Move2Selection = res.moves[1];
+        var p1Move2Selection = res.moves[2];
+        
+        
+        
         $('#charSelectBtn2' + res.id).click(function(){
 
             $('.charSelBtn2').prop("disabled", true);
@@ -901,21 +921,21 @@ rosterObject.fighters.forEach(res => {
             
             // Check res.series for value and change p1 and p2 background based on it.
             //Player 2 Info Box
-             let player2InfoBox = document.createElement("div");
+             var player2InfoBox = document.createElement("div");
              player2InfoBox.id = "battle2";
              
              //Player 2 Character Name Render to Info Box
              var charNameHeader2 = document.createElement('h2')
              charNameHeader2.id = "charNameHeader2" + res.name;
-             let p2Name = document.createTextNode('' + res.name);
+             var p2Name = document.createTextNode('' + res.name);
              charNameHeader2.appendChild(p2Name);
              player2InfoBox.appendChild(charNameHeader2);
              
              //Player 2 Character Img Render to Info Box
-             let image2 = document.createElement("img");
+             var image2 = document.createElement("img");
              image2.src = res.img;
              image2.id = "p2Img"; 
-             let p2Image = document.createElement("div");
+             var p2Image = document.createElement("div");
              p2Image.id = "p2ImageDiv";
              p2Image.appendChild(image2);
              player2InfoBox.appendChild(p2Image);
@@ -939,14 +959,14 @@ rosterObject.fighters.forEach(res => {
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader2 = document.createElement('h2')
             hpHeader2.id = "hpHeader2" + res.name;
-            let barNameHP2 = document.createTextNode('HP');
+            var barNameHP2 = document.createTextNode('HP');
             hpHeader2.appendChild(barNameHP2);
             player2InfoBox.appendChild(hpHeader2);
             
-            let p2HealthBorder = document.createElement("div");
+            var p2HealthBorder = document.createElement("div");
             p2HealthBorder.className = "hpBorder";
             p2HealthBorder.id = "p2HealthBorder";
-            let p2HP = document.createElement("div")
+            var p2HP = document.createElement("div")
             p2HP.className = "hpBar";
             p2HP.id = "p2Health";
             p2HealthBorder.appendChild(p2HP);
@@ -956,14 +976,14 @@ rosterObject.fighters.forEach(res => {
             
             var kiHeader2 = document.createElement('h2')
             kiHeader2.id = "kiHeader2" + res.name;
-            let barNameKI2 = document.createTextNode('KI');
+            var barNameKI2 = document.createTextNode('KI');
             kiHeader2.appendChild(barNameKI2);
             player2InfoBox.appendChild(kiHeader2);
 
-            let p2KiBorder = document.createElement("div");
+            var p2KiBorder = document.createElement("div");
             p2KiBorder.className = "kiBorder";
             p2KiBorder.id = "p2KiBorder";
-            let p2Ki = document.createElement("div")
+            var p2Ki = document.createElement("div")
             p2Ki.className = "kiBar";
             p2Ki.id = "p2Ki";
             p2KiBorder.appendChild(p2Ki);
@@ -977,7 +997,7 @@ rosterObject.fighters.forEach(res => {
             //Player2 Character 1st Move Button Render to Info Box
              var p2move1btn = document.createElement("btn")
              p2move1btn.id = "p2Move1";
-             let p2move1name = document.createTextNode('' + res.moves[0]);
+             var p2move1name = document.createTextNode('' + res.moves[0]);
              p2move1btn.appendChild(p2move1name);
              player2InfoBox.appendChild(p2move1btn);
              var linebreak = document.createElement('br');
@@ -988,7 +1008,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character 2nd Move Button Render to Info Box
              var p2move2btn = document.createElement("btn")
              p2move2btn.id = "p2Move2";
-             let p2move2name = document.createTextNode('' + res.moves[1]);
+             var p2move2name = document.createTextNode('' + res.moves[1]);
              p2move2btn.appendChild(p2move2name);
              player2InfoBox.appendChild(p2move2btn);
              var linebreak = document.createElement('br');
@@ -999,7 +1019,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character 3rd Move Button Render to Info Box
              var p2move3btn = document.createElement("btn")
              p2move3btn.id = "p2Move3";
-             let p2move3name = document.createTextNode('' + res.moves[2]);
+             var p2move3name = document.createTextNode('' + res.moves[2]);
              p2move3btn.appendChild(p2move3name);
              player2InfoBox.appendChild(p2move3btn);
              var linebreak = document.createElement('br');
@@ -1010,7 +1030,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character Ultimate Move Button Render to Info Box
              var p2moveUltbtn = document.createElement("btn")
              p2moveUltbtn.id = "p2MoveUlt";
-             let p2moveUltname = document.createTextNode('' + res.ultimate);
+             var p2moveUltname = document.createTextNode('' + res.ultimate);
              p2moveUltbtn.appendChild(p2moveUltname);
              player2InfoBox.appendChild(p2moveUltbtn);
              var linebreak = document.createElement('br');
@@ -1021,29 +1041,29 @@ rosterObject.fighters.forEach(res => {
              // Render Stats For Player 2
              var stats2 = document.createElement('h2')
              stats2.id = "stats2" + res.name;
-             let p2Atk = document.createTextNode('Attack: ' + res.atk);
+             var p2Atk = document.createTextNode('Attack: ' + res.atk);
              stats2.appendChild(p2Atk);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2Def = document.createTextNode('Defense: ' + res.defend);
+             var p2Def = document.createTextNode('Defense: ' + res.defend);
              stats2.appendChild(p2Def);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
+             var p2AtkAura = document.createTextNode('Aura Attack: ' + res.atkaura);
              stats2.appendChild(p2AtkAura);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
+             var p2DefAura = document.createTextNode('Aura Defense: ' + res.defaura);
              stats2.appendChild(p2DefAura);
              var linebreak = document.createElement('br');
              stats2.appendChild(linebreak);
-             let p2Spd = document.createTextNode('Speed: ' + res.speed);
+             var p2Spd = document.createTextNode('Speed: ' + res.speed);
              stats2.appendChild(p2Spd);
              player2InfoBox.appendChild(stats2);
 
              
              //Append Player2 Info Box to battleScreen Div
-             let battleContainer = document.querySelector("#battleScreen");
+             var battleContainer = document.querySelector("#battleScreen");
              battleContainer.appendChild(player2InfoBox);
              
              
@@ -1130,12 +1150,36 @@ rosterObject.fighters.forEach(res => {
                      $('#battleScreen').css('background-image', 'url(img/hyrule.jpeg');
                      $('#battleScreen').css('background-size', 'cover');
                  }
+                 // p1Move1 Effects on Player 2
+                 $('#p1Move1').click(function() {
+                     console.log(res.moves)
+                     if (p1Move1Selection = "Rasengan") {
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+
+
+                         var damage = Math.round(Math.random() * 60 + 45);
+                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0
+                         }
+
+                         //Ki Set Up
+                         p1KiTotals -= 155;
+                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                         p1Ki.style.width = P1KiBarWidth + "px";
+
+                         console.log("Naruto used " + p1Move1Selection + "!");
+                     }
+                 });
+                 
+                 
              });
         })
     });
 
     //Adds cards and all stored data to container for characters
-    let container = document.querySelector("#characterSelectScreen");
+    var container = document.querySelector("#characterSelectScreen");
     container.appendChild(card);
 
     $('#' + res.id + 'charSelectBtn1').click(function() {
