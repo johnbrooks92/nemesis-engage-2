@@ -1,5 +1,69 @@
 "use strict";
 
+
+// function recoverGoku() {
+// //     document.getElementById("GokuHealthAudio").play();
+// //     sonHP = 1200
+// //     var GokuHPBar = (sonHP/1200)*300;
+// //     GokuHP.style.width = GokuHPBar + "px";
+// //     bottomRow.innerHTML += "<br>Goku recovered his health! Goku now has " + sonHP + " HP remaining.";
+// //     GokuHealthBtn.disabled = true;
+// // }
+// function senzu1() {
+//     document.getElementById("GokuHealthAudio").play(); - change to Krillin saying "SENZU BEAN!" in TFS
+//     p1HP = 1200
+//     var p1HPBar = (p1HP/1200)*300;
+//     p1HP.style.width = p1HPBar + "px";
+//     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
+//     GokuHealthBtn.disabled = true;
+// }
+// function senzu2() {
+//     document.getElementById("GokuHealthAudio").play(); - change to Krillin saying "SENZU BEAN!" in TFS
+//     p1HP = 1200
+//     var p1HPBar = (p1HP/1200)*300;
+//     p1HP.style.width = p1HPBar + "px";
+//     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
+//     GokuHealthBtn.disabled = true;
+// }
+
+
+
+//
+// function kiGoku() {
+//     document.getElementById("GokuKiAudio").play(); 
+//     if(sonKi<=800) {
+//         sonKi += 400;
+//     } else if(sonKi>800) {
+//         sonKi = 1200
+//     }
+//     var GokuKiBar = (sonKi/1200)*300;
+//     GokuKi.style.width = GokuKiBar + "px";
+//     bottomRow.innerHTML += "<br>Goku recovered his ki! Goku now has " + sonKi + " Ki remaining.";
+// }//
+// function auraRecovery1() {
+//     document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
+//     if(p1Ki<=800) {
+//         p1Ki += 400;
+//     } else if(p1Ki>800) {
+//         p1Ki = 1200
+//     }
+//     var p1KiBar = (p1Ki/1200)*300;
+//     p1Ki.style.width = p1KiBar + "px";
+//     bottomRow.innerHTML += "<br>" + Res.name + " recovered his ki!" + res.name(p1) + " now has " + p1Ki + " Ki remaining.";
+// }
+// function auraRecovery2() {
+//     document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
+//     if(p2Ki<=800) {
+//         p2Ki += 400;
+//     } else if(p2Ki>800) {
+//         p2Ki = 1200
+//     }
+//     var p2KiBar = (p2Ki/1200)*300;
+//     p2Ki.style.width = p2KiBar + "px";
+//     bottomRow.innerHTML += "<br>" + Res.name + " recovered his ki!" + res.name(p2) + " now has " + p2Ki + " Ki remaining.";
+// }
+
+
 //When I press enter, character select displays
 
 var beginCode=[13];
@@ -725,7 +789,29 @@ rosterObject.fighters.forEach(res => {
             player1InfoBox.appendChild(linebreak);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
-            
+
+
+            //Player1 Senzu Bean Button Render to Info Box
+            var p1SenzuBtn = document.createElement("btn")
+            p1SenzuBtn.id = "p1SenzuBtn";
+            var p1SenzuName = document.createTextNode("HP Recovery");
+            p1SenzuBtn.appendChild(p1SenzuName);
+            player1InfoBox.appendChild(p1SenzuBtn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+
+            //Player1 Aura Recovery Button Render to Info Box
+            var p1AuraRecBtn = document.createElement("btn")
+            p1AuraRecBtn.id = "p1AuraRecBtn";
+            var p1AuraRecName = document.createTextNode("Ki Recovery");
+            p1AuraRecBtn.appendChild(p1AuraRecName);
+            player1InfoBox.appendChild(p1AuraRecBtn);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player1InfoBox.appendChild(linebreak);
             
             //Player1 Character 1st Move Button Render to Info Box
             var p1move1btn = document.createElement("btn")
@@ -771,6 +857,8 @@ rosterObject.fighters.forEach(res => {
             player1InfoBox.appendChild(linebreak);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
+            
+           
 
             // Render Stats For Player 1
             var stats1 = document.createElement('h2')
@@ -784,8 +872,6 @@ rosterObject.fighters.forEach(res => {
             p1Atk.id = "p1Atk";
             p1AtkDiv.appendChild(p1Atk);
             stats1.appendChild(p1AtkDiv);
-            var linebreak = document.createElement('br');
-            stats1.appendChild(linebreak); 
             
             
             var p1DefDiv = document.createElement("div");
@@ -795,8 +881,6 @@ rosterObject.fighters.forEach(res => {
             p1Def.id = "p1Def";
             p1DefDiv.appendChild(p1Def);
             stats1.appendChild(p1DefDiv);
-            var linebreak = document.createElement('br');
-            stats1.appendChild(linebreak);
             
             
             var p1AuraAtkDiv = document.createElement("div");
@@ -806,8 +890,6 @@ rosterObject.fighters.forEach(res => {
             p1AuraAtk.id = "p1AuraAtk";
             p1AuraAtkDiv.appendChild(p1AuraAtk);
             stats1.appendChild(p1AuraAtkDiv);
-            var linebreak = document.createElement('br');
-            stats1.appendChild(linebreak);
 
 
             var p1AuraDefDiv = document.createElement("div");
@@ -817,19 +899,15 @@ rosterObject.fighters.forEach(res => {
             p1AuraDef.id = "p1AuraDef";
             p1AuraDefDiv.appendChild(p1AuraDef);
             stats1.appendChild(p1AuraDefDiv);
-            var linebreak = document.createElement('br');
-            stats1.appendChild(linebreak);
             
             
             var p1SpdDiv = document.createElement("div");
             p1SpdDiv.className = "p1StatDiv";
             p1SpdDiv.id = "p1SpdDiv";
-            var p1Spd = document.createTextNode('Speed: ' + res.atk);
+            var p1Spd = document.createTextNode('Speed: ' + res.speed);
             p1Spd.id = "p1Spd";
             p1SpdDiv.appendChild(p1Spd);
             stats1.appendChild(p1SpdDiv);
-            var linebreak = document.createElement('br');
-            stats1.appendChild(linebreak);
             player1InfoBox.appendChild(stats1);
             
             
@@ -976,79 +1054,6 @@ rosterObject.fighters.forEach(res => {
                 }
             });
 
-            
-            //P1 Stat Change Formulas on P2 Buttons
-          
-            
-            $('#p2Move2').click(function() {
-                if ((p2Move2Confirmed == "Uzumaki Barrage" || "Barrage of Lions")  && (p2KiTotals > 154)) {
-         
-
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
-                    
-                    
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
-                    p1Atk.textContent = 'Attack: ' + newP1Atk;
-                    p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
-                    p1Spd.textContent = 'Speed: ' + newP1Spd;
-                }
-            });
-            $('#p2Move3').click(function() {
-
-                if ((p2Move3Confirmed == "Toad Summoning" || "Snake Summoning")  && (p2KiTotals > 154)) {
-
-       
-
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
-                    
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
-                    p1Atk.textContent = 'Attack: ' + newP1Atk;
-                    p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
-                    p1Spd.textContent = 'Speed: ' + newP1Spd;
-                }
-            });
-            $('#p2MoveUlt').click(function() {
-                if ((p2MoveUltConfirmed == "RasenShuriken" || "Kirin")  && (p2KiTotals > 154)) {
-   
-                    p1AtkCounter +=-2;
-                    p1AuraAtkCounter +=-2;
-                    p1DefCounter +=-2;
-                    p1AuraDefCounter +=-2;
-                    p1SpdCounter +=-2;
-
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
-                    p1Atk.textContent = 'Attack: ' + newP1Atk;
-                    p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
-                    p1Spd.textContent = 'Speed: ' + newP1Spd;
-                }
-            });
-
         })
         //Declaring Variables for P1 Data To Be Manipulated Later In Script
         var p1Move1Selection = res.moves[0];
@@ -1160,7 +1165,28 @@ rosterObject.fighters.forEach(res => {
             player2InfoBox.appendChild(linebreak);
             var linebreak = document.createElement('br');
             player2InfoBox.appendChild(linebreak);
-            
+
+            //Player2 Senzu Bean Button Render to Info Box
+            var p2SenzuBtn = document.createElement("btn")
+            p2SenzuBtn.id = "p2SenzuBtn";
+            var p2SenzuName = document.createTextNode("HP Recovery");
+            p2SenzuBtn.appendChild(p2SenzuName);
+            player2InfoBox.appendChild(p2SenzuBtn);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+
+            //Player2 Aura Recovery Button Render to Info Box
+            var p2AuraRecBtn = document.createElement("btn")
+            p2AuraRecBtn.id = "p2AuraRecBtn";
+            var p2AuraRecName = document.createTextNode("Ki Recovery");
+            p2AuraRecBtn.appendChild(p2AuraRecName);
+            player2InfoBox.appendChild(p2AuraRecBtn);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
+            var linebreak = document.createElement('br');
+            player2InfoBox.appendChild(linebreak);
 
             //Player2 Character 1st Move Button Render to Info Box
              var p2move1btn = document.createElement("btn")
@@ -1205,6 +1231,8 @@ rosterObject.fighters.forEach(res => {
              player2InfoBox.appendChild(linebreak);
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
+
+        
 
              // Render Stats For Player 2
              var stats2 = document.createElement('h2')
