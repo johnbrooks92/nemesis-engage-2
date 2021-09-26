@@ -844,6 +844,195 @@ rosterObject.fighters.forEach(res => {
             //Append Player1 Info Box to battleScreen Div
             var battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
+            
+            //P1 Stat Change Formulas
+            $('#p1Move1').click(function() {
+                if ((p1Move1Selection == "Rasengan" || "Chidori")  && (p1KiTotals > 154)) {
+                    
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                   
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                    
+                   
+                }
+            });
+            $('#p1Move2').click(function() {
+                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
+                   
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p1Move3').click(function() {
+                if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning")  && (p1KiTotals > 154)) {
+
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p1MoveUlt').click(function() {
+                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin")  && (p1KiTotals > 154)) {
+          
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            
+            
+            //P1 Stat Change Formulas on P2 Buttons
+            $('#p2Move1').click(function() {
+                if ((p2Move1Selection == "Rasengan" || "Chidori")  && (p2KiTotals > 154)) {
+            
+
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                   
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                    
+                   
+                }
+            });
+            $('#p2Move2').click(function() {
+                if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p2KiTotals > 154)) {
+         
+
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p2Move3').click(function() {
+                if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning")  && (p2KiTotals > 154)) {
+
+       
+
+                    p1AtkCounter +=5;
+                    p1DefCounter +=5;
+                    p1AuraAtkCounter +=5;
+                    p1AuraDefCounter +=5;
+                    p1SpdCounter +=-5;
+                    
+                    
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p2MoveUlt').click(function() {
+                if ((p2MoveUltSelection == "RasenShuriken" || "Kirin")  && (p2KiTotals > 154)) {
+   
+                    p1AtkCounter +=-2;
+                    p1AuraAtkCounter +=-2;
+                    p1DefCounter +=-2;
+                    p1AuraDefCounter +=-2;
+                    p1SpdCounter +=-2;
+
+                    var newP1Atk = p1FightAtk + p1AtkCounter;
+                    var newP1Def = p1FightDef + p1DefCounter;
+                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
+                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
 
         })
         //Declaring Variables for P1 Data To Be Manipulated Later In Script
@@ -852,6 +1041,17 @@ rosterObject.fighters.forEach(res => {
         var p1Move3Selection = res.moves[2];
         var p1MoveUltSelection = res.ultimate;
         var p1FighterName = res.name;
+        var p1FightAtk = res.atk;
+        var p1FightDef = res.defend;
+        var p1FightAuraAtk = res.atkaura;
+        var p1FightAuraDef = res.defaura;
+        var p1FightSpd = res.speed;
+        var p1AtkCounter = 0;
+        var p1DefCounter = 0;
+        var p1AuraAtkCounter = 0;
+        var p1AuraDefCounter = 0;
+        var p1SpdCounter = 0;
+       
         
         
         //Stores P2 Data Once Selected and Renders in Battle Screen
@@ -1015,8 +1215,7 @@ rosterObject.fighters.forEach(res => {
              battleContainer.appendChild(player2InfoBox);
              
              
-             //Add timeout delay toggle and display countdown
-             // $('#characterSelectScreen').toggle();
+             // Switching to 
              setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 3000);
              setTimeout(function(){ $('#topRow').toggle(); }, 3000);
              setTimeout(function(){ $('#battleScreen').toggle(); }, 3000);
@@ -1101,7 +1300,16 @@ rosterObject.fighters.forEach(res => {
                  // PLAYER 1 BUTTONS
 
                  $('#p1Move1').click(function() {
+                     //Move Type 1 = Classic Beam Ball Type Beat
                      if ((p1Move1Selection == "Rasengan" || "Chidori")  && (p1KiTotals > 154)) {
+
+
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+                         
                          
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
@@ -1111,7 +1319,7 @@ rosterObject.fighters.forEach(res => {
                          var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                          p2HP.style.width = P2HPBarWidth + "px";
 
-                         
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          console.log("damage = "+ damage);
                          p2HPTotals -= damage;
@@ -1124,13 +1332,26 @@ rosterObject.fighters.forEach(res => {
                          p1KiTotals -= 155;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
+                         
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+
                      }
                  });
                  
-                 
                  $('#p1Move2').click(function() {
                      if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
-                         
+                     
+                    
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
                          var p1FighterMoveDiv = document.getElementById("p1Move2").innerText;
@@ -1140,7 +1361,7 @@ rosterObject.fighters.forEach(res => {
                          var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                          p2HP.style.width = P2HPBarWidth + "px";
 
-
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p2HPTotals -= damage;
                          if (p2HPTotals < 0) {
@@ -1151,13 +1372,33 @@ rosterObject.fighters.forEach(res => {
                          p1KiTotals -= 155;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
+
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
                      }
                  });
                  
                  
                  $('#p1Move3').click(function() {
                      if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning") && (p1KiTotals > 154)) {
-
+                         
+                         
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
                          var p1FighterMoveDiv = document.getElementById("p1Move3").innerText;
@@ -1166,7 +1407,7 @@ rosterObject.fighters.forEach(res => {
                          var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                          p2HP.style.width = P2HPBarWidth + "px";
 
-
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p2HPTotals -= damage;
                          if (p2HPTotals < 0) {
@@ -1178,11 +1419,40 @@ rosterObject.fighters.forEach(res => {
                          p1KiTotals -= 155;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
+
+
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
                      }
                  });
                  $('#p1MoveUlt').click(function() {
                      if ((p1MoveUltSelection == "RasenShuriken" || "Kirin") && (p1KiTotals > 154)) {
+                         
 
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+                         
+                         
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
                          var p1FighterMoveDiv = document.getElementById("p1MoveUlt").innerText;
@@ -1192,7 +1462,7 @@ rosterObject.fighters.forEach(res => {
                          var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                          p2HP.style.width = P2HPBarWidth + "px";
 
-
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p2HPTotals -= damage;
                          if (p2HPTotals < 0) {
@@ -1204,6 +1474,18 @@ rosterObject.fighters.forEach(res => {
                          p1KiTotals -= 155;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
+                         
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
                      }
                  });
                  
@@ -1211,11 +1493,35 @@ rosterObject.fighters.forEach(res => {
 
                  $('#p2Move1').click(function() {
                      if ((p2Move1Selection == "Rasengan" || "Chidori")  && (p2KiTotals > 154)) {
+
+
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+
+
                          //Ki Set Up
                          p2KiTotals -= 155;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
@@ -1228,17 +1534,39 @@ rosterObject.fighters.forEach(res => {
                          p1HP.style.width = P1HPBarWidth + "px";
 
                          console.log(res.name + " used " + p2Move1Selection + "!");
+
                      }
                  });
 
 
                  $('#p2Move2').click(function() {
-                     if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
-                       //Ki Set Up
+                     if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p2KiTotals > 154)) {
+                  
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+                         
+                         //Ki Set Up
                          p2KiTotals -= 155;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
@@ -1251,17 +1579,40 @@ rosterObject.fighters.forEach(res => {
                          p1HP.style.width = P1HPBarWidth + "px";
 
                          console.log(res.name + " used " + p2Move2Selection + "!");
+
+                        
                      }
                  });
 
 
                  $('#p2Move3').click(function() {
                      if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning") && (p2KiTotals > 154)) {
-                        //Ki Set Up
+                 
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+                         
+                         //Ki Set Up
                          p2KiTotals -= 155;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
@@ -1274,15 +1625,40 @@ rosterObject.fighters.forEach(res => {
                          p1HP.style.width = P1HPBarWidth + "px";
 
                          console.log(res.name + " used " + p2Move3Selection + "!");
+
+                       
                      }
                  });
                  $('#p2MoveUlt').click(function() {
                      if ((p2MoveUltSelection == "RasenShuriken" || "Kirin") && (p2KiTotals > 154)) {
+                  
+
+                         //P2 Stat Changes    
+                         p2AtkCounter +=8;
+                         p2AuraAtkCounter +=8;
+                         p2DefCounter +=-5;
+                         p2AuraDefCounter +=-5;
+                         p2SpdCounter +=-2;
+
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+                         
+                         //P2 Damage and Ki/Health Adjustments
                           //Ki Set Up
                          p2KiTotals -= 155;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
-                         
+
+                         //Damage Calculator
                          var damage = Math.round(Math.random() * 60 + 45);
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
@@ -1294,6 +1670,7 @@ rosterObject.fighters.forEach(res => {
                          p1HP.style.width = P1HPBarWidth + "px";
                          console.log(res.name + " used " + p2MoveUltSelection + "!");
 
+
                      }
                  });
 
@@ -1303,7 +1680,16 @@ rosterObject.fighters.forEach(res => {
             var p2Move3Selection = res.moves[2];
             var p2MoveUltSelection = res.ultimate;
             var p2FighterName = res.name;
-            
+            var p2FightAtk = res.atk;
+            var p2FightDef = res.defend;
+            var p2FightAuraAtk = res.atkaura;
+            var p2FightAuraDef = res.defaura;
+            var p2FightSpd = res.speed;
+            var p2AtkCounter = 0;
+            var p2DefCounter = 0;
+            var p2AuraAtkCounter = 0;
+            var p2AuraDefCounter = 0;
+            var p2SpdCounter = 0;
         })
     });
 
