@@ -15,7 +15,7 @@
 //     var p1HPBar = (p1HP/1200)*300;
 //     p1HP.style.width = p1HPBar + "px";
 //     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
-//     GokuHealthBtn.disabled = true;
+//     p1SenzuBtn.disabled = true;
 // }
 // function senzu2() {
 //     document.getElementById("GokuHealthAudio").play(); - change to Krillin saying "SENZU BEAN!" in TFS
@@ -23,7 +23,7 @@
 //     var p1HPBar = (p1HP/1200)*300;
 //     p1HP.style.width = p1HPBar + "px";
 //     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
-//     GokuHealthBtn.disabled = true;
+//     p2SenzuBtn.disabled = true;
 // }
 
 
@@ -748,8 +748,6 @@ rosterObject.fighters.forEach(res => {
             player1InfoBox.appendChild(p1Image);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
-            var linebreak = document.createElement('br');
-            player1InfoBox.appendChild(linebreak);
 
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader1 = document.createElement('h2')
@@ -787,14 +785,12 @@ rosterObject.fighters.forEach(res => {
             player1InfoBox.appendChild(p1KiBorder);
             var linebreak = document.createElement('br');
             player1InfoBox.appendChild(linebreak);
-            var linebreak = document.createElement('br');
-            player1InfoBox.appendChild(linebreak);
 
 
             //Player1 Senzu Bean Button Render to Info Box
             var p1SenzuBtn = document.createElement("btn")
             p1SenzuBtn.id = "p1SenzuBtn";
-            var p1SenzuName = document.createTextNode("HP Recovery");
+            var p1SenzuName = document.createTextNode("Senzu Bean");
             p1SenzuBtn.appendChild(p1SenzuName);
             player1InfoBox.appendChild(p1SenzuBtn);
             var linebreak = document.createElement('br');
@@ -805,7 +801,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Aura Recovery Button Render to Info Box
             var p1AuraRecBtn = document.createElement("btn")
             p1AuraRecBtn.id = "p1AuraRecBtn";
-            var p1AuraRecName = document.createTextNode("Ki Recovery");
+            var p1AuraRecName = document.createTextNode("Gather Ki");
             p1AuraRecBtn.appendChild(p1AuraRecName);
             player1InfoBox.appendChild(p1AuraRecBtn);
             var linebreak = document.createElement('br');
@@ -910,7 +906,13 @@ rosterObject.fighters.forEach(res => {
             stats1.appendChild(p1SpdDiv);
             player1InfoBox.appendChild(stats1);
             
-            
+            var textBoxDiv = document.createElement("div");
+            textBoxDiv.id = "textBox";
+            var textBoxHeader = document.createElement('h2');
+            textBoxHeader.id = "textBoxHeader";
+            var textBoxHeaderText = document.createTextNode('Battle Log');
+            textBoxHeader.appendChild(textBoxHeaderText);
+            textBoxDiv.appendChild(textBoxHeader);
             
             
 
@@ -961,6 +963,47 @@ rosterObject.fighters.forEach(res => {
             //Append Player1 Info Box to battleScreen Div
             var battleContainer = document.querySelector("#battleScreen");
             battleContainer.appendChild(player1InfoBox);
+            battleContainer.appendChild(textBoxDiv);
+
+
+
+            //HP Recovery Formula
+            $('#p1SenzuBtn').click(function() {
+                p1HPTotals = 1200
+                var p1HPBar = (p1HPTotals/1200)*300;
+                p1HP.style.width = p1HPBar + "px";
+
+                textBoxDiv.innerHTML += p1FighterName + " recovered health completely! <br>";
+                var p1SenzuBtn = document.getElementById('p1SenzuBtn');
+                $(p1SenzuBtn).css('visibility', 'hidden');
+
+                var audioElement = document.createElement('audio');
+                audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
+                audioElement.setAttribute('autoplay', 'autoplay');
+                audioElement.play();
+                
+                
+            });
+            //Ki Recovery Formula
+            $('#p1AuraRecBtn').click(function() {
+
+                // document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
+                if(p1KiTotals<=800) {
+                    p1KiTotals += 400;
+                } else if(p1KiTotals>800) {
+                    p1KiTotals = 1200
+                }
+                var p1KiBar = (p1KiTotals/1200)*300;
+                p1Ki.style.width = p1KiBar + "px";
+                // bottomRow.innerHTML += "<br>" + Res.name +  - Send to textbox once made
+
+                textBoxDiv.innerHTML += p1FighterName + " recovered his ki! " + p1FighterName + " now has " + p1KiTotals + " Ki remaining.<br>";
+                var audioElement = document.createElement('audio');
+                audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
+                audioElement.setAttribute('autoplay', 'autoplay');
+                audioElement.play();
+            });
+            
             
             //P1 Stat Change Formulas
             $('#p1Move1').click(function() {
@@ -981,8 +1024,8 @@ rosterObject.fighters.forEach(res => {
                     var newP1Spd = p1FightSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
                     
                    
@@ -1005,8 +1048,8 @@ rosterObject.fighters.forEach(res => {
                     var newP1Spd = p1FightSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
                 }
             });
@@ -1027,8 +1070,8 @@ rosterObject.fighters.forEach(res => {
                     var newP1Spd = p1FightSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
                 }
             });
@@ -1048,8 +1091,8 @@ rosterObject.fighters.forEach(res => {
                     var newP1Spd = p1FightSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AtkAura.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1DefAura.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
                 }
             });
@@ -1126,8 +1169,6 @@ rosterObject.fighters.forEach(res => {
              player2InfoBox.appendChild(p2Image);
              var linebreak = document.createElement('br');
              player2InfoBox.appendChild(linebreak);
-             var linebreak = document.createElement('br');
-             player2InfoBox.appendChild(linebreak);
              
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader2 = document.createElement('h2')
@@ -1163,13 +1204,10 @@ rosterObject.fighters.forEach(res => {
             player2InfoBox.appendChild(p2KiBorder);
             var linebreak = document.createElement('br');
             player2InfoBox.appendChild(linebreak);
-            var linebreak = document.createElement('br');
-            player2InfoBox.appendChild(linebreak);
-
             //Player2 Senzu Bean Button Render to Info Box
             var p2SenzuBtn = document.createElement("btn")
             p2SenzuBtn.id = "p2SenzuBtn";
-            var p2SenzuName = document.createTextNode("HP Recovery");
+            var p2SenzuName = document.createTextNode("Senzu Bean");
             p2SenzuBtn.appendChild(p2SenzuName);
             player2InfoBox.appendChild(p2SenzuBtn);
             var linebreak = document.createElement('br');
@@ -1180,7 +1218,7 @@ rosterObject.fighters.forEach(res => {
             //Player2 Aura Recovery Button Render to Info Box
             var p2AuraRecBtn = document.createElement("btn")
             p2AuraRecBtn.id = "p2AuraRecBtn";
-            var p2AuraRecName = document.createTextNode("Ki Recovery");
+            var p2AuraRecName = document.createTextNode("Gather Ki");
             p2AuraRecBtn.appendChild(p2AuraRecName);
             player2InfoBox.appendChild(p2AuraRecBtn);
             var linebreak = document.createElement('br');
@@ -1265,6 +1303,7 @@ rosterObject.fighters.forEach(res => {
              
              // Switching to 
              setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 3000);
+             setTimeout(function(){ $('#textBox').toggle(); }, 3000);
              setTimeout(function(){ $('#topRow').toggle(); }, 3000);
              setTimeout(function(){ $('#battleScreen').toggle(); }, 3000);
              setTimeout(function(){ $('#battleScreen').css({'display': 'flex'}); }, 3000);
@@ -1345,7 +1384,44 @@ rosterObject.fighters.forEach(res => {
                  // p1Move1 Effects on Player 2
                 
                  // ON CLICK FUNCTIONS FOR BUTTONS
-                 
+
+                 //HP Recovery Formula
+                 $('#p2SenzuBtn').click(function() {
+                     p2HPTotals = 1200
+                     var p2HPBar = (p2HPTotals/1200)*300;
+                     p2HP.style.width = p2HPBar + "px";
+
+                     // bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!"; - Send to textbox once made
+                     var p2SenzuBtn = document.getElementById('p2SenzuBtn');
+                     $(p2SenzuBtn).css('visibility', 'hidden');
+
+                     var audioElement = document.createElement('audio');
+                     audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
+                     audioElement.setAttribute('autoplay', 'autoplay');
+                     audioElement.play();
+
+
+                 });
+                 //Ki Recovery Formula
+                 $('#p2AuraRecBtn').click(function() {
+
+                     if(p2KiTotals<=800) {
+                         p2KiTotals += 400;
+                     } else if(p2KiTotals>800) {
+                         p2KiTotals = 1200
+                     }
+                     var p2KiBar = (p2KiTotals/1200)*300;
+                     p2Ki.style.width = p2KiBar + "px";
+                     // bottomRow.innerHTML += "<br>" + Res.name + " recovered his ki!" + res.name(p1) + " now has " + p1Ki + " Ki remaining."; - Send to textbox once made
+
+                     var audioElement = document.createElement('audio');
+                     audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
+                     audioElement.setAttribute('autoplay', 'autoplay');
+                     audioElement.play();
+                 });
+
+
+
                  // PLAYER 1 BUTTONS
 
                  $('#p1Move1').click(function() {

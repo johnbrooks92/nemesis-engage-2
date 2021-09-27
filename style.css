@@ -77,8 +77,8 @@ h2{
     padding-top: 15rem;
 }
 #battleScreen{
-    height: 43rem;
-    width: 85rem;
+    height: 47.5rem;
+    width: 90rem;
     display: none;
     font-family: 'Goldman', cursive;
     font-size: larger;
@@ -89,7 +89,7 @@ h2{
     font-size: large;
 }
 #battle1{
-    height: 43rem;
+    height: 47.5rem;
     width: 23rem;
     text-align: center;
     border: 2px solid #32cd32;
@@ -97,7 +97,7 @@ h2{
     background-blend-mode: luminosity;
 }
 #battle2{
-    height: 43rem;
+    height: 47.5rem;
     width: 23rem;
     text-align: center;
     border: 2px solid #32cd32;
@@ -136,35 +136,43 @@ btn {
     border-radius: 1.25rem;
     color: #60dfcd;
 }
-/*.healthLabel{*/
-/*    font-family: 'Goldman', cursive;*/
-/*    color: #00b712;*/
-/*}*/
 .hpBorder{
-    width: 19rem;
+    width: 18.75rem;
     height: .75rem;
     border: 3px solid #ffd700;
     margin-left: 2rem;
 }
 .hpBar{
-    width: 19rem;
+    width: 18.75rem;
     height: .75rem;
     background-color: #00b712;
     background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%);
 }
-/*.kiLabel{*/
-/*    font-family: 'Goldman', cursive;*/
-/*    color: #60dfcd;*/
-/*}*/
 .kiBorder{
-    width: 19rem;
+    width: 18.75rem;
     height: .75rem;
     border: 3px solid #ffd700;
     margin-left: 2rem;
 }
 .kiBar{
-    width: 19rem;
+    width: 18.75rem;
     height: .75rem;
     background-color: #60dfcd;
     background-image: linear-gradient(315deg, #60dfcd 0%, #1e9afe 74%);
+}
+#p1SenzuBtn, #p2SenzuBtn {
+    background-image: url("img/senzu-bg.gif");
+}
+#p1AuraRecBtn, #p2AuraRecBtn {
+    background-image: url("img/ki-gather.gif");
+}
+#textBox {
+    height: 23.75rem;
+    width: 23rem;
+    color: #32cd32;
+    background-color: black;
+    font-size: small;
+}
+#textBox h2{
+    text-align: center;
 }
