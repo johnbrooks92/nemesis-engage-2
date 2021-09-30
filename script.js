@@ -1,69 +1,5 @@
 "use strict";
 
-
-// function recoverGoku() {
-// //     document.getElementById("GokuHealthAudio").play();
-// //     sonHP = 1200
-// //     var GokuHPBar = (sonHP/1200)*300;
-// //     GokuHP.style.width = GokuHPBar + "px";
-// //     bottomRow.innerHTML += "<br>Goku recovered his health! Goku now has " + sonHP + " HP remaining.";
-// //     GokuHealthBtn.disabled = true;
-// // }
-// function senzu1() {
-//     document.getElementById("GokuHealthAudio").play(); - change to Krillin saying "SENZU BEAN!" in TFS
-//     p1HP = 1200
-//     var p1HPBar = (p1HP/1200)*300;
-//     p1HP.style.width = p1HPBar + "px";
-//     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
-//     p1SenzuBtn.disabled = true;
-// }
-// function senzu2() {
-//     document.getElementById("GokuHealthAudio").play(); - change to Krillin saying "SENZU BEAN!" in TFS
-//     p1HP = 1200
-//     var p1HPBar = (p1HP/1200)*300;
-//     p1HP.style.width = p1HPBar + "px";
-//     bottomRow.innerHTML += "<br>" + Res.name + " recovered health completely!";
-//     p2SenzuBtn.disabled = true;
-// }
-
-
-
-//
-// function kiGoku() {
-//     document.getElementById("GokuKiAudio").play(); 
-//     if(sonKi<=800) {
-//         sonKi += 400;
-//     } else if(sonKi>800) {
-//         sonKi = 1200
-//     }
-//     var GokuKiBar = (sonKi/1200)*300;
-//     GokuKi.style.width = GokuKiBar + "px";
-//     bottomRow.innerHTML += "<br>Goku recovered his ki! Goku now has " + sonKi + " Ki remaining.";
-// }//
-// function auraRecovery1() {
-//     document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
-//     if(p1Ki<=800) {
-//         p1Ki += 400;
-//     } else if(p1Ki>800) {
-//         p1Ki = 1200
-//     }
-//     var p1KiBar = (p1Ki/1200)*300;
-//     p1Ki.style.width = p1KiBar + "px";
-//     bottomRow.innerHTML += "<br>" + Res.name + " recovered his ki!" + res.name(p1) + " now has " + p1Ki + " Ki remaining.";
-// }
-// function auraRecovery2() {
-//     document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
-//     if(p2Ki<=800) {
-//         p2Ki += 400;
-//     } else if(p2Ki>800) {
-//         p2Ki = 1200
-//     }
-//     var p2KiBar = (p2Ki/1200)*300;
-//     p2Ki.style.width = p2KiBar + "px";
-//     bottomRow.innerHTML += "<br>" + Res.name + " recovered his ki!" + res.name(p2) + " now has " + p2Ki + " Ki remaining.";
-// }
-
-
 //When I press enter, character select displays
 
 var beginCode=[13];
@@ -90,11 +26,25 @@ $('body').keyup(function(event) {
 //Define Health Variables
 var p1HPTotals = 1200;
 var p2HPTotals = 1200;
-var p1KiTotals = 1200;
-var p2KiTotals = 1200;
+var p1KiTotals = 600;
+var p2KiTotals = 600;
 var topRow = document.getElementById("topRow");
+
+//Define Counter Variables
+var player1TurnCounter = 1;
+var player2TurnCounter = 1;
+var overallTurnCounter = 0;
+
+var p1Uniqueid = 0;
+var p1UniqueAtk = 0;
+var p1UniqueDef = 0;
+var p1UniqueAAtk = 0;
+var p1UniqueADef = 0;
+var p1UniqueSpd = 0;
+var p2Uniqueid = 0;
+
 // Holds the data for all characters;
-var rosterObject = {
+const rosterObject = {
     "fighters": [
         {
             "name": "Son Goku",
@@ -702,6 +652,12 @@ rosterObject.fighters.forEach(res => {
         //Stores P1 Data Once Selected and Renders in Battle Screen
         $("#" + res.id + "charSelectBtn1").click(function(){
 
+            p1Uniqueid += res.id;
+            p1UniqueAtk += res.atk;
+            p1UniqueDef += res.defend;
+            p1UniqueAAtk += res.atkaura;
+            p1UniqueADef += res.defaura;
+            p1UniqueSpd += res.speed;
 
             $('.charSelBtn1').prop("disabled", true);
             $('.charSelBtn2').prop("disabled", false);
@@ -790,6 +746,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Senzu Bean Button Render to Info Box
             var p1SenzuBtn = document.createElement("btn")
             p1SenzuBtn.id = "p1SenzuBtn";
+            p1SenzuBtn.class = "p1ButtonSet";
             var p1SenzuName = document.createTextNode("Senzu Bean");
             p1SenzuBtn.appendChild(p1SenzuName);
             player1InfoBox.appendChild(p1SenzuBtn);
@@ -801,6 +758,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Aura Recovery Button Render to Info Box
             var p1AuraRecBtn = document.createElement("btn")
             p1AuraRecBtn.id = "p1AuraRecBtn";
+            p1AuraRecBtn.class = "p1ButtonSet";
             var p1AuraRecName = document.createTextNode("Gather Ki");
             p1AuraRecBtn.appendChild(p1AuraRecName);
             player1InfoBox.appendChild(p1AuraRecBtn);
@@ -812,6 +770,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character 1st Move Button Render to Info Box
             var p1move1btn = document.createElement("btn")
             p1move1btn.id = "p1Move1";
+            p1move1btn.class = "p1ButtonSet";
             var p1move1name = document.createTextNode('' + res.moves[0]);
             p1move1btn.appendChild(p1move1name);
             player1InfoBox.appendChild(p1move1btn);
@@ -824,6 +783,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character 2nd Move Button Render to Info Box
             var p1move2btn = document.createElement("btn")
             p1move2btn.id = "p1Move2";
+            p1move2btn.class = "p1ButtonSet";
             var p1move2name = document.createTextNode('' + res.moves[1]);
             p1move2btn.appendChild(p1move2name);
             player1InfoBox.appendChild(p1move2btn);
@@ -835,6 +795,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character 3rd Move Button Render to Info Box
             var p1move3btn = document.createElement("btn")
             p1move3btn.id = "p1Move3";
+            p1move3btn.class = "p1ButtonSet";
             var p1move3name = document.createTextNode('' + res.moves[2]);
             p1move3btn.appendChild(p1move3name);
             player1InfoBox.appendChild(p1move3btn);
@@ -846,6 +807,7 @@ rosterObject.fighters.forEach(res => {
             //Player1 Character Ultimate Move Button Render to Info Box
             var p1moveUltbtn = document.createElement("btn")
             p1moveUltbtn.id = "p1MoveUlt";
+            p1moveUltbtn.class = "p1ButtonSet";
             var p1moveUltname = document.createTextNode('' + res.ultimate);
             p1moveUltbtn.appendChild(p1moveUltname);
             player1InfoBox.appendChild(p1moveUltbtn);
@@ -969,6 +931,20 @@ rosterObject.fighters.forEach(res => {
 
             //HP Recovery Formula
             $('#p1SenzuBtn').click(function() {
+                document.getElementById('battle1').style.pointerEvents = 'none';
+                document.getElementById('battle2').style.pointerEvents = 'auto';
+
+
+                // $('.p1ButtonSet').prop("disabled", true);
+                // $('.p2ButtonSet').prop("disabled", false);
+                
+                // $('#p1SenzuBtn').off('click');
+                // $('#p1AuraRecBtn').off('click');
+                // $('#p1Move1').off('click');
+                // $('#p1Move2').off('click');
+                // $('#p1Move3').off('click');
+                // $('#p1MoveUlt').off('click');
+                
                 p1HPTotals = 1200
                 var p1HPBar = (p1HPTotals/1200)*300;
                 p1HP.style.width = p1HPBar + "px";
@@ -981,17 +957,29 @@ rosterObject.fighters.forEach(res => {
                 audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
                 audioElement.setAttribute('autoplay', 'autoplay');
                 audioElement.play();
-                
-                
             });
             //Ki Recovery Formula
             $('#p1AuraRecBtn').click(function() {
 
+                document.getElementById('battle1').style.pointerEvents = 'none';
+                document.getElementById('battle2').style.pointerEvents = 'auto';
+
+
+
+                // $('.p1ButtonSet').prop("disabled", true);
+                // $('.p2ButtonSet').prop("disabled", false);
+                // $('#p1SenzuBtn').off('click');
+                // $('#p1AuraRecBtn').off('click');
+                // $('#p1Move1').off('click');
+                // $('#p1Move2').off('click');
+                // $('#p1Move3').off('click');
+                // $('#p1MoveUlt').off('click');
+                
                 // document.getElementById("GokuKiAudio").play(); - change to sound of DBZ auras
                 if(p1KiTotals<=800) {
                     p1KiTotals += 400;
                 } else if(p1KiTotals>800) {
-                    p1KiTotals = 1200
+                    p1KiTotals = 1200;
                 }
                 var p1KiBar = (p1KiTotals/1200)*300;
                 p1Ki.style.width = p1KiBar + "px";
@@ -1007,108 +995,526 @@ rosterObject.fighters.forEach(res => {
             
             //P1 Stat Change Formulas
             $('#p1Move1').click(function() {
-                if ((p1Move1Selection == "Rasengan" || "Chidori")  && (p1KiTotals > 154)) {
+                if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun")  && (p1KiTotals > 250)) {
+
+                    document.getElementById('battle1').style.pointerEvents = 'none';
+                    document.getElementById('battle2').style.pointerEvents = 'auto';
+
+
+
+                    // $('.p1ButtonSet').prop("disabled", true);
+                    // $('.p2ButtonSet').prop("disabled", false);
+                    //
+                    // $('#p1SenzuBtn').off('click');
+                    // $('#p1AuraRecBtn').off('click');
+                    // $('#p1Move1').off('click');
+                    // $('#p1Move2').off('click');
+                    // $('#p1Move3').off('click');
+                    // $('#p1MoveUlt').off('click');
+                    // $('#p2SenzuBtn').on('click');
+                    // $('#p2AuraRecBtn').on('click');
+                    // $('#p2Move1').on('click');
+                    // $('#p2Move2').on('click');
+                    // $('#p2Move3').on('click');
+                    // $('#p2MoveUlt').on('click');
+                    // $('#p1SenzuBtn').prop("disabled", true);
+                    // $('#p1AuraRecBtn').prop("disabled", true);
+                    // $('#p1Move1').prop("disabled", true);
+                    // $('#p1Move2').prop("disabled", true);
+                    // $('#p1Move3').prop("disabled", true);
+                    // $('#p1MoveUlt').prop("disabled", true);
+                    // $('#p2SenzuBtn').prop("disabled", false);
+                    // $('#p2AuraRecBtn').prop("disabled", false);
+                    // $('#p2Move1').prop("disabled", false);
+                    // $('#p2Move2').prop("disabled", false);
+                    // $('#p2Move3').prop("disabled", false);
+                    // $('#p2MoveUlt').prop("disabled", false);
                     
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
+                    p1AtkCounter +=2;
+                    p1DefCounter +=0;
+                    p1AuraAtkCounter +=2;
+                    p1AuraDefCounter +=0;
+                    p1SpdCounter +=-2;
                     
                    
                     
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
                     p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
+
+
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
                     
                    
                 }
             });
             $('#p1Move2').click(function() {
-                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
-                   
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
+                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Dirty Fireworks")  && (p1KiTotals > 325)) {
+
+                    document.getElementById('battle1').style.pointerEvents = 'none';
+                    document.getElementById('battle2').style.pointerEvents = 'auto';
+
+
+
+                    //
+                    // $('.p1ButtonSet').prop("disabled", true);
+                    // $('.p2ButtonSet').prop("disabled", false);
                     
+                    // $('#p1SenzuBtn').off('click');
+                    // $('#p1AuraRecBtn').off('click');
+                    // $('#p1Move1').off('click');
+                    // $('#p1Move2').off('click');
+                    // $('#p1Move3').off('click');
+                    // $('#p1MoveUlt').off('click');
+                    // $('#p2SenzuBtn').on('click');
+                    // $('#p2AuraRecBtn').on('click');
+                    // $('#p2Move1').on('click');
+                    // $('#p2Move2').on('click');
+                    // $('#p2Move3').on('click');
+                    // $('#p2MoveUlt').on('click');
                     
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    p1AtkCounter +=0;
+                    p1DefCounter +=0;
+                    p1AuraAtkCounter +=0;
+                    p1AuraDefCounter +=0;
+                    p1SpdCounter +=0;
+
+
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
                     p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
+
+
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
                 }
             });
             $('#p1Move3').click(function() {
-                if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning")  && (p1KiTotals > 154)) {
+                if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Kaioken Triple Attack" || "Infinite Break")  && (p1KiTotals > 650)) {
 
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
+                    document.getElementById('battle1').style.pointerEvents = 'none';
+                    document.getElementById('battle2').style.pointerEvents = 'auto';
+
+
+                    // $('.p1ButtonSet').prop("disabled", true);
+                    // $('.p2ButtonSet').prop("disabled", false);
                     
-                    
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    // $('#p1SenzuBtn').off('click');
+                    // $('#p1AuraRecBtn').off('click');
+                    // $('#p1Move1').off('click');
+                    // $('#p1Move2').off('click');
+                    // $('#p1Move3').off('click');
+                    // $('#p1MoveUlt').off('click');
+                    // $('#p2SenzuBtn').on('click');
+                    // $('#p2AuraRecBtn').on('click');
+                    // $('#p2Move1').on('click');
+                    // $('#p2Move2').on('click');
+                    // $('#p2Move3').on('click');
+                    // $('#p2MoveUlt').on('click');
+                    //
+                    p1AtkCounter +=0;
+                    p1DefCounter +=6;
+                    p1AuraAtkCounter +=0;
+                    p1AuraDefCounter +=6;
+                    p1SpdCounter +=-3;
+
+
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
                     p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
+
+
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
                 }
             });
             $('#p1MoveUlt').click(function() {
-                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin")  && (p1KiTotals > 154)) {
-          
-                    p1AtkCounter +=5;
-                    p1DefCounter +=5;
-                    p1AuraAtkCounter +=5;
-                    p1AuraDefCounter +=5;
-                    p1SpdCounter +=-5;
+                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash")  && (p1KiTotals > 1000)) {
+                    document.getElementById('battle1').style.pointerEvents = 'none';
+                    document.getElementById('battle2').style.pointerEvents = 'auto';
+                    
+                    // $('.p1ButtonSet').prop("disabled", true);
+                    // $('.p2ButtonSet').prop("disabled", false);
+                    // // $('#p1SenzuBtn').off('click');
+                    // // $('#p1AuraRecBtn').off('click');
+                    // // $('#p1Move1').off('click');
+                    // // $('#p1Move2').off('click');
+                    // // $('#p1Move3').off('click');
+                    // // $('#p1MoveUlt').off('click');
+                    // // $('#p2SenzuBtn').on('click');
+                    // // $('#p2AuraRecBtn').on('click');
+                    // // $('#p2Move1').on('click');
+                    // // $('#p2Move2').on('click');
+                    // // $('#p2Move3').on('click');
+                    // // $('#p2MoveUlt').on('click');
+                    // $('#p1SenzuBtn').prop("disabled", true);
+                    // $('#p1AuraRecBtn').prop("disabled", true);
+                    // $('#p1Move1').prop("disabled", true);
+                    // $('#p1Move2').prop("disabled", true);
+                    // $('#p1Move3').prop("disabled", true);
+                    // $('#p1MoveUlt').prop("disabled", true);
+                    // $('#p2SenzuBtn').prop("disabled", false);
+                    // $('#p2AuraRecBtn').prop("disabled", false);
+                    // $('#p2Move1').prop("disabled", false);
+                    // $('#p2Move2').prop("disabled", false);
+                    // $('#p2Move3').prop("disabled", false);
+                    // $('#p2MoveUlt').prop("disabled", false);
+                    
+                    p1AtkCounter +=-2;
+                    p1DefCounter +=-2;
+                    p1AuraAtkCounter +=-2;
+                    p1AuraDefCounter +=-2;
+                    p1SpdCounter +=-2;
 
-                    var newP1Atk = p1FightAtk + p1AtkCounter;
-                    var newP1Def = p1FightDef + p1DefCounter;
-                    var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                    var newP1Spd = p1FightSpd + p1SpdCounter;
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
                     p1Atk.textContent = 'Attack: ' + newP1Atk;
                     p1Def.textContent = 'Defense: ' + newP1Def;
                     p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1Spd.textContent = 'Speed: ' + newP1Spd;
+
+
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
+                }
+            });
+           
+            $('#p2Move1').click(function() {
+                var p2Move1Selection = document.getElementById("p2Move1").textContent;
+                if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun") && (p2KiTotals > 250)) {
+
+                    
+                    // $('.p1ButtonSet').prop("disabled", false);
+                    // $('.p2ButtonSet').prop("disabled", true);
+                    // $('#p1SenzuBtn').on('click');
+                    // $('#p1AuraRecBtn').on('click');
+                    // $('#p1Move1').on('click');
+                    // $('#p1Move2').on('click');
+                    // $('#p1Move3').on('click');
+                    // $('#p1MoveUlt').on('click');
+                    // $('#p2SenzuBtn').off('click');
+                    // $('#p2AuraRecBtn').off('click');
+                    // $('#p2Move1').off('click');
+                    // $('#p2Move2').off('click');
+                    // $('#p2Move3').off('click');
+                    // $('#p2MoveUlt').off('click');
+
+                    // $('#p1SenzuBtn').prop("disabled", false);
+                    // $('#p1AuraRecBtn').prop("disabled", false);
+                    // $('#p1Move1').prop("disabled", false);
+                    // $('#p1Move2').prop("disabled", false);
+                    // $('#p1Move3').prop("disabled", false);
+                    // $('#p1MoveUlt').prop("disabled", false);
+                    // $('#p2SenzuBtn').prop("disabled", true);
+                    // $('#p2AuraRecBtn').prop("disabled", true);
+                    // $('#p2Move1').prop("disabled", true);
+                    // $('#p2Move2').prop("disabled", true);
+                    // $('#p2Move3').prop("disabled", true);
+                    // $('#p2MoveUlt').prop("disabled", true);
+                    
+                    
+                    p1AtkCounter += 0;
+                    p1DefCounter += -2;
+                    p1AuraAtkCounter += 0;
+                    p1AuraDefCounter += -2;
+                    p1SpdCounter += 0;
+
+                    var p1AtkDiv = document.getElementById("p1AtkDiv");
+                    var p1DefDiv = document.getElementById("p1DefDiv");
+                    var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
+                    var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
+                    var p1SpdDiv = document.getElementById("p1SpdDiv");
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propSpd1);
+
+                    console.log(newP1Spd);
+                    p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
+                    p1DefDiv.textContent = 'Defense: ' + newP1Def;
+                    p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p2Move2').click(function() {
+                var p2Move2Selection = document.getElementById("p2Move2").textContent;
+                if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Dirty Fireworks") && (p2KiTotals > 250)) {
+                    
+                    
+                    // $('.p1ButtonSet').prop("disabled", false);
+                    // $('.p2ButtonSet').prop("disabled", true);
+                    
+                    // $('#p1SenzuBtn').on('click');
+                    // $('#p1AuraRecBtn').on('click');
+                    // $('#p1Move1').on('click');
+                    // $('#p1Move2').on('click');
+                    // $('#p1Move3').on('click');
+                    // $('#p1MoveUlt').on('click');
+                    // $('#p2SenzuBtn').off('click');
+                    // $('#p2AuraRecBtn').off('click');
+                    // $('#p2Move1').off('click');
+                    // $('#p2Move2').off('click');
+                    // $('#p2Move3').off('click');
+                    // $('#p2MoveUlt').off('click');
+                    
+                    p1AtkCounter += 0;
+                    p1DefCounter += -2;
+                    p1AuraAtkCounter += 0;
+                    p1AuraDefCounter += -2;
+                    p1SpdCounter += 0;
+
+                    var p1AtkDiv = document.getElementById("p1AtkDiv");
+                    var p1DefDiv = document.getElementById("p1DefDiv");
+                    var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
+                    var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
+                    var p1SpdDiv = document.getElementById("p1SpdDiv");
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propSpd1);
+
+                    console.log(newP1Spd);
+                    p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
+                    p1DefDiv.textContent = 'Defense: ' + newP1Def;
+                    p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            $('#p2Move3').click(function() {
+                var p2Move3Selection = document.getElementById("p2Move3").textContent;
+                if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Kaioken Triple Attack" || "Infinite Break") && (p2KiTotals > 250)) {
+
+                   
+                    // $('.p1ButtonSet').prop("disabled", false);
+                    // $('.p2ButtonSet').prop("disabled", true);
+                    
+                    // $('#p1SenzuBtn').on('click');
+                    // $('#p1AuraRecBtn').on('click');
+                    // $('#p1Move1').on('click');
+                    // $('#p1Move2').on('click');
+                    // $('#p1Move3').on('click');
+                    // $('#p1MoveUlt').on('click');
+                    // $('#p2SenzuBtn').off('click');
+                    // $('#p2AuraRecBtn').off('click');
+                    // $('#p2Move1').off('click');
+                    // $('#p2Move2').off('click');
+                    // $('#p2Move3').off('click');
+                    // $('#p2MoveUlt').off('click');
+                    
+                    p1AtkCounter += 0;
+                    p1DefCounter += -2;
+                    p1AuraAtkCounter += 0;
+                    p1AuraDefCounter += -2;
+                    p1SpdCounter += 0;
+
+                    var p1AtkDiv = document.getElementById("p1AtkDiv");
+                    var p1DefDiv = document.getElementById("p1DefDiv");
+                    var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
+                    var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
+                    var p1SpdDiv = document.getElementById("p1SpdDiv");
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propSpd1);
+
+                    console.log(newP1Spd);
+                    p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
+                    p1DefDiv.textContent = 'Defense: ' + newP1Def;
+                    p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
                 }
             });
 
+            $('#p2MoveUlt').click(function() {
+                var p2MoveUltSelection = document.getElementById("p2MoveUlt").textContent;
+                if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash") && (p2KiTotals > 250)) {
+
+                    // $('.p1ButtonSet').prop("disabled", false);
+                    // $('.p2ButtonSet').prop("disabled", true);
+                    //
+                    // $('#p1SenzuBtn').on('click');
+                    // $('#p1AuraRecBtn').on('click');
+                    // $('#p1Move1').on('click');
+                    // $('#p1Move2').on('click');
+                    // $('#p1Move3').on('click');
+                    // $('#p1MoveUlt').on('click');
+                    // $('#p2SenzuBtn').off('click');
+                    // $('#p2AuraRecBtn').off('click');
+                    // $('#p2Move1').off('click');
+                    // $('#p2Move2').off('click');
+                    // $('#p2Move3').off('click');
+                    // $('#p2MoveUlt').off('click');
+                    //
+                    // $('#p1SenzuBtn').prop("disabled", false);
+                    // $('#p1AuraRecBtn').prop("disabled", false);
+                    // $('#p1Move1').prop("disabled", false);
+                    // $('#p1Move2').prop("disabled", false);
+                    // $('#p1Move3').prop("disabled", false);
+                    // $('#p1MoveUlt').prop("disabled", false);
+                    // $('#p2SenzuBtn').prop("disabled", true);
+                    // $('#p2AuraRecBtn').prop("disabled", true);
+                    // $('#p2Move1').prop("disabled", true);
+                    // $('#p2Move2').prop("disabled", true);
+                    // $('#p2Move3').prop("disabled", true);
+                    // $('#p2MoveUlt').prop("disabled", true);
+                    
+                    p1AtkCounter += 0;
+                    p1DefCounter += -2;
+                    p1AuraAtkCounter += 0;
+                    p1AuraDefCounter += -2;
+                    p1SpdCounter += 0;
+
+                    var p1AtkDiv = document.getElementById("p1AtkDiv");
+                    var p1DefDiv = document.getElementById("p1DefDiv");
+                    var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
+                    var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
+                    var p1SpdDiv = document.getElementById("p1SpdDiv");
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1Uniqueid - 1], propSpd1);
+
+                    p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
+                    p1DefDiv.textContent = 'Defense: ' + newP1Def;
+                    p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                }
+            });
+            var p1Move1Selection = res.moves[0];
+            var p1Move2Selection = res.moves[1];
+            var p1Move3Selection = res.moves[2];
+            var p1MoveUltSelection = res.ultimate;
+            var p1FighterName = res.name;
+            var p1FightAtk = res.atk;
+            var p1FightDef = res.defend;
+            var p1FightAuraAtk = res.atkaura;
+            var p1FightAuraDef = res.defaura;
+            var p1FightSpd = res.speed;
+            var p1id = res.id;
         })
-        //Declaring Variables for P1 Data To Be Manipulated Later In Script
-        var p1Move1Selection = res.moves[0];
-        var p1Move2Selection = res.moves[1];
-        var p1Move3Selection = res.moves[2];
-        var p1MoveUltSelection = res.ultimate;
-        var p1FighterName = res.name;
-        var p1FightAtk = res.atk;
-        var p1FightDef = res.defend;
-        var p1FightAuraAtk = res.atkaura;
-        var p1FightAuraDef = res.defaura;
-        var p1FightSpd = res.speed;
+       
         var p1AtkCounter = 0;
         var p1DefCounter = 0;
         var p1AuraAtkCounter = 0;
@@ -1119,14 +1525,16 @@ rosterObject.fighters.forEach(res => {
         var p2AuraAtkCounter = 0;
         var p2AuraDefCounter = 0;
         var p2SpdCounter = 0;
-       
+
 
 
         //Stores P2 Data Once Selected and Renders in Battle Screen
         $('#charSelectBtn2' + res.id).click(function(){
 
+            p2Uniqueid += res.id;
             $('.charSelBtn2').prop("disabled", true);
-            
+            $('.charSelBtn2').prop("disabled", true);
+            $('.p1ButtonSet').off('click');
             var isPlayer2Selection = true;
             
             if(isPlayer2Selection == true){
@@ -1207,6 +1615,7 @@ rosterObject.fighters.forEach(res => {
             //Player2 Senzu Bean Button Render to Info Box
             var p2SenzuBtn = document.createElement("btn")
             p2SenzuBtn.id = "p2SenzuBtn";
+            p2SenzuBtn.class = "p2ButtonSet";
             var p2SenzuName = document.createTextNode("Senzu Bean");
             p2SenzuBtn.appendChild(p2SenzuName);
             player2InfoBox.appendChild(p2SenzuBtn);
@@ -1218,6 +1627,7 @@ rosterObject.fighters.forEach(res => {
             //Player2 Aura Recovery Button Render to Info Box
             var p2AuraRecBtn = document.createElement("btn")
             p2AuraRecBtn.id = "p2AuraRecBtn";
+            p2AuraRecBtn.class = "p2ButtonSet";
             var p2AuraRecName = document.createTextNode("Gather Ki");
             p2AuraRecBtn.appendChild(p2AuraRecName);
             player2InfoBox.appendChild(p2AuraRecBtn);
@@ -1229,6 +1639,7 @@ rosterObject.fighters.forEach(res => {
             //Player2 Character 1st Move Button Render to Info Box
              var p2move1btn = document.createElement("btn")
              p2move1btn.id = "p2Move1";
+             p2move1btn.class = "p2ButtonSet";
              var p2move1name = document.createTextNode('' + res.moves[0]);
              p2move1btn.appendChild(p2move1name);
              player2InfoBox.appendChild(p2move1btn);
@@ -1240,6 +1651,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character 2nd Move Button Render to Info Box
              var p2move2btn = document.createElement("btn")
              p2move2btn.id = "p2Move2";
+             p2move2btn.class = "p2ButtonSet";
              var p2move2name = document.createTextNode('' + res.moves[1]);
              p2move2btn.appendChild(p2move2name);
              player2InfoBox.appendChild(p2move2btn);
@@ -1251,6 +1663,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character 3rd Move Button Render to Info Box
              var p2move3btn = document.createElement("btn")
              p2move3btn.id = "p2Move3";
+             p2move3btn.class = "p2ButtonSet";
              var p2move3name = document.createTextNode('' + res.moves[2]);
              p2move3btn.appendChild(p2move3name);
              player2InfoBox.appendChild(p2move3btn);
@@ -1262,6 +1675,7 @@ rosterObject.fighters.forEach(res => {
              //Player2 Character Ultimate Move Button Render to Info Box
              var p2moveUltbtn = document.createElement("btn")
              p2moveUltbtn.id = "p2MoveUlt";
+             p2moveUltbtn.class = "p2ButtonSet";
              var p2moveUltname = document.createTextNode('' + res.ultimate);
              p2moveUltbtn.appendChild(p2moveUltname);
              player2InfoBox.appendChild(p2moveUltbtn);
@@ -1299,8 +1713,7 @@ rosterObject.fighters.forEach(res => {
              //Append Player2 Info Box to battleScreen Div
              var battleContainer = document.querySelector("#battleScreen");
              battleContainer.appendChild(player2InfoBox);
-             
-             
+
              // Switching to 
              setTimeout(function(){ $('#characterSelectScreen').toggle(); }, 3000);
              setTimeout(function(){ $('#textBox').toggle(); }, 3000);
@@ -1316,8 +1729,28 @@ rosterObject.fighters.forEach(res => {
              setTimeout(function(){ $('.kiBar').toggle(); }, 3000);
              setTimeout(function(){ $('.kiBorder').toggle(); }, 3000);
              setTimeout(function(){ $('.p1StatDiv').toggle(); }, 3000);
-             
-             
+             setTimeout(function(){
+                 if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                     overallTurnCounter += 1;
+                     // $('.p1ButtonSet').prop("disabled", false);
+                     // $('.p2ButtonSet').prop("disabled", true);
+                     document.getElementById('battle1').style.pointerEvents = 'auto';
+                     document.getElementById('battle2').style.pointerEvents = 'none';
+                     console.log(overallTurnCounter - 3);
+                 } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                     overallTurnCounter += 1;
+                     // $('.p1ButtonSet').prop("disabled", true);
+                     // $('.p2ButtonSet').prop("disabled", false);
+                     document.getElementById('battle1').style.pointerEvents = 'none';
+                     document.getElementById('battle2').style.pointerEvents = 'auto';
+                     console.log(overallTurnCounter);
+                 }
+                 
+             }, 3500);
+                
+   
+            // $('.p1ButtonSet btn').prop("disabled", true);
+            // $('.p2ButtonSet btn').prop("disabled", true);
              $(document).ready(function () {
                  if (res.series == "Dragonball") {
                      $('#battle2').css('background-image', 'url(img/db_background.webp');
@@ -1379,14 +1812,28 @@ rosterObject.fighters.forEach(res => {
                      $('#battleScreen').css('background-image', 'url(img/hyrule.jpeg');
                      $('#battleScreen').css('background-size', 'cover');
                  }
-
+                    //Speed Check
                  
+                
                  // p1Move1 Effects on Player 2
                 
                  // ON CLICK FUNCTIONS FOR BUTTONS
-
+                
                  //HP Recovery Formula
                  $('#p2SenzuBtn').click(function() {
+
+                     document.getElementById('battle1').style.pointerEvents = 'auto';
+                     document.getElementById('battle2').style.pointerEvents = 'none';
+
+
+                     // $('#p1SenzuBtn').on('click');
+                     // $('#p1AuraRecBtn').on('click');
+                     // $('#p1Move1').on('click');
+                     // $('#p1Move2').on('click');
+                     // $('#p1Move3').on('click');
+                     // $('#p1MoveUlt').on('click');
+                     // $('.p1ButtonSet').prop("disabled", false);
+                     // $('.p2ButtonSet').prop("disabled", true);
                      p2HPTotals = 1200
                      var p2HPBar = (p2HPTotals/1200)*300;
                      p2HP.style.width = p2HPBar + "px";
@@ -1404,6 +1851,19 @@ rosterObject.fighters.forEach(res => {
                  });
                  //Ki Recovery Formula
                  $('#p2AuraRecBtn').click(function() {
+
+                     document.getElementById('battle1').style.pointerEvents = 'auto';
+                     document.getElementById('battle2').style.pointerEvents = 'none';
+                     
+                     
+                     // $('.p1ButtonSet').prop("disabled", false);
+                     // $('.p2ButtonSet').prop("disabled", true);
+                     // $('#p1SenzuBtn').on('click');
+                     // $('#p1AuraRecBtn').on('click');
+                     // $('#p1Move1').on('click');
+                     // $('#p1Move2').on('click');
+                     // $('#p1Move3').on('click');
+                     // $('#p1MoveUlt').on('click');
 
                      if(p2KiTotals<=800) {
                          p2KiTotals += 400;
@@ -1423,28 +1883,86 @@ rosterObject.fighters.forEach(res => {
 
 
                  // PLAYER 1 BUTTONS
-
+                 
                  $('#p1Move1').click(function() {
+                     
+                    
+                     var p1Move1Selection = document.getElementById("p1Move1").textContent;
                      //Move Type 1 = Classic Beam Ball Type Beat
-                     if ((p1Move1Selection == "Rasengan" || "Chidori")  && (p1KiTotals > 154)) {
+                     if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun")  && (p1KiTotals > 250)) {
+                         $('.p1ButtonSet').prop("disabled", true);
+                         $('.p2ButtonSet').prop("disabled", false);
+//                          // $('#p1SenzuBtn').off('click');
+//                          // $('#p1AuraRecBtn').off('click');
+//                          // $('#p1Move1').off('click');
+//                          // $('#p1Move2').off('click');
+//                          // $('#p1Move3').off('click');
+//                          // $('#p1MoveUlt').off('click');
+//                          // $('#p2SenzuBtn').on('click');
+//                          // $('#p2AuraRecBtn').on('click');
+//                          // $('#p2Move1').on('click');
+//                          // $('#p2Move2').on('click');
+//                          // $('#p2Move3').on('click');
+//                          // $('#p2MoveUlt').on('click');
+//                          $('#p1SenzuBtn').prop("disabled", true);
+//                          $('#p1AuraRecBtn').prop("disabled", true);
+//                          $('#p1Move1').prop("disabled", true);
+//                          $('#p1Move2').prop("disabled", true);
+//                          $('#p1Move3').prop("disabled", true);
+//                          $('#p1MoveUlt').prop("disabled", true);
+//                          $('#p2SenzuBtn').prop("disabled", false);
+//                          $('#p2AuraRecBtn').prop("disabled", false);
+//                          $('#p2Move1').prop("disabled", false);
+//                          $('#p2Move2').prop("disabled", false);
+//                          $('#p2Move3').prop("disabled", false);
+//                          $('#p2MoveUlt').prop("disabled", false);
 
-
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=0;
+                         p2AuraAtkCounter +=0;
+                         p2DefCounter +=-2;
+                         p2AuraDefCounter +=-2;
+                         p2SpdCounter +=0;
                          
                          
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          var p1FighterMoveDiv = document.getElementById("p1Move1").innerText;
                          console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
+
+
+
+
+                         //Ki Set Up
+                         p1KiTotals -= 250;
+                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                         p1Ki.style.width = P1KiBarWidth + "px";
                          
-                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
-                         p2HP.style.width = P2HPBarWidth + "px";
+
+                         var newP2Atk = p2FightAtk + p2AtkCounter;
+                         var newP2Def = p2FightDef + p2DefCounter;
+                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
+                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
+                         var newP2Spd = p2FightSpd + p2SpdCounter;
+                         p2Atk.textContent = 'Attack: ' + newP2Atk;
+                         p2Def.textContent = 'Defense: ' + newP2Def;
+                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
+                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
+                         p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+
 
                          //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
+                         var damage = Math.round(75 * (rosterObject.fighters[p1Uniqueid-1].atkaura/rosterObject.fighters[p2id-1].defaura));
                          console.log("damage = "+ damage);
                          p2HPTotals -= damage;
                          if (p2HPTotals < 0) {
@@ -1452,58 +1970,54 @@ rosterObject.fighters.forEach(res => {
                              console.log(p1FighterNameDiv + " wins the fight!");
                          }
 
-                         //Ki Set Up
-                         p1KiTotals -= 155;
-                         var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                         p1Ki.style.width = P1KiBarWidth + "px";
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
                          
-
-                         var newP2Atk = p2FightAtk + p2AtkCounter;
-                         var newP2Def = p2FightDef + p2DefCounter;
-                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
-                         var newP2AuraDef = p2FightAuraDef + p2AuraDefCounter;
-                         var newP2Spd = p2FightSpd + p2SpdCounter;
-                         p2Atk.textContent = 'Attack: ' + newP2Atk;
-                         p2Def.textContent = 'Defense: ' + newP2Def;
-                         p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
-                         p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
-                         p2Spd.textContent = 'Speed: ' + newP2Spd;
-
+                         
                      }
                  });
                  
                  $('#p1Move2').click(function() {
-                     // Melee Move. Physical Barrage of Attacks
-                     if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p1KiTotals > 154)) {
+
                      
+                     // Melee Move. Physical Barrage of Attacks
+                     var p1Move2Selection = document.getElementById("p1Move2").textContent;
+                     if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Dirty Fireworks")  && (p1KiTotals > 325)) {
+
+                         $('.p1ButtonSet').prop("disabled", true);
+                         $('.p2ButtonSet').prop("disabled", false);
+                         
+                         // $('#p1SenzuBtn').off('click');
+                         // $('#p1AuraRecBtn').off('click');
+                         // $('#p1Move1').off('click');
+                         // $('#p1Move2').off('click');
+                         // $('#p1Move3').off('click');
+                         // $('#p1MoveUlt').off('click');
+                         // $('#p2SenzuBtn').on('click');
+                         // $('#p2AuraRecBtn').on('click');
+                         // $('#p2Move1').on('click');
+                         // $('#p2Move2').on('click');
+                         // $('#p2Move3').on('click');
+                         // $('#p2MoveUlt').on('click');
                     
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
                          var p1FighterMoveDiv = document.getElementById("p1Move2").innerText;
                          console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
-                         
-                         
-                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
-                         p2HP.style.width = P2HPBarWidth + "px";
+                        
 
-                         //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
-                         p2HPTotals -= damage;
-                         if (p2HPTotals < 0) {
-                             p2HPTotals = 0;
-                             console.log(p1FighterNameDiv + " wins the fight!");
-                         }
+                        
                          //Ki Set Up
-                         p1KiTotals -= 155;
+                         p1KiTotals -= 325;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
 
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=-3;
+                         p2AuraAtkCounter +=0;
+                         p2DefCounter +=-3;
+                         p2AuraDefCounter +=-0;
+                         p2SpdCounter +=-0;
 
 
                          var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -1516,32 +2030,65 @@ rosterObject.fighters.forEach(res => {
                          p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+
+
+                         //Damage Calculator
+                         var damage = Math.round(125 * (rosterObject.fighters[p1Uniqueid-1].atk/rosterObject.fighters[p2id-1].defend));                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+                         
+                         
                      }
                  });
                  
                  
                  $('#p1Move3').click(function() {
+
+                     var p1Move3Selection = document.getElementById("p1Move3").textContent;
                      //High Ki Consumption... Best Damage of all 3
-                     if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning") && (p1KiTotals > 154)) {
-                         
+                     if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Kaioken Triple Attack" || "Infinite Break") && (p1KiTotals > 750)) {
+                         $('.p1ButtonSet').prop("disabled", true);
+                         $('.p2ButtonSet').prop("disabled", false);
+                         //
+                         // $('#p1SenzuBtn').off('click');
+                         // $('#p1AuraRecBtn').off('click');
+                         // $('#p1Move1').off('click');
+                         // $('#p1Move2').off('click');
+                         // $('#p1Move3').off('click');
+                         // $('#p1MoveUlt').off('click');
+                         // $('#p2SenzuBtn').on('click');
+                         // $('#p2AuraRecBtn').on('click');
+                         // $('#p2Move1').on('click');
+                         // $('#p2Move2').on('click');
+                         // $('#p2Move3').on('click');
+                         // $('#p2MoveUlt').on('click');
                          
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          var p1FighterMoveDiv = document.getElementById("p1Move3").innerText;
                          console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
-                         
-                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
-                         p2HP.style.width = P2HPBarWidth + "px";
 
-                         //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
-                         p2HPTotals -= damage;
-                         if (p2HPTotals < 0) {
-                             p2HPTotals = 0;
-                             console.log(p1FighterNameDiv + " wins the fight!");
-                         }
+
+                       
 
                          //Ki Set Up
-                         p1KiTotals -= 155;
+                         p1KiTotals -= 750;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
 
@@ -1564,6 +2111,30 @@ rosterObject.fighters.forEach(res => {
                          p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+
+
+
+                         //Damage Calculator
+                         var damage = Math.round(175 * (rosterObject.fighters[p1Uniqueid-1].atkaura/rosterObject.fighters[p2id-1].defaura));                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
                      }
                  });
                  
@@ -1571,37 +2142,59 @@ rosterObject.fighters.forEach(res => {
                  
                  //Aura or Physical depending on Character
                  $('#p1MoveUlt').click(function() {
-                     //Aura Atk - highest ki consumption - best stat boost add-on
-                     if ((p1MoveUltSelection == "RasenShuriken" || "Kirin") && (p1KiTotals > 154)) {
-                         
+                     var p1MoveUltSelection = document.getElementById("p1MoveUlt").textContent;
 
+                   
+                     
+                     //Aura Atk - highest ki consumption - best stat boost add-on
+                     if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash") && (p1KiTotals > 1000)) {
+                         $('.p1ButtonSet').prop("disabled", true);
+                         $('.p2ButtonSet').prop("disabled", false);
+                         // $('#p1SenzuBtn').off('click');
+                         // $('#p1AuraRecBtn').off('click');
+                         // $('#p1Move1').off('click');
+                         // $('#p1Move2').off('click');
+                         // $('#p1Move3').off('click');
+                         // $('#p1MoveUlt').off('click');
+                         // $('#p2SenzuBtn').on('click');
+                         // $('#p2AuraRecBtn').on('click');
+                         // $('#p2Move1').on('click');
+                         // $('#p2Move2').on('click');
+                         // $('#p2Move3').on('click');
+                         // $('#p2MoveUlt').on('click');
+                         // $('#p1SenzuBtn').prop("disabled", true);
+                         // $('#p1AuraRecBtn').prop("disabled", true);
+                         // $('#p1Move1').prop("disabled", true);
+                         // $('#p1Move2').prop("disabled", true);
+                         // $('#p1Move3').prop("disabled", true);
+                         // $('#p1MoveUlt').prop("disabled", true);
+                         // $('#p2SenzuBtn').prop("disabled", false);
+                         // $('#p2AuraRecBtn').prop("disabled", false);
+                         // $('#p2Move1').prop("disabled", false);
+                         // $('#p2Move2').prop("disabled", false);
+                         // $('#p2Move3').prop("disabled", false);
+                         // $('#p2MoveUlt').prop("disabled", false);
+                         
+                         
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=0;
+                         p2AuraAtkCounter +=0;
+                         p2DefCounter +=0;
+                         p2AuraDefCounter +=0;
+                         p2SpdCounter +=0;
                          
                          
                          var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                          console.log(p1FighterNameDiv);
                          var p1FighterMoveDiv = document.getElementById("p1MoveUlt").innerText;
                          console.log(p1FighterNameDiv + " used " + p1FighterMoveDiv + "!");
-                         
-                         
-                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
-                         p2HP.style.width = P2HPBarWidth + "px";
 
-                         //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
-                         p2HPTotals -= damage;
-                         if (p2HPTotals < 0) {
-                             p2HPTotals = 0;
-                             console.log(p1FighterNameDiv + " wins the fight!");
-                         }
+                     
+
+                        
 
                          //Ki Set Up
-                         p1KiTotals -= 155;
+                         p1KiTotals -= 1000;
                          var P1KiBarWidth = (p1KiTotals / 1200) * 300;
                          p1Ki.style.width = P1KiBarWidth + "px";
 
@@ -1615,42 +2208,75 @@ rosterObject.fighters.forEach(res => {
                          p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+
+                         //Damage Calculator
+                         var damage = Math.round(225 * (rosterObject.fighters[p1Uniqueid-1].atkaura/rosterObject.fighters[p2id-1].defaura));                         p2HPTotals -= damage;
+                         if (p2HPTotals < 0) {
+                             p2HPTotals = 0;
+                             console.log(p1FighterNameDiv + " wins the fight!");
+                         }
+
+                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
+                         p2HP.style.width = P2HPBarWidth + "px";
+                       
                      }
                  });
                  
                  // PLAYER 2 BUTTONS
                  
                  $('#p2Move1').click(function() {
-                     if ((p2Move1Selection == "Rasengan" || "Chidori")  && (p2KiTotals > 154)) {
+                     if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun")  && (p2KiTotals > 250)) {
 
-                         p1AtkCounter +=5;
-                         p1DefCounter +=5;
-                         p1AuraAtkCounter +=5;
-                         p1AuraDefCounter +=5;
-                         p1SpdCounter +=-5;
+                         document.getElementById('battle1').style.pointerEvents = 'auto';
+                         document.getElementById('battle2').style.pointerEvents = 'none';
                          
-                         var p1AtkDiv = document.getElementById("p1AtkDiv");
-                         var p1DefDiv = document.getElementById("p1DefDiv");
-                         var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
-                         var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
-                         var p1SpdDiv = document.getElementById("p1SpdDiv");
-                         var newP1Atk = p1FightAtk + p1AtkCounter;
-                         var newP1Def = p1FightDef + p1DefCounter;
-                         var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                         var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                         var newP1Spd = p1FightSpd + p1SpdCounter;
-                         p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
-                         p1DefDiv.textContent = 'Defense: ' + newP1Def;
-                         p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                         p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
-                         p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                         // $('.p1ButtonSet').prop("disabled", false);
+                         // $('.p2ButtonSet').prop("disabled", true);
+                         
+                         // $('#p1SenzuBtn').on('click');
+                         // $('#p1AuraRecBtn').on('click');
+                         // $('#p1Move1').on('click');
+                         // $('#p1Move2').on('click');
+                         // $('#p1Move3').on('click');
+                         // $('#p1MoveUlt').on('click');
+                         // $('#p2SenzuBtn').off('click');
+                         // $('#p2AuraRecBtn').off('click');
+                         // $('#p2Move1').off('click');
+                         // $('#p2Move2').off('click');
+                         // $('#p2Move3').off('click');
+                         // $('#p2MoveUlt').off('click');
 
+                         // $('#p1SenzuBtn').prop("disabled", false);
+                         // $('#p1AuraRecBtn').prop("disabled", false);
+                         // $('#p1Move1').prop("disabled", false);
+                         // $('#p1Move2').prop("disabled", false);
+                         // $('#p1Move3').prop("disabled", false);
+                         // $('#p1MoveUlt').prop("disabled", false);
+                         // $('#p2SenzuBtn').prop("disabled", true);
+                         // $('#p2AuraRecBtn').prop("disabled", true);
+                         // $('#p2Move1').prop("disabled", true);
+                         // $('#p2Move2').prop("disabled", true);
+                         // $('#p2Move3').prop("disabled", true);
+                         // $('#p2MoveUlt').prop("disabled", true);
+                         
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=2;
+                         p2AuraAtkCounter +=2;
+                         p2DefCounter +=0;
+                         p2AuraDefCounter +=0;
+                         p2SpdCounter +-2;
 
 
                          var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -1665,14 +2291,26 @@ rosterObject.fighters.forEach(res => {
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
 
 
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
 
                          //Ki Set Up
-                         p2KiTotals -= 155;
+                         p2KiTotals -= 250;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
                          //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
+                         var damage = Math.round(75 * ((rosterObject.fighters[p2id - 1].atkaura)/(rosterObject.fighters[p1Uniqueid - 1].defaura)));
+                         console.log("damage = "+ damage);
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
                              p1HPTotals = 0;
@@ -1690,37 +2328,32 @@ rosterObject.fighters.forEach(res => {
 
 
                  $('#p2Move2').click(function() {
-                     if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions")  && (p2KiTotals > 154)) {
+                     if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Dirty Fireworks")  && (p2KiTotals > 325)) {
 
-                        //P1 Stat Changes
-                         p1AtkCounter +=5;
-                         p1DefCounter +=5;
-                         p1AuraAtkCounter +=5;
-                         p1AuraDefCounter +=5;
-                         p1SpdCounter +=-5;
-
-                         var p1AtkDiv = document.getElementById("p1AtkDiv");
-                         var p1DefDiv = document.getElementById("p1DefDiv");
-                         var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
-                         var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
-                         var p1SpdDiv = document.getElementById("p1SpdDiv");
-                         var newP1Atk = p1FightAtk + p1AtkCounter;
-                         var newP1Def = p1FightDef + p1DefCounter;
-                         var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                         var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                         var newP1Spd = p1FightSpd + p1SpdCounter;
-                         p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
-                         p1DefDiv.textContent = 'Defense: ' + newP1Def;
-                         p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                         p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
-                         p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                         document.getElementById('battle1').style.pointerEvents = 'auto';
+                         document.getElementById('battle2').style.pointerEvents = 'none';
                          
+                         // $('.p1ButtonSet').prop("disabled", false);
+                         // $('.p2ButtonSet').prop("disabled", true);
+                       
+                         // $('#p1SenzuBtn').on('click');
+                         // $('#p1AuraRecBtn').on('click');
+                         // $('#p1Move1').on('click');
+                         // $('#p1Move2').on('click');
+                         // $('#p1Move3').on('click');
+                         // $('#p1MoveUlt').on('click');
+                         // $('#p2SenzuBtn').off('click');
+                         // $('#p2AuraRecBtn').off('click');
+                         // $('#p2Move1').off('click');
+                         // $('#p2Move2').off('click');
+                         // $('#p2Move3').off('click');
+                         // $('#p2MoveUlt').off('click');
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=0;
+                         p2AuraAtkCounter +=0;
+                         p2DefCounter +=0;
+                         p2AuraDefCounter +=0;
+                         p2SpdCounter +=0;
 
 
                          var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -1734,13 +2367,27 @@ rosterObject.fighters.forEach(res => {
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
                          
+1
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+                         
                          //Ki Set Up
-                         p2KiTotals -= 155;
+                         p2KiTotals -= 325;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
                          //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
+                         var damage = Math.round(125 * ((rosterObject.fighters[p2id - 1].atk)/(rosterObject.fighters[p1Uniqueid - 1].defend)));
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
                              p1HPTotals = 0
@@ -1759,37 +2406,33 @@ rosterObject.fighters.forEach(res => {
 
 
                  $('#p2Move3').click(function() {
-                     if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning") && (p2KiTotals > 154)) {
-                         //P1 Stat Changes
-                         p1AtkCounter +=5;
-                         p1DefCounter +=5;
-                         p1AuraAtkCounter +=5;
-                         p1AuraDefCounter +=5;
-                         p1SpdCounter +=-5;
+                     if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Kaioken Triple Attack" || "Infinite Break") && (p2KiTotals > 750)) {
 
-                         var p1AtkDiv = document.getElementById("p1AtkDiv");
-                         var p1DefDiv = document.getElementById("p1DefDiv");
-                         var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
-                         var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
-                         var p1SpdDiv = document.getElementById("p1SpdDiv");
-                         var newP1Atk = p1FightAtk + p1AtkCounter;
-                         var newP1Def = p1FightDef + p1DefCounter;
-                         var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                         var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                         var newP1Spd = p1FightSpd + p1SpdCounter;
-                         p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
-                         p1DefDiv.textContent = 'Defense: ' + newP1Def;
-                         p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                         p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
-                         p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                         document.getElementById('battle1').style.pointerEvents = 'auto';
+                         document.getElementById('battle2').style.pointerEvents = 'none';
+                         
+                         // $('.p1ButtonSet').prop("disabled", false);
+                         // $('.p2ButtonSet').prop("disabled", true);
                          
                          
+                         // $('#p1SenzuBtn').on('click');
+                         // $('#p1AuraRecBtn').on('click');
+                         // $('#p1Move1').on('click');
+                         // $('#p1Move2').on('click');
+                         // $('#p1Move3').on('click');
+                         // $('#p1MoveUlt').on('click');
+                         // $('#p2SenzuBtn').off('click');
+                         // $('#p2AuraRecBtn').off('click');
+                         // $('#p2Move1').off('click');
+                         // $('#p2Move2').off('click');
+                         // $('#p2Move3').off('click');
+                         // $('#p2MoveUlt').off('click');
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
-                         p2SpdCounter +=-2;
+                         p2AtkCounter +=0;
+                         p2AuraAtkCounter +=0;
+                         p2DefCounter +=6;
+                         p2AuraDefCounter +=6;
+                         p2SpdCounter +=-3;
 
 
                          var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -1802,14 +2445,28 @@ rosterObject.fighters.forEach(res => {
                          p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
+
+
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+                         
                          
                          //Ki Set Up
-                         p2KiTotals -= 155;
+                         p2KiTotals -= 750;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
                          //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
+                         var damage = Math.round(175 * ((rosterObject.fighters[p2id - 1].atkaura)/(rosterObject.fighters[p1Uniqueid - 1].defaura)));
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
                              p1HPTotals = 0;
@@ -1826,36 +2483,43 @@ rosterObject.fighters.forEach(res => {
                      }
                  });
                  $('#p2MoveUlt').click(function() {
-                     if ((p2MoveUltSelection == "RasenShuriken" || "Kirin") && (p2KiTotals > 154)) {
+                     if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash") && (p2KiTotals > 1000)) {
 
-                         //P1 Stat Changes
-                         p1AtkCounter +=5;
-                         p1DefCounter +=5;
-                         p1AuraAtkCounter +=5;
-                         p1AuraDefCounter +=5;
-                         p1SpdCounter +=-5;
-
-                         var p1AtkDiv = document.getElementById("p1AtkDiv");
-                         var p1DefDiv = document.getElementById("p1DefDiv");
-                         var p1AuraAtkDiv = document.getElementById("p1AuraAtkDiv");
-                         var p1AuraDefDiv = document.getElementById("p1AuraDefDiv");
-                         var p1SpdDiv = document.getElementById("p1SpdDiv");
-                         var newP1Atk = p1FightAtk + p1AtkCounter;
-                         var newP1Def = p1FightDef + p1DefCounter;
-                         var newP1AuraAtk = p1FightAuraAtk + p1AuraAtkCounter;
-                         var newP1AuraDef = p1FightAuraDef + p1AuraDefCounter;
-                         var newP1Spd = p1FightSpd + p1SpdCounter;
-                         p1AtkDiv.textContent = 'Attack: ' + newP1Atk;
-                         p1DefDiv.textContent = 'Defense: ' + newP1Def;
-                         p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                         p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
-                         p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
+                         document.getElementById('battle1').style.pointerEvents = 'auto';
+                         document.getElementById('battle2').style.pointerEvents = 'none';
+                         
+                         // $('.p1ButtonSet').prop("disabled", false);
+                         // $('.p2ButtonSet').prop("disabled", true);
+                         // $('#p1SenzuBtn').on('click');
+                         // $('#p1AuraRecBtn').on('click');
+                         // $('#p1Move1').on('click');
+                         // $('#p1Move2').on('click');
+                         // $('#p1Move3').on('click');
+                         // $('#p1MoveUlt').on('click');
+                         // $('#p2SenzuBtn').off('click');
+                         // $('#p2AuraRecBtn').off('click');
+                         // $('#p2Move1').off('click');
+                         // $('#p2Move2').off('click');
+                         // $('#p2Move3').off('click');
+                         // $('#p2MoveUlt').off('click');
+                         // $('#p1SenzuBtn').prop("disabled", false);
+                         // $('#p1AuraRecBtn').prop("disabled", false);
+                         // $('#p1Move1').prop("disabled", false);
+                         // $('#p1Move2').prop("disabled", false);
+                         // $('#p1Move3').prop("disabled", false);
+                         // $('#p1MoveUlt').prop("disabled", false);
+                         // $('#p2SenzuBtn').prop("disabled", true);
+                         // $('#p2AuraRecBtn').prop("disabled", true);
+                         // $('#p2Move1').prop("disabled", true);
+                         // $('#p2Move2').prop("disabled", true);
+                         // $('#p2Move3').prop("disabled", true);
+                         // $('#p2MoveUlt').prop("disabled", true);
 
                          //P2 Stat Changes    
-                         p2AtkCounter +=8;
-                         p2AuraAtkCounter +=8;
-                         p2DefCounter +=-5;
-                         p2AuraDefCounter +=-5;
+                         p2AtkCounter +=-2;
+                         p2AuraAtkCounter +=-2;
+                         p2DefCounter +=-2;
+                         p2AuraDefCounter +=-2;
                          p2SpdCounter +=-2;
 
 
@@ -1869,15 +2533,32 @@ rosterObject.fighters.forEach(res => {
                          p2AtkAura.textContent = 'Aura Attack: ' + newP2AuraAtk;
                          p2DefAura.textContent = 'Aura Defense: ' + newP2AuraDef;
                          p2Spd.textContent = 'Speed: ' + newP2Spd;
+                          
+                         
+                         var propAtk2 = {atk: newP2Atk};
+                         var propDef2 = {defend: newP2Def};
+                         var propAuraAtk2 = {atkaura: newP2AuraAtk};
+                         var propAuraDef2 = {defaura: newP2AuraDef};
+                         var propSpd2 = {speed: newP2Spd};
+                         
+                         $.extend(rosterObject.fighters[p2id - 1], propAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraAtk2);
+                         $.extend(rosterObject.fighters[p2id - 1], propAuraDef2);
+                         $.extend(rosterObject.fighters[p2id - 1], propSpd2);
+                         console.log(rosterObject);
+                         
+                         
+                         // var num = txt.replace(/[^0-9]/g, '');
                          
                          //P2 Damage and Ki/Health Adjustments
                           //Ki Set Up
-                         p2KiTotals -= 155;
+                         p2KiTotals -= 1000;
                          var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                          p2Ki.style.width = P2KiBarWidth + "px";
 
                          //Damage Calculator
-                         var damage = Math.round(Math.random() * 60 + 45);
+                         var damage = Math.round(225 * ((rosterObject.fighters[p2id - 1].atkaura)/(rosterObject.fighters[p1Uniqueid - 1].defaura)));
                          p1HPTotals -= damage;
                          if (p1HPTotals < 0) {
                              p1HPTotals = 0;
@@ -1887,8 +2568,7 @@ rosterObject.fighters.forEach(res => {
                          var p1HP = document.getElementById("p1Health");
                          p1HP.style.width = P1HPBarWidth + "px";
                          console.log(res.name + " used " + p2MoveUltSelection + "!");
-
-
+                         
                      }
                  });
 
@@ -1904,17 +2584,45 @@ rosterObject.fighters.forEach(res => {
             var p2FightAuraAtk = res.atkaura;
             var p2FightAuraDef = res.defaura;
             var p2FightSpd = res.speed;
+            var p2id = res.id;
             var p2AtkCounter = 0;
             var p2DefCounter = 0;
             var p2AuraAtkCounter = 0;
             var p2AuraDefCounter = 0;
             var p2SpdCounter = 0;
-        })
+            var p1BattleDivContainer = document.getElementById("battle1");
 
+            //
+            // $('.battle1 btn').prop("disabled", true);
+            // $('.battle2 btn').prop("disabled", false);
+            //Compare speeds using counters to determine player move order
+            // if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
+            //     overallTurnCounter += 1;
+            //     $('.p1ButtonSet').prop("disabled", false);
+            //     $('.p2ButtonSet').prop("disabled", true);
+            // } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
+            //     overallTurnCounter += 1;
+            //     $('.p1ButtonSet').prop("disabled", true);
+            //     $('.p2ButtonSet').prop("disabled", false);
+            // }
+            // $('.p1ButtonSet').click(function() {
+            //     $('.p1ButtonSet').prop("disabled", true);
+            //     $('.p2ButtonSet').prop("disabled", false);
+            // });
+            // $('.p2ButtonSet').click(function() {
+            //     $('.p1ButtonSet').prop("disabled", true);
+            //     $('.p2ButtonSet').prop("disabled", false);
+            // });
+            //
+        })
+        
+       
         
     });
 
 
+  
+     
     //Adds cards and all stored data to container for characters
     var container = document.querySelector("#characterSelectScreen");
     container.appendChild(card);
@@ -1925,7 +2633,8 @@ rosterObject.fighters.forEach(res => {
     $('#charSelectBtn2' + res.id).click(function() {
         window.location='#';
     })
-    
+
+
     
 });
 
