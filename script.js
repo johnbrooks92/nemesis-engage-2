@@ -515,19 +515,19 @@ const rosterObject = {
             "id": "29"
         },
         {
-            "name": "Reiner Braun",
-            "moves": ["ODM Gear", "Lowered Shoulder", "Summoning Scream"],
-            "ultimate": "Titan Catapult",
-            "transformations": "Survey Corps, Veteran, Armored Titan",
-            "series": "Attack on Titan",
-            "img": "img/reiner-base.png",
+            "name": "Shinobu Sensui",
+            "moves": ["Fissure Kick", "Crimson Ball Wave", "Sacred Energy Armor"],
+            "ultimate": "Sacred Energy Beam",
+            "transformations": "Spirit Detective, Chapter Black, Sacred God",
+            "series": "YuYu Hakusho",
+            "img": "img/sensui-base.png",
             "unlock": "no",
-            "rivals": "Eren Jaeger",
-            "atk": 16,
-            "defend": 25,
-            "speed": 10,
-            "atkaura": 14,
-            "defaura": 25,
+            "rivals": "Yusuke Urameshi",
+            "atk": 22,
+            "defend": 12,
+            "speed": 22,
+            "atkaura": 24,
+            "defaura": 10,
             "id": "30"
         }
     ]
