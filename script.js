@@ -1803,9 +1803,13 @@ rosterObject.fighters.forEach(res => {
                         var damage = Math.round(75 * (rosterObject.fighters[p1Uniqueid - 1].atkaura / rosterObject.fighters[p2id - 1].defaura));
                         console.log("damage = " + damage);
                         p2HPTotals -= damage;
-                        if (p2HPTotals < 0) {
+                        if (p2HPTotals <= 0) {
                             p2HPTotals = 0;
                             console.log(p1FighterNameDiv + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
@@ -1885,9 +1889,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(125 * (rosterObject.fighters[p1Uniqueid - 1].atk / rosterObject.fighters[p2id - 1].defend));
                         p2HPTotals -= damage;
-                        if (p2HPTotals < 0) {
+                        if (p2HPTotals <= 0) {
                             p2HPTotals = 0;
                             console.log(p1FighterNameDiv + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
@@ -1965,9 +1973,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(175 * (rosterObject.fighters[p1Uniqueid - 1].atkaura / rosterObject.fighters[p2id - 1].defaura));
                         p2HPTotals -= damage;
-                        if (p2HPTotals < 0) {
+                        if (p2HPTotals <= 0) {
                             p2HPTotals = 0;
                             console.log(p1FighterNameDiv + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
@@ -2047,9 +2059,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(225 * (rosterObject.fighters[p1Uniqueid - 1].atkaura / rosterObject.fighters[p2id - 1].defaura));
                         p2HPTotals -= damage;
-                        if (p2HPTotals < 0) {
+                        if (p2HPTotals <= 0) {
                             p2HPTotals = 0;
                             console.log(p1FighterNameDiv + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
@@ -2124,9 +2140,13 @@ rosterObject.fighters.forEach(res => {
                         var damage = Math.round(75 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
                         console.log("damage = " + damage);
                         p1HPTotals -= damage;
-                        if (p1HPTotals < 0) {
+                        if (p1HPTotals <= 0) {
                             p1HPTotals = 0;
                             console.log(res.name + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
@@ -2201,9 +2221,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(125 * ((rosterObject.fighters[p2id - 1].atk) / (rosterObject.fighters[p1Uniqueid - 1].defend)));
                         p1HPTotals -= damage;
-                        if (p1HPTotals < 0) {
+                        if (p1HPTotals <= 0) {
                             p1HPTotals = 0
                             console.log(res.name + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
@@ -2280,9 +2304,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(175 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
                         p1HPTotals -= damage;
-                        if (p1HPTotals < 0) {
+                        if (p1HPTotals <= 0) {
                             p1HPTotals = 0;
                             console.log(res.name + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
 
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
@@ -2358,9 +2386,13 @@ rosterObject.fighters.forEach(res => {
                         //Damage Calculator
                         var damage = Math.round(225 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
                         p1HPTotals -= damage;
-                        if (p1HPTotals < 0) {
+                        if (p1HPTotals <= 0) {
                             p1HPTotals = 0;
                             console.log(res.name + " wins the fight!");
+                            console.log("Game will reload in 5 seconds.");
+                            setTimeout(function () {
+                                window.location.reload(true);
+                            }, 5000);
                         }
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
