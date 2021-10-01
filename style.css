@@ -177,6 +177,5 @@ btn {
     overflow: scroll;
 }
 #textBox h2{
-    text-align: center;
-    
+    text-align: end;
 }

@@ -2,15 +2,24 @@
 
 //When I press enter, character select displays
 
-var beginCode = [13];
-var inputCode = [];
+var beginCode = 13;
+var skipCode = 83;
+var myAudio;
 
-$('body').keyup(function (event) {
+$(function() {
+    $('#textBox').bind('DOMSubtreeModified', function () {
+        var textBox = $('#textBox');
+        textBox.scrollTop(textBox.prop("scrollHeight"));
+        console.log("hi");
+    });
+});
+
+$('body').keydown(function (event) {
     $(this).scrollTop(0);
-    inputCode.push(event.which);
+    var inputCode = event.which;
+    if (inputCode == beginCode) {
 
-    if (inputCode.join(',') === beginCode.join(',')) {
-
+        
         $('#startupScreen h2').css('display', 'none');
         
         function randomIntFromInterval(min, max) { // min and max included 
@@ -20,18 +29,19 @@ $('body').keyup(function (event) {
         var rndInt = randomIntFromInterval(1, 4)
         
         if (rndInt == 1){
-            var myAudio = new Audio('audio/montage-opening-1.mp3');
+            myAudio = new Audio('audio/montage-opening-1.mp3');
             myAudio.play();
         } else if (rndInt == 2) {
-            var myAudio = new Audio('audio/montage-opening-2.mp3');
+            myAudio = new Audio('audio/montage-opening-2.mp3');
             myAudio.play();
         } else if (rndInt == 3) {
-            var myAudio = new Audio('audio/montage-opening-3.mp3');
+            myAudio = new Audio('audio/montage-opening-3.mp3');
             myAudio.play();
         } else if (rndInt == 4) {
-            var myAudio = new Audio('audio/montage-opening-4.mp3');
+            myAudio = new Audio('audio/montage-opening-4.mp3');
             myAudio.play();
         }
+        
         setTimeout(function () {
             $('#startupScreen').css('background-image', 'url(img/montage/maul-vs-ahsoka-montage-1.gif');
         }, 1500);
@@ -159,12 +169,21 @@ $('body').keyup(function (event) {
 
 
         setTimeout(function () {$('#startupScreen').css({'display': 'none'});}, 90000);
-        setTimeout(function () {myAudio.pause();}, 90000);
+        setTimeout(function () {myAudio.pause();}, 90250);
         setTimeout(function () {$('#topRow').css({'display': 'block'});}, 90000);
         setTimeout(function () {$('#characterSelectScreen').css({'display': 'block'});}, 90000);
+        setTimeout(function () {$('*').off('keyup keydown keypress');}, 90000);
+    } else if (inputCode == skipCode){
+        console.log("I made it here");
+        myAudio.pause();
+        $('#startupScreen').css({'display': 'none'});
+        $('#topRow').css({'display': 'block'});
+        $('#characterSelectScreen').css({'display': 'block'});
+        $('*').off('keyup keydown keypress');
     }
-
+    
 });
+
 //Define Health Variables
 var p1HPTotals = 1200;
 var p2HPTotals = 1200;
@@ -1016,11 +1035,6 @@ rosterObject.fighters.forEach(res => {
 
             var textBoxDiv = document.createElement("div");
             textBoxDiv.id = "textBox";
-            var textBoxHeader = document.createElement('h2');
-            textBoxHeader.id = "textBoxHeader";
-            var textBoxHeaderText = document.createTextNode('Battle Log');
-            textBoxHeader.appendChild(textBoxHeaderText);
-            textBoxDiv.appendChild(textBoxHeader);
 
 
             $(document).ready(function () {
@@ -1986,6 +2000,10 @@ rosterObject.fighters.forEach(res => {
             }, 3000);
             setTimeout(function () {
                 $('#topRow').toggle();
+            }, 3000); 
+            setTimeout(function () {
+                $('#textBox').css({'display': 'flex'});
+                $('#textBox').css({'flex-direction': 'column-reverse'});
             }, 3000);
             setTimeout(function () {
                 $('#battleScreen').toggle();
