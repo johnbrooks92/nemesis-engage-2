@@ -73,8 +73,10 @@ h2{
     color: #32cd32;
     text-align: center;
     align-items: center;
-    height: 43rem;
+    height: 50rem;
+    width: 90rem;
     padding-top: 15rem;
+    background-size: cover;
 }
 #battleScreen{
     height: 47.5rem;
