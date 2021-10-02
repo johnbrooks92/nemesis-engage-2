@@ -2236,6 +2236,7 @@ rosterObject.fighters.forEach(res => {
                     var audioElement = document.createElement('audio');
                     audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
                     audioElement.setAttribute('autoplay', 'autoplay');
+                    audioElement.volume(0.05);
                     audioElement.play();
 
                     if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
