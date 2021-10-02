@@ -29,11 +29,13 @@ body{
     width: 19%;
     font-family: 'Goldman', cursive;
     font-size: medium;
-    color: #f3b7f3;
+    color: #bb4ec7;
+    outline: 1px;
+    outline-color: black;
     flex-wrap: wrap;
     display: inline-flex;
     justify-content: space-evenly;
-    border: 2px groove #f3b7f3;
+    border: 2px groove #470e94;
 }
 .charSelectImg {
     display: grid;
