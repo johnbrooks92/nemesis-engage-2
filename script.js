@@ -928,8 +928,8 @@ rosterObject.fighters.forEach(res => {
 
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader1 = document.createElement('h2')
-            hpHeader1.id = "hpHeader1" + res.name;
-            var barNameHP1 = document.createTextNode('HP');
+            hpHeader1.id = "hpHeader1";
+            var barNameHP1 = document.createTextNode('HP ' + p1HPTotals + "/1200");
             hpHeader1.appendChild(barNameHP1);
             player1InfoBox.appendChild(hpHeader1);
 
@@ -948,7 +948,7 @@ rosterObject.fighters.forEach(res => {
 
             var kiHeader1 = document.createElement('h2')
             kiHeader1.id = "kiHeader1" + res.name;
-            var barNameKI1 = document.createTextNode('KI');
+            var barNameKI1 = document.createTextNode('KI ' + p1KiTotals + "/1200");
             kiHeader1.appendChild(barNameKI1);
             player1InfoBox.appendChild(kiHeader1);
 
@@ -1194,6 +1194,8 @@ rosterObject.fighters.forEach(res => {
                 }
                 var p1KiBar = (p1KiTotals / 1200) * 300;
                 p1Ki.style.width = p1KiBar + "px";
+                kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                
                 var textBoxDiv = document.getElementById('textBox');
                 textBoxDiv.innerHTML += p1FighterName + " recovered his ki! " + p1FighterName + " now has " + p1KiTotals + " Ki remaining.<br>";
                 var audioElement = document.createElement('audio');
@@ -1224,7 +1226,7 @@ rosterObject.fighters.forEach(res => {
 
             //P1 Stat Change Formulas
             $('#p1Move1').click(function () {
-                if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals > 250)) {
+                if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals>=250)) {
 
 
                     p1AtkCounter += 2;
@@ -1261,7 +1263,13 @@ rosterObject.fighters.forEach(res => {
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
 
-                } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals > 250)) {
+                    //Ki Set Up
+                    p1KiTotals -= 250;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+
+                } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals >= 250)) {
 
 
                     p1AtkCounter += 2;
@@ -1297,11 +1305,17 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
+
+                    //Ki Set Up
+                    p1KiTotals -= 250;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
 
                 }
             });
             $('#p1Move2').click(function () {
-                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals > 325)) {
+                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >=325)) {
 
 
                     p1AtkCounter += 0;
@@ -1336,7 +1350,13 @@ rosterObject.fighters.forEach(res => {
                     $.extend(rosterObject.fighters[p1id - 1], propSpd1);
 
                     player1TurnCounter += 1;
-                } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals > 325)) {
+                    //Ki Set Up
+                    p1KiTotals -= 325;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                    
+                } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >=325)) {
 
 
                     p1AtkCounter += 0;
@@ -1371,10 +1391,15 @@ rosterObject.fighters.forEach(res => {
                     $.extend(rosterObject.fighters[p1id - 1], propSpd1);
 
                     player1TurnCounter += 1;
+                    //Ki Set Up
+                    p1KiTotals -= 325;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
                 }
             });
             $('#p1Move3').click(function () {
-                if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p1KiTotals > 650)) {
+                if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p1KiTotals >= 750)) {
 
 
                     p1AtkCounter += 0;
@@ -1410,7 +1435,12 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
-                } else if ((p1Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p1KiTotals > 650)) {
+                    //Ki Set Up
+                    p1KiTotals -= 750;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                } else if ((p1Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p1KiTotals >= 750)) {
 
 
                     p1AtkCounter += 0;
@@ -1446,10 +1476,15 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
+                    //Ki Set Up
+                    p1KiTotals -= 750;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
                 }
             });
             $('#p1MoveUlt').click(function () {
-                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals > 1000)) {
+                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals>=1000)) {
 
 
                     p1AtkCounter += -2;
@@ -1485,7 +1520,14 @@ rosterObject.fighters.forEach(res => {
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
 
-                } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals > 1000)) {
+                    //Ki Set Up
+                    p1KiTotals -= 1000;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+
+
+                } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals>=1000)) {
 
 
                     p1AtkCounter += -2;
@@ -1520,13 +1562,21 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
+
+
+                    //Ki Set Up
+                    p1KiTotals -= 1000;
+                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                    p1Ki.style.width = P1KiBarWidth + "px";
+                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+
 
                 }
             });
 
             $('#p2Move1').click(function () {
                 var p2Move1Selection = document.getElementById("p2Move1").textContent;
-                if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p2KiTotals > 250)) {
+                if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p2KiTotals >= 250)) {
 
 
                     p1AtkCounter += 0;
@@ -1563,7 +1613,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else if ((p2Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p2KiTotals > 250)) {
+                } else if ((p2Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p2KiTotals >= 250)) {
 
 
                     p1AtkCounter += -3;
@@ -1680,7 +1730,7 @@ rosterObject.fighters.forEach(res => {
             });
             $('#p2Move3').click(function () {
                 var p2Move3Selection = document.getElementById("p2Move3").textContent;
-                if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p2KiTotals > 750)) {
+                if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p2KiTotals >= 750)) {
 
 
                     p1AtkCounter += 0;
@@ -1717,7 +1767,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else if ((p2Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p2KiTotals > 750)) {
+                } else if ((p2Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p2KiTotals >= 750)) {
 
 
                     p1AtkCounter += -2;
@@ -1759,7 +1809,7 @@ rosterObject.fighters.forEach(res => {
 
             $('#p2MoveUlt').click(function () {
                 var p2MoveUltSelection = document.getElementById("p2MoveUlt").textContent;
-                if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p2KiTotals > 1000)) {
+                if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p2KiTotals >= 1000)) {
 
 
                     p1AtkCounter += 0;
@@ -1796,7 +1846,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else if ((p2MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p2KiTotals > 1000)) {
+                } else if ((p2MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p2KiTotals >= 1000)) {
 
 
                     p1AtkCounter += -2;
@@ -1913,8 +1963,8 @@ rosterObject.fighters.forEach(res => {
 
             //Player2 HP and Aura Bar; Make sure to reset totals when fight ends
             var hpHeader2 = document.createElement('h2')
-            hpHeader2.id = "hpHeader2" + res.name;
-            var barNameHP2 = document.createTextNode('HP');
+            hpHeader2.id = "hpHeader2";
+            var barNameHP2 = document.createTextNode('HP ' + p2HPTotals + "/1200");
             hpHeader2.appendChild(barNameHP2);
             player2InfoBox.appendChild(hpHeader2);
 
@@ -1931,7 +1981,7 @@ rosterObject.fighters.forEach(res => {
 
             var kiHeader2 = document.createElement('h2')
             kiHeader2.id = "kiHeader2" + res.name;
-            var barNameKI2 = document.createTextNode('KI');
+            var barNameKI2 = document.createTextNode('KI ' + p2KiTotals + "/1200");
             kiHeader2.appendChild(barNameKI2);
             player2InfoBox.appendChild(kiHeader2);
 
@@ -2231,6 +2281,9 @@ rosterObject.fighters.forEach(res => {
                     }
                     var p2KiBar = (p2KiTotals / 1200) * 300;
                     p2Ki.style.width = p2KiBar + "px";
+                    kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
+                    
+                    
                     var textBoxDiv = document.getElementById('textBox');
                     textBoxDiv.innerHTML += player2Name + " recovered his ki! " + player2Name + " now has " + p2KiTotals + " Ki remaining.<br>";
                     var audioElement = document.createElement('audio');
@@ -2263,7 +2316,7 @@ rosterObject.fighters.forEach(res => {
 
 
                     var p1Move1Selection = document.getElementById("p1Move1").textContent;
-                    if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals > 250)) {
+                    if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals>=250)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2272,13 +2325,7 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += 0;
                         p2AuraDefCounter += -3;
                         p2SpdCounter += 2;
-
-
-                        //Ki Set Up
-                        p1KiTotals -= 250;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
-
+                        
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2322,8 +2369,11 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2339,7 +2389,7 @@ rosterObject.fighters.forEach(res => {
                         }
 
 
-                    } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals > 250)) {
+                    } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals>=250)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2348,12 +2398,6 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += -3;
                         p2AuraDefCounter += 0;
                         p2SpdCounter += +2;
-
-
-                        //Ki Set Up
-                        p1KiTotals -= 250;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
 
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -2398,8 +2442,11 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2420,15 +2467,12 @@ rosterObject.fighters.forEach(res => {
 
                 $('#p1Move2').click(function () {
                     var p1Move2Selection = document.getElementById("p1Move2").textContent;
-                    if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals > 325)) {
+                    if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >=325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
                         
-                        //Ki Set Up
-                        p1KiTotals -= 325;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
+                       
 
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
@@ -2480,9 +2524,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
-                        
+
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2497,15 +2544,11 @@ rosterObject.fighters.forEach(res => {
                         } else {
                         }
 
-                    } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals > 325)) {
+                    } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >=325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
                         
-                        //Ki Set Up
-                        p1KiTotals -= 325;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
 
                         //P2 Stat Changes    
                         p2AtkCounter += -2;
@@ -2557,9 +2600,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
-                        
+
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2581,14 +2627,11 @@ rosterObject.fighters.forEach(res => {
                 $('#p1Move3').click(function () {
 
                     var p1Move3Selection = document.getElementById("p1Move3").textContent;
-                    if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p1KiTotals > 750)) {
+                    if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p1KiTotals >= 750)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
                         
-                        //Ki Set Up
-                        p1KiTotals -= 750;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
+                        
 
 
                         //P2 Stat Changes    
@@ -2641,9 +2684,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
-                        
+
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2658,15 +2704,9 @@ rosterObject.fighters.forEach(res => {
                         } else {
                         }
 
-                    } else if ((p1Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p1KiTotals > 750)) {
+                    } else if ((p1Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p1KiTotals >= 750)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
-                        
-                        //Ki Set Up
-                        p1KiTotals -= 750;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
-
 
                         //P2 Stat Changes    
                         p2AtkCounter += 3;
@@ -2718,9 +2758,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
-                        
+
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2742,7 +2785,7 @@ rosterObject.fighters.forEach(res => {
                 //Aura or Physical depending on Character
                 $('#p1MoveUlt').click(function () {
                     var p1MoveUltSelection = document.getElementById("p1MoveUlt").textContent;
-                    if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals > 1000)) {
+                    if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals>=1000)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2754,11 +2797,6 @@ rosterObject.fighters.forEach(res => {
                         p2AuraDefCounter += -2;
                         p2SpdCounter += 0;
                         
-
-                        //Ki Set Up
-                        p1KiTotals -= 1000;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2801,8 +2839,11 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2816,7 +2857,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals > 1000)) {
+                    } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals>=1000)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2828,11 +2869,6 @@ rosterObject.fighters.forEach(res => {
                         p2AuraDefCounter += 0;
                         p2SpdCounter += 0;
                         
-
-                        //Ki Set Up
-                        p1KiTotals -= 1000;
-                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                        p1Ki.style.width = P1KiBarWidth + "px";
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2877,6 +2913,8 @@ rosterObject.fighters.forEach(res => {
                         }
                         var P2HPBarWidth = (p2HPTotals / 1200) * 300;
                         p2HP.style.width = P2HPBarWidth + "px";
+                        var hpHeader2 = document.getElementById("hpHeader2");
+                        hpHeader2.textContent = 'HP ' + p2HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2897,7 +2935,7 @@ rosterObject.fighters.forEach(res => {
                 // PLAYER 2 BUTTONS
 
                 $('#p2Move1').click(function () {
-                    if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p2KiTotals > 250)) {
+                    if ((p2Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p2KiTotals >= 250)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -2942,6 +2980,7 @@ rosterObject.fighters.forEach(res => {
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
 
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
                         //Damage Calculator
                         var damage = Math.round(75 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
                         p1HPTotals -= damage;
@@ -2961,9 +3000,12 @@ rosterObject.fighters.forEach(res => {
                             }, 5000);
                         }
 
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2977,7 +3019,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p2Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p2KiTotals > 250)) {
+                    } else if ((p2Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p2KiTotals >= 250)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3021,7 +3063,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 250;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
-
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
                         //Damage Calculator
                         var damage = Math.round(75 * ((rosterObject.fighters[p2id - 1].atk) / (rosterObject.fighters[p1Uniqueid - 1].defend)));
                         p1HPTotals -= damage;
@@ -3041,9 +3083,12 @@ rosterObject.fighters.forEach(res => {
                             }, 5000);
                         }
 
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -3062,7 +3107,7 @@ rosterObject.fighters.forEach(res => {
 
 
                 $('#p2Move2').click(function () {
-                    if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p2KiTotals > 325)) {
+                    if ((p2Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p2KiTotals >= 325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3103,6 +3148,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 325;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(125 * ((rosterObject.fighters[p2id - 1].atk) / (rosterObject.fighters[p1Uniqueid - 1].defend)));
@@ -3122,9 +3168,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
                         
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
@@ -3139,7 +3188,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p2Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p2KiTotals > 325)) {
+                    } else if ((p2Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p2KiTotals >= 325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3180,6 +3229,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 325;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(125 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
@@ -3199,9 +3249,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
                         
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
@@ -3221,7 +3274,7 @@ rosterObject.fighters.forEach(res => {
 
 
                 $('#p2Move3').click(function () {
-                    if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p2KiTotals > 750)) {
+                    if ((p2Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p2KiTotals >= 750)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3265,6 +3318,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 750;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(175 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
@@ -3284,9 +3338,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
 
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
@@ -3301,7 +3358,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p2Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p2KiTotals > 750)) {
+                    } else if ((p2Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p2KiTotals >= 750)) {
                         
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
@@ -3346,6 +3403,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 750;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(175 * ((rosterObject.fighters[p2id - 1].atk) / (rosterObject.fighters[p1Uniqueid - 1].defend)));
@@ -3365,9 +3423,12 @@ rosterObject.fighters.forEach(res => {
                                 window.location.reload(true);
                             }, 5000);
                         }
+
                         var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
 
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
@@ -3385,7 +3446,7 @@ rosterObject.fighters.forEach(res => {
                     }
                 });
                 $('#p2MoveUlt').click(function () {
-                    if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p2KiTotals > 1000)) {
+                    if ((p2MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p2KiTotals >= 1000)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3430,6 +3491,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 1000;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(225 * ((rosterObject.fighters[p2id - 1].atkaura) / (rosterObject.fighters[p1Uniqueid - 1].defaura)));
@@ -3450,9 +3512,13 @@ rosterObject.fighters.forEach(res => {
                             }, 5000);
                         }
 
-                       var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+
+                        var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
+                        
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
@@ -3467,7 +3533,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p2MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p2KiTotals > 1000)) {
+                    } else if ((p2MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p2KiTotals >= 1000)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3512,6 +3578,7 @@ rosterObject.fighters.forEach(res => {
                         p2KiTotals -= 1000;
                         var P2KiBarWidth = (p2KiTotals / 1200) * 300;
                         p2Ki.style.width = P2KiBarWidth + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
 
                         //Damage Calculator
                         var damage = Math.round(225 * ((rosterObject.fighters[p2id - 1].atk) / (rosterObject.fighters[p1Uniqueid - 1].defend)));
@@ -3532,9 +3599,12 @@ rosterObject.fighters.forEach(res => {
                             }, 5000);
                         }
 
-                       var P1HPBarWidth = (p1HPTotals / 1200) * 300;
+                        var P1HPBarWidth = (p1HPTotals / 1200) * 300;
                         var p1HP = document.getElementById("p1Health");
                         p1HP.style.width = P1HPBarWidth + "px";
+                        var hpHeader1 = document.getElementById("hpHeader1");
+                        hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
+                        
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
