@@ -1378,10 +1378,10 @@ rosterObject.fighters.forEach(res => {
 
 
                     p1AtkCounter += 0;
-                    p1DefCounter += 6;
+                    p1DefCounter += 2;
                     p1AuraAtkCounter += 0;
-                    p1AuraDefCounter += 6;
-                    p1SpdCounter += -3;
+                    p1AuraDefCounter += 2;
+                    p1SpdCounter += -1;
 
 
                     var newP1Atk = p1UniqueAtk + p1AtkCounter;
@@ -2594,8 +2594,8 @@ rosterObject.fighters.forEach(res => {
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
                         p2AuraAtkCounter += 0;
-                        p2DefCounter += -2;
-                        p2AuraDefCounter += -2;
+                        p2DefCounter += 2;
+                        p2AuraDefCounter += 2;
                         p2SpdCounter += -3;
 
 
@@ -3230,9 +3230,9 @@ rosterObject.fighters.forEach(res => {
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
                         p2AuraAtkCounter += 0;
-                        p2DefCounter += 6;
-                        p2AuraDefCounter += 6;
-                        p2SpdCounter += -3;
+                        p2DefCounter += 2;
+                        p2AuraDefCounter += 2;
+                        p2SpdCounter += -1;
 
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -3311,9 +3311,9 @@ rosterObject.fighters.forEach(res => {
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
                         p2AuraAtkCounter += 0;
-                        p2DefCounter += 6;
-                        p2AuraDefCounter += 6;
-                        p2SpdCounter += -3;
+                        p2DefCounter += 2;
+                        p2AuraDefCounter += 2;
+                        p2SpdCounter += -1;
 
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
