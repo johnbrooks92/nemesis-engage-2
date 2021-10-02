@@ -273,22 +273,6 @@ var p2UniqueSpd = 0;
 const rosterObject = {
     "fighters": [
         {
-            "name": "Eren",
-            "moves": ["ODM Gear", "Attack Titan", "WarHammer Titan"],
-            "ultimate": "The Rumbling",
-            "transformations": "Survey Corps, Jaegerist, Founding Titan",
-            "series": "Attack on Titan",
-            "img": "img/eren-base.png",
-            "unlock": "no",
-            "rivals": "Yusuke",
-            "atk": 25,
-            "defend": 16,
-            "speed": 10,
-            "atkaura": 25,
-            "defaura": 14,
-            "id": "1"
-        },
-        {
             "name": "Batman",
             "moves": ["Omni-Style Rush", "Batarang", "Cape Cover"],
             "ultimate": "Gotham's God",
@@ -302,7 +286,7 @@ const rosterObject = {
             "speed": 16,
             "atkaura": 14,
             "defaura": 20,
-            "id": "2"
+            "id": "1"
         },
         {
             "name": "Flash",
@@ -318,7 +302,7 @@ const rosterObject = {
             "speed": 25,
             "atkaura": 11,
             "defaura": 24,
-            "id": "3"
+            "id": "2"
         },
         {
             "name": "Superman",
@@ -334,7 +318,7 @@ const rosterObject = {
             "speed": 16,
             "atkaura": 21,
             "defaura": 11,
-            "id": "4"
+            "id": "3"
         },
         {
             "name": "Goku",
@@ -350,7 +334,7 @@ const rosterObject = {
             "speed": 17,
             "atkaura": 17,
             "defaura": 19,
-            "id": "5"
+            "id": "4"
         },
         {
             "name": "Frieza",
@@ -366,7 +350,7 @@ const rosterObject = {
             "speed": 24,
             "atkaura": 25,
             "defaura": 14,
-            "id": "6"
+            "id": "5"
         },
         {
             "name": "Vegeta",
@@ -382,7 +366,7 @@ const rosterObject = {
             "speed": 23,
             "atkaura": 20,
             "defaura": 17,
-            "id": "7"
+            "id": "6"
         },
         {
             "name": "Link",
@@ -398,7 +382,7 @@ const rosterObject = {
             "speed": 20,
             "atkaura": 14,
             "defaura": 12,
-            "id": "8"
+            "id": "7"
         },
         {
             "name": "Bakugo",
@@ -414,7 +398,7 @@ const rosterObject = {
             "speed": 20,
             "atkaura": 23,
             "defaura": 14,
-            "id": "9"
+            "id": "8"
         },
         {
             "name": "Izuku",
@@ -430,7 +414,7 @@ const rosterObject = {
             "speed": 23,
             "atkaura": 23,
             "defaura": 12,
-            "id": "10"
+            "id": "9"
         },
         {
             "name": "Shoto",
@@ -446,7 +430,7 @@ const rosterObject = {
             "speed": 14,
             "atkaura": 19,
             "defaura": 19,
-            "id": "11"
+            "id": "10"
         },
         {
             "name": "Itachi",
@@ -462,7 +446,7 @@ const rosterObject = {
             "speed": 15,
             "atkaura": 19,
             "defaura": 22,
-            "id": "12"
+            "id": "11"
         },
         {
             "name": "Kakashi",
@@ -478,7 +462,7 @@ const rosterObject = {
             "speed": 17,
             "atkaura": 21,
             "defaura": 14,
-            "id": "13"
+            "id": "12"
         },
         {
             "name": "Naruto",
@@ -494,7 +478,7 @@ const rosterObject = {
             "speed": 15,
             "atkaura": 21,
             "defaura": 15,
-            "id": "14"
+            "id": "13"
         },
         {
             "name": "Sasuke",
@@ -510,7 +494,7 @@ const rosterObject = {
             "speed": 22,
             "atkaura": 24,
             "defaura": 14,
-            "id": "15"
+            "id": "14"
         },
         {
             "name": "Aku",
@@ -526,7 +510,7 @@ const rosterObject = {
             "speed": 12,
             "atkaura": 25,
             "defaura": 23,
-            "id": "16"
+            "id": "15"
         },
         {
             "name": "Jack",
@@ -542,6 +526,21 @@ const rosterObject = {
             "speed": 21,
             "atkaura": 11,
             "defaura": 10,
+            "id": "16"
+        },{
+            "name": "Eren",
+            "moves": ["ODM Gear", "Attack Titan", "WarHammer Titan"],
+            "ultimate": "The Rumbling",
+            "transformations": "Survey Corps, Jaegerist, Founding Titan",
+            "series": "Attack on Titan",
+            "img": "img/eren-base.png",
+            "unlock": "no",
+            "rivals": "Reiner",
+            "atk": 25,
+            "defend": 16,
+            "speed": 10,
+            "atkaura": 25,
+            "defaura": 14,
             "id": "17"
         },
         {
