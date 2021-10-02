@@ -1149,44 +1149,49 @@ rosterObject.fighters.forEach(res => {
 
             //HP Recovery Formula
             $('#p1SenzuBtn').click(function () {
-                document.getElementById('battle1').style.pointerEvents = 'none';
-                document.getElementById('battle2').style.pointerEvents = 'auto';
-
-                p1HPTotals = 1200
-                var p1HPBar = (p1HPTotals / 1200) * 300;
-                p1HP.style.width = p1HPBar + "px";
-                var textBoxDiv = document.getElementById('textBox');
-                textBoxDiv.innerHTML += p1FighterName + " recovered health completely! <br>";
-                var p1SenzuBtn = document.getElementById('p1SenzuBtn');
-                $(p1SenzuBtn).css('visibility', 'hidden');
-
-                var audioElement = document.createElement('audio');
-                audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
-                audioElement.setAttribute('autoplay', 'autoplay');
-                audioElement.play();
-
-                player1TurnCounter += 1;
-
-                if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                    overallTurnCounter += 1;
-                    var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
-                    document.getElementById('battle1').style.pointerEvents = 'auto';
-                    document.getElementById('battle2').style.pointerEvents = 'none';
-                } else if ((overallTurnCounter > 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                    overallTurnCounter += 1;
-                    var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                if (p1HPTotals <1200) {
                     document.getElementById('battle1').style.pointerEvents = 'none';
                     document.getElementById('battle2').style.pointerEvents = 'auto';
+
+                    p1HPTotals = 1200
+                    var p1HPBar = (p1HPTotals / 1200) * 300;
+                    p1HP.style.width = p1HPBar + "px";
+                    var textBoxDiv = document.getElementById('textBox');
+                    textBoxDiv.innerHTML += p1FighterName + " recovered health completely! <br>";
+                    var p1SenzuBtn = document.getElementById('p1SenzuBtn');
+                    $(p1SenzuBtn).css('visibility', 'hidden');
+                    hpHeader1.textContent = "HP " + p1HPTotals + "/1200";
+
+                    var audioElement = document.createElement('audio');
+                    audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
+                    audioElement.setAttribute('autoplay', 'autoplay');
+                    audioElement.play();
+
+                    player1TurnCounter += 1;
+
+                    if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                        overallTurnCounter += 1;
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                        document.getElementById('battle1').style.pointerEvents = 'auto';
+                        document.getElementById('battle2').style.pointerEvents = 'none';
+                    } else if ((overallTurnCounter > 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                        overallTurnCounter += 1;
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                        document.getElementById('battle1').style.pointerEvents = 'none';
+                        document.getElementById('battle2').style.pointerEvents = 'auto';
+                    } else {
+                    }
                 } else {
+                    var textBoxDiv = document.getElementById('textBox');
+                    textBoxDiv.innerHTML += "Your health is already full! <br>";
                 }
-                ;
 
             });
             //Ki Recovery Formula
             $('#p1AuraRecBtn').click(function () {
-
+                if (p1KiTotals < 1200) {
                 document.getElementById('battle1').style.pointerEvents = 'none';
                 document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -1224,8 +1229,10 @@ rosterObject.fighters.forEach(res => {
                     document.getElementById('battle2').style.pointerEvents = 'auto';
                 } else {
                 }
-                ;
-
+                } else {
+                    var textBoxDiv = document.getElementById('textBox');
+                    textBoxDiv.innerHTML += "Your energy is already full! <br>";
+                }
             });
 
 
@@ -2116,13 +2123,13 @@ rosterObject.fighters.forEach(res => {
                 if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn.";
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn. <br>";
                     document.getElementById('battle1').style.pointerEvents = 'auto';
                     document.getElementById('battle2').style.pointerEvents = 'none';
                 } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn.";
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn. <br>";
                     document.getElementById('battle1').style.pointerEvents = 'none';
                     document.getElementById('battle2').style.pointerEvents = 'auto';
                 }
@@ -2202,77 +2209,87 @@ rosterObject.fighters.forEach(res => {
 
                 //HP Recovery Formula
                 $('#p2SenzuBtn').click(function () {
+                    if (p2HPTotals < 1200) {
 
-                    document.getElementById('battle1').style.pointerEvents = 'auto';
-                    document.getElementById('battle2').style.pointerEvents = 'none';
-                    player2TurnCounter += 1;
-                    p2HPTotals = 1200
-                    var p2HPBar = (p2HPTotals / 1200) * 300;
-                    p2HP.style.width = p2HPBar + "px";
-                    var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += player2Name + " recovered health completely! <br>";
-                    var p2SenzuBtn = document.getElementById('p2SenzuBtn');
-                    $(p2SenzuBtn).css('visibility', 'hidden');
-
-                    var audioElement = document.createElement('audio');
-                    audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
-                    audioElement.setAttribute('autoplay', 'autoplay');
-                    audioElement.play();
-
-                    if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                        overallTurnCounter += 1;
-                        var textBoxDiv = document.getElementById('textBox');
-                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
-                    } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                        overallTurnCounter += 1;
+                        player2TurnCounter += 1;
+                        p2HPTotals = 1200
+                        var p2HPBar = (p2HPTotals / 1200) * 300;
+                        p2HP.style.width = p2HPBar + "px";
                         var textBoxDiv = document.getElementById('textBox');
-                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
-                        document.getElementById('battle1').style.pointerEvents = 'none';
-                        document.getElementById('battle2').style.pointerEvents = 'auto';
+                        textBoxDiv.innerHTML += player2Name + " recovered health completely! <br>";
+                        var p2SenzuBtn = document.getElementById('p2SenzuBtn');
+                        $(p2SenzuBtn).css('visibility', 'hidden');
+                        hpHeader2.textContent = "HP " + p2HPTotals + "/1200";
+
+                        var audioElement = document.createElement('audio');
+                        audioElement.setAttribute('src', 'audio/senzu-bean-audio.mp3');
+                        audioElement.setAttribute('autoplay', 'autoplay');
+                        audioElement.play();
+
+                        if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                            overallTurnCounter += 1;
+                            var textBoxDiv = document.getElementById('textBox');
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            document.getElementById('battle2').style.pointerEvents = 'none';
+                        } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                            overallTurnCounter += 1;
+                            var textBoxDiv = document.getElementById('textBox');
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            document.getElementById('battle2').style.pointerEvents = 'auto';
+                        } else {
+                        }
+
                     } else {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "Your health is already full! <br>";
                     }
-
-
                 });
                 //Ki Recovery Formula
                 $('#p2AuraRecBtn').click(function () {
-
-                    document.getElementById('battle1').style.pointerEvents = 'auto';
-                    document.getElementById('battle2').style.pointerEvents = 'none';
-                    player2TurnCounter += 1;
-
-                    if (p2KiTotals <= 800) {
-                        p2KiTotals += 400;
-                    } else if (p2KiTotals > 800) {
-                        p2KiTotals = 1200
-                    }
-                    var p2KiBar = (p2KiTotals / 1200) * 300;
-                    p2Ki.style.width = p2KiBar + "px";
-                    kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
-
-
-                    var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += player2Name + " recovered his ki! " + player2Name + " now has " + p2KiTotals + " Ki remaining.<br>";
-                    var audioElement = document.createElement('audio');
-                    audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
-                    audioElement.setAttribute('autoplay', 'autoplay');
-                    audioElement.play();
-
-                    if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                        overallTurnCounter += 1;
-                        var textBoxDiv = document.getElementById('textBox');
-                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                    if (p2KiTotals < 1200) {
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
-                    } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
-                        overallTurnCounter += 1;
+                        player2TurnCounter += 1;
+
+                        if (p2KiTotals <= 800) {
+                            p2KiTotals += 400;
+                        } else if (p2KiTotals > 800) {
+                            p2KiTotals = 1200
+                        }
+
+                        var p2KiBar = (p2KiTotals / 1200) * 300;
+                        p2Ki.style.width = p2KiBar + "px";
+                        kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
+
+
                         var textBoxDiv = document.getElementById('textBox');
-                        textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
-                        document.getElementById('battle1').style.pointerEvents = 'none';
-                        document.getElementById('battle2').style.pointerEvents = 'auto';
+                        textBoxDiv.innerHTML += player2Name + " recovered his ki! " + player2Name + " now has " + p2KiTotals + " Ki remaining.<br>";
+                        var audioElement = document.createElement('audio');
+                        audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
+                        audioElement.setAttribute('autoplay', 'autoplay');
+                        audioElement.play();
+
+                        if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                            overallTurnCounter += 1;
+                            var textBoxDiv = document.getElementById('textBox');
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            document.getElementById('battle2').style.pointerEvents = 'none';
+                        } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
+                            overallTurnCounter += 1;
+                            var textBoxDiv = document.getElementById('textBox');
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            document.getElementById('battle2').style.pointerEvents = 'auto';
+                        } else {
+                        }
                     } else {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "Your energy is already full! <br>";
                     }
 
                 });
