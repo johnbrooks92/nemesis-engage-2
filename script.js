@@ -5,14 +5,11 @@
 var beginCode = 13;
 var skipCode = 83;
 var myAudio;
-
-$(function() {
-    $('#textBox').bind('DOMSubtreeModified', function () {
-        var textBox = $('#textBox');
-        textBox.scrollTop(textBox.prop("scrollHeight"));
-        console.log("hi");
-    });
-});
+var timeoutCancel1;
+var timeoutCancel2;
+var timeoutCancel3;
+var timeoutCancel4;
+var timeoutCancel5;
 
 $('body').keydown(function (event) {
     $(this).scrollTop(0);
@@ -21,7 +18,56 @@ $('body').keydown(function (event) {
 
         
         $('#startupScreen h2').css('display', 'none');
-        
+        $('#startupScreen h1').css('display', 'block');
+        setTimeout(function () {
+            $('#startupScreen h1').css('display', 'none');
+            $('#startupScreen h5').css('display', 'block');
+        }, 1500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 2500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 3500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 4500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 5500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 6500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 7500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 8500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 9500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 10500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 11500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 12500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 13500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 14500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'block');
+        }, 15500);
+        setTimeout(function () {
+            $('#startupScreen h5').css('display', 'none');
+        }, 16500);
         function randomIntFromInterval(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }
@@ -31,15 +77,19 @@ $('body').keydown(function (event) {
         if (rndInt == 1){
             myAudio = new Audio('audio/montage-opening-1.mp3');
             myAudio.play();
+            myAudio.volume = 0.75;
         } else if (rndInt == 2) {
             myAudio = new Audio('audio/montage-opening-2.mp3');
             myAudio.play();
+            myAudio.volume = 0.75;
         } else if (rndInt == 3) {
             myAudio = new Audio('audio/montage-opening-3.mp3');
             myAudio.play();
+            myAudio.volume = 0.75;
         } else if (rndInt == 4) {
             myAudio = new Audio('audio/montage-opening-4.mp3');
             myAudio.play();
+            myAudio.volume = 0.75;
         }
         
         setTimeout(function () {
@@ -168,11 +218,11 @@ $('body').keydown(function (event) {
 
 
 
-        setTimeout(function () {$('#startupScreen').css({'display': 'none'});}, 90000);
-        setTimeout(function () {myAudio.pause();}, 90250);
-        setTimeout(function () {$('#topRow').css({'display': 'block'});}, 90000);
-        setTimeout(function () {$('#characterSelectScreen').css({'display': 'block'});}, 90000);
-        setTimeout(function () {$('*').off('keyup keydown keypress');}, 90000);
+        timeoutCancel1 = setTimeout(function () {$('#startupScreen').css({'display': 'none'});}, 90000);
+        timeoutCancel2 = setTimeout(function () {myAudio.pause();}, 90250);
+        timeoutCancel3 = setTimeout(function () {$('#topRow').css({'display': 'block'});}, 90000);
+        timeoutCancel4 = setTimeout(function () {$('#characterSelectScreen').css({'display': 'block'});}, 90000);
+        timeoutCancel5 = setTimeout(function () {$('*').off('keyup keydown keypress');}, 90000);
     } else if (inputCode == skipCode){
         console.log("I made it here");
         myAudio.pause();
@@ -180,6 +230,11 @@ $('body').keydown(function (event) {
         $('#topRow').css({'display': 'block'});
         $('#characterSelectScreen').css({'display': 'block'});
         $('*').off('keyup keydown keypress');
+        clearTimeout(timeoutCancel1);
+        clearTimeout(timeoutCancel2);
+        clearTimeout(timeoutCancel3);
+        clearTimeout(timeoutCancel4);
+        clearTimeout(timeoutCancel5);
     }
     
 });
@@ -1037,48 +1092,48 @@ rosterObject.fighters.forEach(res => {
             textBoxDiv.id = "textBox";
 
 
-            $(document).ready(function () {
-                if (res.series == "Dragonball") {
-                    $('#battle1').css('background-image', 'url(img/db_background.webp');
-                }
-                if (res.series == "DC") {
-                    $('#battle1').css('background-image', 'url(img/dc-bg.png');
-                }
-                if (res.series == "Naruto") {
-                    $('#battle1').css('background-image', 'url(img/hidden_leaf.png');
-                }
-                if (res.series == "StarWars") {
-                    $('#battle1').css('background-image', 'url(img/star-wars-bg.jpg');
-                }
-                if (res.series == "Transformers") {
-                    $('#battle1').css('background-image', 'url(img/transformers-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "YuYu Hakusho") {
-                    $('#battle1').css('background-image', 'url(img/yyh-logo.png');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "My Hero Academia") {
-                    $('#battle1').css('background-image', 'url(img/my-hero-logo.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Samurai Jack") {
-                    $('#battle1').css('background-image', 'url(img/samurai-jack-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Sly Cooper") {
-                    $('#battle1').css('background-image', 'url(img/sly-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Attack on Titan") {
-                    $('#battle1').css('background-image', 'url(img/aot-bg.jpeg');
-                    $('#battle1').css('background-size', 'cover');
-                }
-                if (res.series == "Zelda") {
-                    $('#battle1').css('background-image', 'url(img/zelda-bg.png');
-                    $('#battle1').css('background-size', 'cover');
-                }
-            });
+            // $(document).ready(function () {
+            //     if (res.series == "Dragonball") {
+            //         $('#battle1').css('background-image', 'url(img/db_background.webp');
+            //     }
+            //     if (res.series == "DC") {
+            //         $('#battle1').css('background-image', 'url(img/dc-bg.png');
+            //     }
+            //     if (res.series == "Naruto") {
+            //         $('#battle1').css('background-image', 'url(img/hidden_leaf.png');
+            //     }
+            //     if (res.series == "StarWars") {
+            //         $('#battle1').css('background-image', 'url(img/star-wars-bg.jpg');
+            //     }
+            //     if (res.series == "Transformers") {
+            //         $('#battle1').css('background-image', 'url(img/transformers-bg.jpeg');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "YuYu Hakusho") {
+            //         $('#battle1').css('background-image', 'url(img/yyh-logo.png');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "My Hero Academia") {
+            //         $('#battle1').css('background-image', 'url(img/my-hero-logo.jpeg');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "Samurai Jack") {
+            //         $('#battle1').css('background-image', 'url(img/samurai-jack-bg.jpeg');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "Sly Cooper") {
+            //         $('#battle1').css('background-image', 'url(img/sly-bg.jpeg');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "Attack on Titan") {
+            //         $('#battle1').css('background-image', 'url(img/aot-bg.jpeg');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            //     if (res.series == "Zelda") {
+            //         $('#battle1').css('background-image', 'url(img/zelda-bg.png');
+            //         $('#battle1').css('background-size', 'cover');
+            //     }
+            // });
 
 
             //Append Player1 Info Box to battleScreen Div
@@ -2042,13 +2097,13 @@ rosterObject.fighters.forEach(res => {
                 if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker. Enjoy! <br>";
                     document.getElementById('battle1').style.pointerEvents = 'auto';
                     document.getElementById('battle2').style.pointerEvents = 'none';
                 } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker. Enjoy! <br>";
                     document.getElementById('battle1').style.pointerEvents = 'none';
                     document.getElementById('battle2').style.pointerEvents = 'auto';
                 }
@@ -2060,62 +2115,62 @@ rosterObject.fighters.forEach(res => {
             // $('.p2ButtonSet btn').prop("disabled", true);
             $(document).ready(function () {
                 if (res.series == "Dragonball") {
-                    $('#battle2').css('background-image', 'url(img/db_background.webp');
+                    // $('#battle2').css('background-image', 'url(img/db_background.webp');
                 }
                 if (res.series == "DC") {
-                    $('#battle2').css('background-image', 'url(img/dc-bg.png');
+                    // $('#battle2').css('background-image', 'url(img/dc-bg.png');
                     $('#battleScreen').css('background-image', 'url(img/batcave.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Naruto") {
-                    $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
+                    // $('#battle2').css('background-image', 'url(img/hidden_leaf.png');
                     $('#battleScreen').css('background-image', 'url(img/naruto-stage-1.png');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "StarWars") {
-                    $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
+                    // $('#battle2').css('background-image', 'url(img/star-wars-bg.jpg');
                     $('#battleScreen').css('background-image', 'url(img/millenium-falcon-bg.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Transformers") {
-                    $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/transformers-bg.jpeg');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/cybertron.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "YuYu Hakusho") {
-                    $('#battle2').css('background-image', 'url(img/yyh-logo.png');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/yyh-logo.png');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/genkai-temple.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "My Hero Academia") {
-                    $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/my-hero-logo.jpeg');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/ua-hero-academy.png');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Samurai Jack") {
-                    $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/samurai-jack-bg.jpeg');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/jackground.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Sly Cooper") {
-                    $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/sly-bg.jpeg');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/sly-stage.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Attack on Titan") {
-                    $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/aot-bg.jpeg');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/aot-stage-1.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }
                 if (res.series == "Zelda") {
-                    $('#battle2').css('background-image', 'url(img/zelda-bg.png');
-                    $('#battle2').css('background-size', 'cover');
+                    // $('#battle2').css('background-image', 'url(img/zelda-bg.png');
+                    // $('#battle2').css('background-size', 'cover');
                     $('#battleScreen').css('background-image', 'url(img/hyrule.jpeg');
                     $('#battleScreen').css('background-size', 'cover');
                 }

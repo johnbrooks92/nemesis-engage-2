@@ -73,10 +73,18 @@ h2{
     color: #32cd32;
     text-align: center;
     align-items: center;
-    height: 50rem;
+    height: 45rem;
     width: 90rem;
     padding-top: 15rem;
+    margin: 4rem solid black;
     background-size: cover;
+}
+#startupScreen h1, h5{
+    display: none;
+}
+#startupScreen h5{
+    margin-top: 30%;
+    text-align: bottom;
 }
 #battleScreen{
     height: 47.5rem;
@@ -95,7 +103,7 @@ h2{
     width: 23rem;
     text-align: center;
     border: 2px solid #32cd32;
-    background-color: rgba(255, 255, 255, 0.486);
+    background-color: rgba(176, 158, 158, 0.75);
     background-blend-mode: luminosity;
 }
 #battle2{
@@ -103,7 +111,7 @@ h2{
     width: 23rem;
     text-align: center;
     border: 2px solid #32cd32;
-    background-color: rgba(255, 255, 255, 0.486);
+    background-color: rgba(176, 158, 158, 0.75);
     background-blend-mode: luminosity;
 }
 btn {
@@ -172,9 +180,11 @@ btn {
     height: 23.75rem;
     width: 30rem;
     color: #32cd32;
-    background-color: black;
     font-size: small;
     overflow: scroll;
+    border: 2px solid #32cd32;
+    background-color: rgba(33, 30, 30, 0.75);
+    background-blend-mode: luminosity;
 }
 #textBox h2{
     text-align: end;
