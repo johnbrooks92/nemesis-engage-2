@@ -16,7 +16,7 @@ $('body').keydown(function (event) {
     var inputCode = event.which;
     if (inputCode == beginCode) {
 
-        
+
         $('#startupScreen h2').css('display', 'none');
         $('#startupScreen h1').css('display', 'block');
         setTimeout(function () {
@@ -68,13 +68,14 @@ $('body').keydown(function (event) {
         setTimeout(function () {
             $('#startupScreen h5').css('display', 'none');
         }, 16500);
+
         function randomIntFromInterval(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }
 
         var rndInt = randomIntFromInterval(1, 4)
-        
-        if (rndInt == 1){
+
+        if (rndInt == 1) {
             myAudio = new Audio('audio/montage-opening-1.mp3');
             myAudio.play();
             myAudio.volume = 0.75;
@@ -91,7 +92,7 @@ $('body').keydown(function (event) {
             myAudio.play();
             myAudio.volume = 0.75;
         }
-        
+
         setTimeout(function () {
             $('#startupScreen').css('background-image', 'url(img/montage/maul-vs-ahsoka-montage-1.gif');
         }, 1500);
@@ -212,19 +213,24 @@ $('body').keydown(function (event) {
         setTimeout(function () {
             $('#startupScreen').css('background-image', 'url(img/montage/vader-montage-1.gif');
         }, 84000);
-        
 
 
-
-
-
-        timeoutCancel1 = setTimeout(function () {$('#startupScreen').css({'display': 'none'});}, 90000);
-        timeoutCancel2 = setTimeout(function () {myAudio.pause();}, 90250);
-        timeoutCancel3 = setTimeout(function () {$('#topRow').css({'display': 'block'});}, 90000);
-        timeoutCancel4 = setTimeout(function () {$('#characterSelectScreen').css({'display': 'block'});}, 90000);
-        timeoutCancel5 = setTimeout(function () {$('*').off('keyup keydown keypress');}, 90000);
-    } else if (inputCode == skipCode){
-        console.log("I made it here");
+        timeoutCancel1 = setTimeout(function () {
+            $('#startupScreen').css({'display': 'none'});
+        }, 90000);
+        timeoutCancel2 = setTimeout(function () {
+            myAudio.pause();
+        }, 90250);
+        timeoutCancel3 = setTimeout(function () {
+            $('#topRow').css({'display': 'block'});
+        }, 90000);
+        timeoutCancel4 = setTimeout(function () {
+            $('#characterSelectScreen').css({'display': 'block'});
+        }, 90000);
+        timeoutCancel5 = setTimeout(function () {
+            $('*').off('keyup keydown keypress');
+        }, 90000);
+    } else if (inputCode == skipCode) {
         myAudio.pause();
         $('#startupScreen').css({'display': 'none'});
         $('#topRow').css({'display': 'block'});
@@ -236,7 +242,7 @@ $('body').keydown(function (event) {
         clearTimeout(timeoutCancel4);
         clearTimeout(timeoutCancel5);
     }
-    
+
 });
 
 //Define Health Variables
@@ -947,7 +953,7 @@ rosterObject.fighters.forEach(res => {
 
 
             var kiHeader1 = document.createElement('h2')
-            kiHeader1.id = "kiHeader1" + res.name;
+            kiHeader1.id = "kiHeader1";
             var barNameKI1 = document.createTextNode('KI ' + p1KiTotals + "/1200");
             kiHeader1.appendChild(barNameKI1);
             player1InfoBox.appendChild(kiHeader1);
@@ -1195,7 +1201,7 @@ rosterObject.fighters.forEach(res => {
                 var p1KiBar = (p1KiTotals / 1200) * 300;
                 p1Ki.style.width = p1KiBar + "px";
                 kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
-                
+
                 var textBoxDiv = document.getElementById('textBox');
                 textBoxDiv.innerHTML += p1FighterName + " recovered his ki! " + p1FighterName + " now has " + p1KiTotals + " Ki remaining.<br>";
                 var audioElement = document.createElement('audio');
@@ -1226,7 +1232,7 @@ rosterObject.fighters.forEach(res => {
 
             //P1 Stat Change Formulas
             $('#p1Move1').click(function () {
-                if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals>=250)) {
+                if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals >= 250)) {
 
 
                     p1AtkCounter += 2;
@@ -1262,12 +1268,6 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
-
-                    //Ki Set Up
-                    p1KiTotals -= 250;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
 
                 } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals >= 250)) {
 
@@ -1306,16 +1306,12 @@ rosterObject.fighters.forEach(res => {
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
 
-                    //Ki Set Up
-                    p1KiTotals -= 250;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
-
+                } else if (p1KiTotals < 250) {
+                    textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                 }
             });
             $('#p1Move2').click(function () {
-                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >=325)) {
+                if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >= 325)) {
 
 
                     p1AtkCounter += 0;
@@ -1350,13 +1346,8 @@ rosterObject.fighters.forEach(res => {
                     $.extend(rosterObject.fighters[p1id - 1], propSpd1);
 
                     player1TurnCounter += 1;
-                    //Ki Set Up
-                    p1KiTotals -= 325;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
-                    
-                } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >=325)) {
+               
+                } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >= 325)) {
 
 
                     p1AtkCounter += 0;
@@ -1391,11 +1382,8 @@ rosterObject.fighters.forEach(res => {
                     $.extend(rosterObject.fighters[p1id - 1], propSpd1);
 
                     player1TurnCounter += 1;
-                    //Ki Set Up
-                    p1KiTotals -= 325;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                } else if (p1KiTotals < 325) {
+                    textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                 }
             });
             $('#p1Move3').click(function () {
@@ -1435,11 +1423,6 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
-                    //Ki Set Up
-                    p1KiTotals -= 750;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
                 } else if ((p1Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p1KiTotals >= 750)) {
 
 
@@ -1476,58 +1459,12 @@ rosterObject.fighters.forEach(res => {
 
                     p1UniqueSpd += p1SpdCounter;
                     player1TurnCounter += 1;
-                    //Ki Set Up
-                    p1KiTotals -= 750;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                } else if (p1KiTotals < 750) {
+                    textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                 }
             });
             $('#p1MoveUlt').click(function () {
-                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals>=1000)) {
-
-
-                    p1AtkCounter += -2;
-                    p1DefCounter += -2;
-                    p1AuraAtkCounter += -2;
-                    p1AuraDefCounter += -2;
-                    p1SpdCounter += -2;
-
-                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
-                    var newP1Def = p1UniqueDef + p1DefCounter;
-                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
-                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
-                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
-                    p1Atk.textContent = 'Attack: ' + newP1Atk;
-                    p1Def.textContent = 'Defense: ' + newP1Def;
-                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
-                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
-                    p1Spd.textContent = 'Speed: ' + newP1Spd;
-
-
-                    var propAtk1 = {atk: newP1Atk};
-                    var propDef1 = {defend: newP1Def};
-                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
-                    var propAuraDef1 = {defaura: newP1AuraDef};
-                    var propSpd1 = {speed: newP1Spd};
-
-                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
-                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
-                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
-                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
-                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
-
-                    p1UniqueSpd += p1SpdCounter;
-                    player1TurnCounter += 1;
-
-                    //Ki Set Up
-                    p1KiTotals -= 1000;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
-
-
-                } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals>=1000)) {
+                if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals >= 1000)) {
 
 
                     p1AtkCounter += -2;
@@ -1564,13 +1501,46 @@ rosterObject.fighters.forEach(res => {
                     player1TurnCounter += 1;
 
 
-                    //Ki Set Up
-                    p1KiTotals -= 1000;
-                    var P1KiBarWidth = (p1KiTotals / 1200) * 300;
-                    p1Ki.style.width = P1KiBarWidth + "px";
-                    kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals >= 1000)) {
 
 
+                    p1AtkCounter += -2;
+                    p1DefCounter += -2;
+                    p1AuraAtkCounter += -2;
+                    p1AuraDefCounter += -2;
+                    p1SpdCounter += -2;
+
+                    var newP1Atk = p1UniqueAtk + p1AtkCounter;
+                    var newP1Def = p1UniqueDef + p1DefCounter;
+                    var newP1AuraAtk = p1UniqueAAtk + p1AuraAtkCounter;
+                    var newP1AuraDef = p1UniqueDef + p1AuraDefCounter;
+                    var newP1Spd = p1UniqueSpd + p1SpdCounter;
+                    p1Atk.textContent = 'Attack: ' + newP1Atk;
+                    p1Def.textContent = 'Defense: ' + newP1Def;
+                    p1AuraAtk.textContent = 'Aura Attack: ' + newP1AuraAtk;
+                    p1AuraDef.textContent = 'Aura Defense: ' + newP1AuraDef;
+                    p1Spd.textContent = 'Speed: ' + newP1Spd;
+
+
+                    var propAtk1 = {atk: newP1Atk};
+                    var propDef1 = {defend: newP1Def};
+                    var propAuraAtk1 = {atkaura: newP1AuraAtk};
+                    var propAuraDef1 = {defaura: newP1AuraDef};
+                    var propSpd1 = {speed: newP1Spd};
+
+                    $.extend(rosterObject.fighters[p1id - 1], propAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraAtk1);
+                    $.extend(rosterObject.fighters[p1id - 1], propAuraDef1);
+                    $.extend(rosterObject.fighters[p1id - 1], propSpd1);
+
+                    p1UniqueSpd += p1SpdCounter;
+                    player1TurnCounter += 1;
+                    
+
+
+                } else if (p1KiTotals < 1000) {
+                    textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                 }
             });
 
@@ -1650,7 +1620,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else{}
+                } 
             });
             $('#p2Move2').click(function () {
                 var p2Move2Selection = document.getElementById("p2Move2").textContent;
@@ -1726,7 +1696,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                }
+                } 
             });
             $('#p2Move3').click(function () {
                 var p2Move3Selection = document.getElementById("p2Move3").textContent;
@@ -1804,7 +1774,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else{}
+                } 
             });
 
             $('#p2MoveUlt').click(function () {
@@ -1883,7 +1853,7 @@ rosterObject.fighters.forEach(res => {
                     p1AuraAtkDiv.textContent = 'Aura Attack: ' + newP1AuraAtk;
                     p1AuraDefDiv.textContent = 'Aura Defense: ' + newP1AuraDef;
                     p1SpdDiv.textContent = 'Speed: ' + newP1Spd;
-                } else {}
+                } 
             });
             var p1Move1Selection = res.moves[0];
             var p1Move2Selection = res.moves[1];
@@ -2105,7 +2075,7 @@ rosterObject.fighters.forEach(res => {
             }, 3000);
             setTimeout(function () {
                 $('#topRow').toggle();
-            }, 3000); 
+            }, 3000);
             setTimeout(function () {
                 $('#textBox').css({'display': 'flex'});
                 $('#textBox').css({'flex-direction': 'column-reverse'});
@@ -2147,13 +2117,13 @@ rosterObject.fighters.forEach(res => {
                 if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn." ;
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn.";
                     document.getElementById('battle1').style.pointerEvents = 'auto';
                     document.getElementById('battle2').style.pointerEvents = 'none';
                 } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn." ;
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn.";
                     document.getElementById('battle1').style.pointerEvents = 'none';
                     document.getElementById('battle2').style.pointerEvents = 'auto';
                 }
@@ -2282,14 +2252,13 @@ rosterObject.fighters.forEach(res => {
                     var p2KiBar = (p2KiTotals / 1200) * 300;
                     p2Ki.style.width = p2KiBar + "px";
                     kiHeader2.textContent = 'KI ' + p2KiTotals + "/1200";
-                    
-                    
+
+
                     var textBoxDiv = document.getElementById('textBox');
                     textBoxDiv.innerHTML += player2Name + " recovered his ki! " + player2Name + " now has " + p2KiTotals + " Ki remaining.<br>";
                     var audioElement = document.createElement('audio');
                     audioElement.setAttribute('src', 'audio/ki-recovery-audio.mp3');
                     audioElement.setAttribute('autoplay', 'autoplay');
-                    audioElement.volume(0.05);
                     audioElement.play();
 
                     if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
@@ -2316,7 +2285,7 @@ rosterObject.fighters.forEach(res => {
 
 
                     var p1Move1Selection = document.getElementById("p1Move1").textContent;
-                    if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals>=250)) {
+                    if ((p1Move1Selection == "Rasengan" || "Chidori" || "Kamehameha" || "Galick Gun" || "Force Push" || "Force Choke" || "Death Beam" || "Lightning Blade" || "Spirit Gun" || "Spirit Sword" || "Heaven-Piercing Ice Wall") && (p1KiTotals >= 250)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2325,8 +2294,14 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += 0;
                         p2AuraDefCounter += -3;
                         p2SpdCounter += 2;
-                        
 
+                        //Ki Set Up
+                        p1KiTotals -= 250;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                        
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
@@ -2364,7 +2339,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2378,18 +2353,20 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
 
 
-                    } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals>=250)) {
+                    } else if ((p1Move1Selection == "Krypton Rush" || "Omni-Style Rush" || "Full Force Punch" || "Metal Mash" || "Tornado Fist" || "Scream's Rage" || "Rose Whip" || "Speed Slice" || "New Hampshire Smash" || "Explosive Punch" || "Cane Hook Slash" || "Clone Explosion Jutsu" || "Barrage of Arrows" || "Samurai Slashing" || "Scarabs Scurrying" || "ODM Gear" || "Fissure Kick") && (p1KiTotals >= 250)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2399,7 +2376,13 @@ rosterObject.fighters.forEach(res => {
                         p2AuraDefCounter += 0;
                         p2SpdCounter += +2;
 
-
+//Ki Set Up
+                        p1KiTotals -= 250;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                        
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
@@ -2437,7 +2420,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2451,28 +2434,27 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-
-
-                    }
+                    }else {}
                 });
 
                 $('#p1Move2').click(function () {
                     var p1Move2Selection = document.getElementById("p1Move2").textContent;
-                    if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >=325)) {
+                    if ((p1Move2Selection == "Uzumaki Barrage" || "Barrage of Lions" || "Dragon Fist" || "Batarang" || "Star Saber" || "Nova Strike" || "G Force Punch" || "Spirit Gun Fist" | "Spirit Kick" || "Fist of the Mortal Flame" || "Detroit Smash" || "Explosive Kick" || "Boomerang Bash" || "Speed Slice" || "Demonic Dash" || "Attack Titan") && (p1KiTotals >= 325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
-                        
-                       
+
 
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
@@ -2481,6 +2463,12 @@ rosterObject.fighters.forEach(res => {
                         p2AuraDefCounter += -2;
                         p2SpdCounter += -0;
 
+                        //Ki Set Up
+                        p1KiTotals -= 325;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2519,7 +2507,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2534,21 +2522,23 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
 
-                    } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >=325)) {
+                    } else if ((p1Move2Selection == "Dirty Fireworks" || "Heat Vision" || "Force Throw" || "Force Lightning" || "Requiem Blaster" || "Earth Style: Mud Wall" || "Seed of the Death Plant" || "Wall of Flames" || "Bentley's Brave Byte" || "Tsukuyomi" || "Crimson Ball Wave") && (p1KiTotals >= 325)) {
 
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
-                        
+
 
                         //P2 Stat Changes    
                         p2AtkCounter += -2;
@@ -2557,7 +2547,14 @@ rosterObject.fighters.forEach(res => {
                         p2AuraDefCounter += 3;
                         p2SpdCounter += 0;
 
-
+                        //Ki Set Up
+                        p1KiTotals -= 325;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+                        
+                        
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
                         var newP2AuraAtk = p2FightAuraAtk + p2AuraAtkCounter;
@@ -2595,7 +2592,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2610,17 +2607,18 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-
-                    }
+                    } else {}
                 });
 
 
@@ -2630,8 +2628,6 @@ rosterObject.fighters.forEach(res => {
                     if ((p1Move3Selection == "Toad Summoning" || "Snake Summoning" || "Ice Breath" || "Mind Trick" || "Death Wave" || "Force Choke" || "Spirit Wave" || "Spirit Sword Javelin" || "Sword of Darkness Flame" || "Black Whip" || "Reverse Explosion" || "Flashfreeze Heatwave" || "Amaterasu" || "Eye Beams" || "WarHammer Titan") && (p1KiTotals >= 750)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
-                        
-                        
 
 
                         //P2 Stat Changes    
@@ -2640,6 +2636,13 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += 3;
                         p2AuraDefCounter += 3;
                         p2SpdCounter += -3;
+
+                        //Ki Set Up
+                        p1KiTotals -= 750;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
 
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -2679,7 +2682,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2694,12 +2697,14 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
@@ -2714,6 +2719,13 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += 0;
                         p2AuraDefCounter += 0;
                         p2SpdCounter += -3;
+
+                        //Ki Set Up
+                        p1KiTotals -= 750;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
 
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
@@ -2753,7 +2765,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2768,24 +2780,26 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
 
-                    }
+                    } else {}
                 });
 
 
                 //Aura or Physical depending on Character
                 $('#p1MoveUlt').click(function () {
                     var p1MoveUltSelection = document.getElementById("p1MoveUlt").textContent;
-                    if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals>=1000)) {
+                    if ((p1MoveUltSelection == "RasenShuriken" || "Kirin" || "Spirit Bomb" || "Final Flash" || "Solar Flare" || "Mega Melting" || "Death Ball" || "Kamui" || "SuperNova Fireworks" || "Mazoku Spirit Gun" || "Dimension Sword" || "Sinning Tree" || "Dragon of the Darkness Flame" || "Flashfire Fist - Jet Kindling" || "Susanoo" || "Necromancy" || "Sacred Energy Beam") && (p1KiTotals >= 1000)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2796,7 +2810,14 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += -2;
                         p2AuraDefCounter += -2;
                         p2SpdCounter += 0;
-                        
+
+                        //Ki Set Up
+                        p1KiTotals -= 1000;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2834,7 +2855,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2848,16 +2869,18 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals>=1000)) {
+                    } else if ((p1MoveUltSelection == "Gotham's God" || "Force Valor Rush" || "Force Defend Rush" || "Prime Reckoning" || "Time Rip" || "Force Speed Rush" || "OFA Full Cowling 100%" || "Master Thievious Raccoonus" || "Dark Side Destruction" || "The Wind Waker" || "Slayer of Aku" || "The Rumbling") && (p1KiTotals >= 1000)) {
                         document.getElementById('battle1').style.pointerEvents = 'none';
                         document.getElementById('battle2').style.pointerEvents = 'auto';
 
@@ -2868,7 +2891,14 @@ rosterObject.fighters.forEach(res => {
                         p2DefCounter += 0;
                         p2AuraDefCounter += 0;
                         p2SpdCounter += 0;
-                        
+
+                        //Ki Set Up
+                        p1KiTotals -= 1000;
+                        var P1KiBarWidth = (p1KiTotals / 1200) * 300;
+                        p1Ki.style.width = P1KiBarWidth + "px";
+                        var kiHeader1 = document.getElementById("kiHeader1")
+                        kiHeader1.textContent = 'KI ' + p1KiTotals + "/1200";
+
 
                         var newP2Atk = p2FightAtk + p2AtkCounter;
                         var newP2Def = p2FightDef + p2DefCounter;
@@ -2906,7 +2936,7 @@ rosterObject.fighters.forEach(res => {
                             var p1FighterNameDiv = document.getElementById("charNameHeader1").innerText;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += p1FighterNameDiv + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -2919,7 +2949,8 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
@@ -2929,7 +2960,7 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    }
+                    }else {}
                 });
 
                 // PLAYER 2 BUTTONS
@@ -2994,7 +3025,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3010,12 +3041,14 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
@@ -3077,7 +3110,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3093,15 +3126,20 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
+                    } else if (p2KiTotals < 250) {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                     }
                 });
 
@@ -3163,7 +3201,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3174,17 +3212,19 @@ rosterObject.fighters.forEach(res => {
                         p1HP.style.width = P1HPBarWidth + "px";
                         var hpHeader1 = document.getElementById("hpHeader1");
                         hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
-                        
+
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
@@ -3244,7 +3284,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3255,20 +3295,25 @@ rosterObject.fighters.forEach(res => {
                         p1HP.style.width = P1HPBarWidth + "px";
                         var hpHeader1 = document.getElementById("hpHeader1");
                         hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
-                        
+
 
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
+                    } else if (p2KiTotals < 325) {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                     }
                 });
 
@@ -3333,7 +3378,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3349,17 +3394,19 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
                     } else if ((p2Move3Selection == "Kaioken Triple Attack" || "Infinite Break" || "Cape Cover" || "Lightsaber Boomerang" || "Skyboom Shield" || "Primary Lotus" || "Afterimage" || "Ojigi Plant" || "Murray's Manhandling" || "Saber Slash" || "Bomb-Slash Combo" || "Parry" || "Sacred Energy Armor") && (p2KiTotals >= 750)) {
-                        
+
 
                         document.getElementById('battle1').style.pointerEvents = 'auto';
                         document.getElementById('battle2').style.pointerEvents = 'none';
@@ -3418,7 +3465,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3434,15 +3481,20 @@ rosterObject.fighters.forEach(res => {
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'auto';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'auto';
                             document.getElementById('battle2').style.pointerEvents = 'none';
                         } else if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
-                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";                            document.getElementById('battle1').style.pointerEvents = 'none';
+                            textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + "<br>";
+                            document.getElementById('battle1').style.pointerEvents = 'none';
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
+                    }else if (p2KiTotals < 750) {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
                     }
                 });
                 $('#p2MoveUlt').click(function () {
@@ -3506,7 +3558,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3518,7 +3570,7 @@ rosterObject.fighters.forEach(res => {
                         p1HP.style.width = P1HPBarWidth + "px";
                         var hpHeader1 = document.getElementById("hpHeader1");
                         hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
-                        
+
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
@@ -3593,7 +3645,7 @@ rosterObject.fighters.forEach(res => {
                             p1HPTotals = 0;
                             var textBoxDiv = document.getElementById('textBox');
                             textBoxDiv.innerHTML += res.name + " wins the fight!<br>";
-                            textBoxDiv.innerHTML +="Game will reload in 5 seconds.<br>";
+                            textBoxDiv.innerHTML += "Game will reload in 5 seconds.<br>";
                             setTimeout(function () {
                                 window.location.reload(true);
                             }, 5000);
@@ -3604,7 +3656,7 @@ rosterObject.fighters.forEach(res => {
                         p1HP.style.width = P1HPBarWidth + "px";
                         var hpHeader1 = document.getElementById("hpHeader1");
                         hpHeader1.textContent = 'HP ' + p1HPTotals + "/1200";
-                        
+
                         if ((overallTurnCounter >= 1) && (player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                             overallTurnCounter += 1;
                             var textBoxDiv = document.getElementById('textBox');
@@ -3619,7 +3671,10 @@ rosterObject.fighters.forEach(res => {
                             document.getElementById('battle2').style.pointerEvents = 'auto';
                         } else {
                         }
-                    } else {}
+                    } else if (p2KiTotals < 1000) {
+                        var textBoxDiv = document.getElementById('textBox');
+                        textBoxDiv.innerHTML += "You don't have enough Ki to use this!! <br>";
+                    }
                 });
 
             });
