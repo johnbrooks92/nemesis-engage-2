@@ -1,14 +1,13 @@
 # nemesis-engage-2
 
+2.0 is live! www.nemesis-engage.com
 
-Live launch ETA: 10/1/2021
+- Roster expanded from 2 to 30 Characters.
 
-Roster expanded from 2 to 30+ Characters.
+- Updated Styling.
 
-Updated Styling.
+- Unique character stats for different character experiences.
 
-Unique character stats for different character experiences.
+- Character Balancing: All stats equal the same total sum.
 
-Character Balancing - All stats equal the same total sum.
-
-New Battle Mechanics contingent on Base Stats.
+- New Battle Mechanics contingent on Base Stats.

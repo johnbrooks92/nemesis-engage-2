@@ -2097,13 +2097,13 @@ rosterObject.fighters.forEach(res => {
                 if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed > rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker. Enjoy! <br>";
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p1Uniqueid - 1].name + " is first this turn." ;
                     document.getElementById('battle1').style.pointerEvents = 'auto';
                     document.getElementById('battle2').style.pointerEvents = 'none';
                 } else if ((player1TurnCounter == player2TurnCounter) && (rosterObject.fighters[p1Uniqueid - 1].speed <= rosterObject.fighters[p2Uniqueid - 1].speed)) {
                     overallTurnCounter += 1;
                     var textBoxDiv = document.getElementById('textBox');
-                    textBoxDiv.innerHTML += "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker. Enjoy! <br>";
+                    textBoxDiv.innerHTML += "You begin with 1200/1200 HP and 600/1200 Ki. Remember speed checks are done behind the screen each turn and buttons should toggle appropriately. Home player gets the tiebreaker on speed. Make sure to mind Ki Consumption or you might waste a turn! Enjoy! <br>" + "Ki Consumption <br>" + "Move 1: 250ki<br>" + "Move 2: 325ki<br>" + "Move 3: 750ki<br>" + "Move 4: 1000ki<br>" + "Turn #" + overallTurnCounter + ". " + rosterObject.fighters[p2Uniqueid - 1].name + " is first this turn." ;
                     document.getElementById('battle1').style.pointerEvents = 'none';
                     document.getElementById('battle2').style.pointerEvents = 'auto';
                 }
