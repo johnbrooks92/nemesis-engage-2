@@ -1378,10 +1378,10 @@ rosterObject.fighters.forEach(res => {
 
 
                     p1AtkCounter += 0;
-                    p1DefCounter += 2;
+                    p1DefCounter += 3;
                     p1AuraAtkCounter += 0;
-                    p1AuraDefCounter += 2;
-                    p1SpdCounter += -1;
+                    p1AuraDefCounter += 3;
+                    p1SpdCounter += -3;
 
 
                     var newP1Atk = p1UniqueAtk + p1AtkCounter;
@@ -1414,9 +1414,9 @@ rosterObject.fighters.forEach(res => {
 
 
                     p1AtkCounter += 0;
-                    p1DefCounter += 6;
+                    p1DefCounter += 3;
                     p1AuraAtkCounter += 0;
-                    p1AuraDefCounter += 6;
+                    p1AuraDefCounter += 3;
                     p1SpdCounter += -3;
 
 
@@ -2594,8 +2594,8 @@ rosterObject.fighters.forEach(res => {
                         //P2 Stat Changes    
                         p2AtkCounter += 0;
                         p2AuraAtkCounter += 0;
-                        p2DefCounter += 2;
-                        p2AuraDefCounter += 2;
+                        p2DefCounter += 3;
+                        p2AuraDefCounter += 3;
                         p2SpdCounter += -3;
 
 
@@ -2669,8 +2669,8 @@ rosterObject.fighters.forEach(res => {
 
 
                         //P2 Stat Changes    
-                        p2AtkCounter += -2;
-                        p2AuraAtkCounter += -2;
+                        p2AtkCounter += 3;
+                        p2AuraAtkCounter += 3;
                         p2DefCounter += 0;
                         p2AuraDefCounter += 0;
                         p2SpdCounter += -3;
